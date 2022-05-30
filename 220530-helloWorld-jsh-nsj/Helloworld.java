@@ -8,37 +8,45 @@
 
 // todo
 // 일단 창을 만들어보자
-
+// 객체지향이 뭔가? 절차지향도 있던
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Helloworld {
-    public static void main(String[] args){
+    private static String name = "world";
 
-        JFrame frame = new JFrame("Hello,world");
+    public static void main(String[] args) {
+        Helloworld helloworld = new Helloworld();
+        helloworld.run();
+    }
+
+    private static void run() {
+        JFrame frame = new JFrame("Hello, world");
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
 
-        JLabel label = new JLabel("Hello");
+        frame.setLayout(new GridLayout(3, 1));
+
+        JLabel label = new JLabel(greetingmessage());
         frame.add(label);
 
-        frame.setLayout(new FlowLayout());
-
         JTextField textField = new JTextField(10);
-
-
-        JButton button = new JButton("확인");
-        button.addActionListener(event -> {
-            label.setText("Hello, "+textField.getText());
-        });
-
         frame.add(textField);
+
+        JButton button = new JButton("check");
+        button.addActionListener(event -> {
+            name = textField.getText();
+            label.setText(greetingmessage());
+        });
         frame.add(button);
 
+        frame.pack();
         frame.setVisible(true);
+    }
 
-
+    private static String greetingmessage() {
+        return "Hello, " + name + "!";
     }
 }
+
