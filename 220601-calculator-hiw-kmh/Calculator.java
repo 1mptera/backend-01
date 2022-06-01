@@ -5,16 +5,6 @@
 // +  >> 3-4                  cur 0         oper  "+"
 // 2  >> -1                      2            +
 // =     -1+2                    0             "="
-// *
-// 4
-// -
-// 10
-// +
-// 3
-// =
-// 4
-// current situation : button clicked -> clicked number >> currentNumber
-// operator clicked >> currentNumber->accumulator operator current Number , currentNumber ->0
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,15 +66,9 @@ public class Calculator {
                 currentOperator = button.getText();
 
                 currentNumber = 0;
-
-
             });
             panel.add(button);
         }
-
-        //첫번째 문제: 연산자를 누르고 숫자를 누르면 새로 누른 숫자만 떠야 되는데 기존 숫자에 쌓임 okay
-        //두번째 문제: 숫자 >> >> 숫자 >> 는 을 누르면 숫자 연산자 숫자 계산을 해야되는데 안함
-        //세번째 문제: 32 + 1 +까지 하면 353이 나옴
 
         frame.add(panel);
 
