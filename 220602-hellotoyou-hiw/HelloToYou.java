@@ -20,7 +20,7 @@ public class HelloToYou {
         frame.setVisible(true);
     }
 
-    private void initFrame() {
+    public void initFrame() {
         frame = new JFrame("New Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 100);
@@ -28,18 +28,18 @@ public class HelloToYou {
         frame.setLayout(new FlowLayout());
     }
 
-    private void initLabel() {
+    public void initLabel() {
         label = new JLabel(getGreetingMessage());
         frame.add(label);
     }
 
-    private void initTextField() {
+    public void initTextField() {
         textField = new JTextField(15);
         textField.setEditable(true);
         frame.add(textField);
     }
 
-    private void initButton() {
+    public void initButton() {
         button = new JButton("인사하기");
         button.addActionListener(event -> {
             name = textField.getText();
@@ -48,7 +48,7 @@ public class HelloToYou {
         frame.add(button);
     }
 
-    private String getGreetingMessage() {
+    public String getGreetingMessage() {
         return "Hello, " + name + "!";
     }
 
