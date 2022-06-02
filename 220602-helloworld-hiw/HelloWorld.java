@@ -10,13 +10,13 @@ public class HelloWorld {
         frame.setVisible(true);
     }
 
-    private void initFrame() {
+    public void initFrame() {
         frame = new JFrame("New Window");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400, 100);
     }
 
-    private void initLabel() {
+    public void initLabel() {
         JLabel label = new JLabel("Hello, world!");
         label.setHorizontalAlignment(JLabel.CENTER);
         frame.add(label);
