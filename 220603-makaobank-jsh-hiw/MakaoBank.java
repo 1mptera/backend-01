@@ -25,21 +25,20 @@ public class MakaoBank {
     public static void main(String[] args) {
         MakaoBank application = new MakaoBank();        //MakaoBank 객체 생성 런 메소드로 실행되는 객체분리
         application.run();
-
-
     }
 
     public void run() {
+        initFrame();
+        initMenu();
+        initContentPanel();
+        frame.setVisible(true);
+    }
+
+    private void initFrame() {
         frame = new JFrame("MakaoBank"); // 마카오뱅크 창을 만들어주자
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // x키를 누르면 프로그램이 종료됨
         frame.setLayout(new FlowLayout());
         frame.setSize(350, 600);
-
-        initMenu();
-        initContentPanel();
-        frame.setVisible(true);
-
-
     }
 
     public void initMenu() {
@@ -59,17 +58,11 @@ public class MakaoBank {
         frame.add(contentPanel); // 프레임에 컨텐츠패널을 추가.
     }
 
-
-
     public JButton createAmountButton() {
         JButton button = new JButton("잔액조회");  // 잔액조회버튼 생성
         button.addActionListener(event -> {      // 잔액조회버튼을 눌렀을때 프로그램이 할 행동은
             AmountPanel amountPanel = new AmountPanel(account);    //컨텐트패널에 추가될 어마운트패널을 생성
-            contentPanel.removeAll();
-            contentPanel.add(amountPanel);   //컨텐트 패널에 추가
-            contentPanel.setVisible(false);
-            contentPanel.setVisible(true);
-
+            showContentPanel(amountPanel);
         });
         return button;
     }
@@ -78,11 +71,7 @@ public class MakaoBank {
         JButton button = new JButton("송금");
         button.addActionListener(event -> {
             TransferPanel transferPanel = new TransferPanel(account);    //컨텐트패널에 추가될 어마운트패널을 생성
-            contentPanel.removeAll();
-            contentPanel.add(transferPanel);   //컨텐트 패널에 추가
-            contentPanel.setVisible(false);
-            contentPanel.setVisible(true);
-
+            showContentPanel(transferPanel);
         });
         return button;
     }
@@ -90,8 +79,16 @@ public class MakaoBank {
     public JButton createTransactionsButton() {
         JButton button = new JButton("거래내역");
         button.addActionListener(event -> {
-
+            TransactionsPanel transactionsPanel = new TransactionsPanel(account);    //컨텐트패널에 추가될 어마운트패널을 생성
+            showContentPanel(transactionsPanel);
         });
         return button;
+    }
+
+    private void showContentPanel(JPanel panel) {
+        contentPanel.removeAll();
+        contentPanel.add(panel);   //컨텐트 패널에 추가
+        contentPanel.setVisible(false);
+        contentPanel.setVisible(true);
     }
 }
