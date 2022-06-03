@@ -60,6 +60,7 @@ public class SpiralMatrix {
         }
 
         //출력
+        System.out.println("나선형 배열:");
         for (int i = 0; i < spiralArray.length; i += 1) {
             for (int j = 0; j < spiralArray.length; j += 1) {
                 System.out.print(spiralArray[i][j] + "\t");
