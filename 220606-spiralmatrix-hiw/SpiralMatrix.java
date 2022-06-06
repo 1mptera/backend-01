@@ -40,14 +40,21 @@ public class SpiralMatrix {
 
         System.out.print("배열의 한 변의 길이: ");
 
-        return scanner.nextInt();
+        int length = scanner.nextInt();
+
+        if (length <= 0) {
+            System.out.println("잘못된 길이 값 입력입니다.");
+
+            System.exit(1);
+        }
+
+        return length;
     }
 
     public void process(int length) {
         spiralMatrix = new int[length][length];
 
         initSpiralMatrix();
-
 
         while (puttingNumber <= (int)Math.pow(length, 2) - 1) {
             putIncrementalNumber();
