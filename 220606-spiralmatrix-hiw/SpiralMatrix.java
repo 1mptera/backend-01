@@ -71,7 +71,6 @@ public class SpiralMatrix {
     }
 
     public void putIncrementalNumber() {
-
         boolean condition = setIterationCondition();
 
         while (condition) {
@@ -137,7 +136,6 @@ public class SpiralMatrix {
     }
 
     public void changeDirection() {
-
         switch (chosenDirection) {
             case "RIGHT" -> {
                 chosenDirection = "DOWN";
