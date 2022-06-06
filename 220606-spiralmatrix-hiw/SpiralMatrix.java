@@ -92,19 +92,19 @@ public class SpiralMatrix {
         switch (choseDirection) {
             case "RIGHT" -> {
                 choseDirection = "DOWN";
-                columnIndex += 1;
+                rowIndex += 1;
             }
             case "DOWN" -> {
                 choseDirection = "LEFT";
-                rowIndex += 1;
+                columnIndex -= 1;
             }
             case "LEFT" -> {
                 choseDirection = "UP";
-                columnIndex -= 1;
+                rowIndex -= 1;
             }
             case "UP" -> {
                 choseDirection = "RIGHT";
-                rowIndex -= 1;
+                columnIndex += 1;
             }
         }
     }
