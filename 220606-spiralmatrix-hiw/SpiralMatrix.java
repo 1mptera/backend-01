@@ -128,7 +128,7 @@ public class SpiralMatrix {
         }
     }
 
-    private boolean setIterationCondition() {
+    public boolean setIterationCondition() {
         return rowIndex <= spiralMatrix.length - 1
                 || columnIndex <= spiralMatrix.length - 1
                 || rowIndex >= 0
@@ -156,7 +156,7 @@ public class SpiralMatrix {
         }
     }
 
-    private void print() {
+    public void print() {
         for (int i = 0; i < spiralMatrix.length; i += 1) {
             for (int j = 0; j < spiralMatrix.length; j += 1) {
                 System.out.print(spiralMatrix[i][j] + "\t");
