@@ -29,7 +29,6 @@ public class SpiralMatrix {
 
     public void run() {
         int length = input();
-        System.out.println("입력받기 끝");
 
         process(length);
 
@@ -49,10 +48,8 @@ public class SpiralMatrix {
 
         initSpiralMatrix();
 
-        System.out.println("length^2 - 1: " + ((int)Math.pow(length, 2) - 1));
 
         while (puttingNumber <= (int)Math.pow(length, 2) - 1) {
-            System.out.println("while 조건문을 통과한 puttingNumber: " + puttingNumber);
             putIncrementalNumber();
             changeDirection();
         }
@@ -64,20 +61,13 @@ public class SpiralMatrix {
                 spiralMatrix[i][j] = 0;
             }
         }
-
-        System.out.println("배열 초기화 끝");
     }
 
     public void putIncrementalNumber() {
-        System.out.println("putIncrementalNumber 시작");
-        System.out.println("while 들어가기 전 rowIndex: " + rowIndex + ", columnIndex: " + columnIndex);
 
         boolean condition = setIterationCondition();
 
         while (condition) {
-            System.out.println("rowIndex: " + rowIndex + "\ncolumnIndex: " + columnIndex);
-            System.out.println("puttingNumber: " + puttingNumber);
-
             spiralMatrix[rowIndex][columnIndex] = puttingNumber;
             puttingNumber += 1;
 
@@ -140,7 +130,6 @@ public class SpiralMatrix {
     }
 
     public void changeDirection() {
-        System.out.println("changeDirection 시작");
 
         switch (chosenDirection) {
             case "RIGHT" -> {
