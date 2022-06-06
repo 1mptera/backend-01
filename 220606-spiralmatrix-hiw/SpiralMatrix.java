@@ -20,7 +20,7 @@ public class SpiralMatrix {
     private int puttingNumber = 0;
     private int rowIndex = 0;
     private int columnIndex = 0;
-    private String choseDirection = "RIGHT";
+    private String chosenDirection = "RIGHT";
 
     public static void main(String[] args) {
         SpiralMatrix question = new SpiralMatrix();
@@ -29,6 +29,7 @@ public class SpiralMatrix {
 
     public void run() {
         int length = input();
+        System.out.println("입력받기 끝");
 
         process(length);
 
@@ -38,7 +39,7 @@ public class SpiralMatrix {
     public int input() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("배열의 한 변의 길이: ");
+        System.out.print("배열의 한 변의 길이: ");
 
         return scanner.nextInt();
     }
@@ -48,8 +49,13 @@ public class SpiralMatrix {
 
         initSpiralMatrix();
 
-        putIncrementalNumber();
-        changeDirection();
+        System.out.println("length^2 - 1: " + ((int)Math.pow(length, 2) - 1));
+
+        while (puttingNumber <= (int)Math.pow(length, 2) - 1) {
+            System.out.println("while 조건문을 통과한 puttingNumber: " + puttingNumber);
+            putIncrementalNumber();
+            changeDirection();
+        }
     }
 
     public void initSpiralMatrix() {
@@ -58,23 +64,68 @@ public class SpiralMatrix {
                 spiralMatrix[i][j] = 0;
             }
         }
+
+        System.out.println("배열 초기화 끝");
     }
 
     public void putIncrementalNumber() {
+        System.out.println("putIncrementalNumber 시작");
+        System.out.println("while 들어가기 전 rowIndex: " + rowIndex + ", columnIndex: " + columnIndex);
+
         boolean condition = setIterationCondition();
 
         while (condition) {
+            System.out.println("rowIndex: " + rowIndex + "\ncolumnIndex: " + columnIndex);
+            System.out.println("puttingNumber: " + puttingNumber);
+
             spiralMatrix[rowIndex][columnIndex] = puttingNumber;
             puttingNumber += 1;
 
-            // 현재 배열 index 위치가 배열 길이 -1 or 0을 벗어나기 전까지 putIncrementalNumber()를 수행하도록 하는 데까지 작성하였음
-            // 이제 값을 넣을 다음 위치의 값이 0이 아닌지 확인해서 0이 아니면 중단하도록 하는 조건을 추가해줘야 함
+            switch (chosenDirection) {
+                case "RIGHT" -> {
+                    if (columnIndex == spiralMatrix.length - 1) {
+                        return;
+                    }
 
-            switch (choseDirection) {
-                case "RIGHT" -> columnIndex += 1;
-                case "DOWN" -> rowIndex += 1;
-                case "LEFT" -> columnIndex -= 1;
-                case "UP" -> rowIndex -= 1;
+                    if (spiralMatrix[rowIndex][columnIndex + 1] != 0) {
+                        return;
+                    }
+
+                    columnIndex += 1;
+                }
+                case "DOWN" -> {
+                    if (rowIndex == spiralMatrix.length - 1) {
+                        return;
+                    }
+
+                    if (spiralMatrix[rowIndex + 1][columnIndex] != 0) {
+                        return;
+                    }
+
+                    rowIndex += 1;
+                }
+                case "LEFT" -> {
+                    if (columnIndex == 0) {
+                        return;
+                    }
+
+                    if (spiralMatrix[rowIndex][columnIndex - 1] != 0) {
+                        return;
+                    }
+
+                    columnIndex -= 1;
+                }
+                case "UP" -> {
+                    if (rowIndex == 0) {
+                        return;
+                    }
+
+                    if ((rowIndex == 1 && columnIndex == 0) || spiralMatrix[rowIndex - 1][columnIndex] != 0) {
+                        return;
+                    }
+
+                    rowIndex -= 1;
+                }
             }
 
             condition = setIterationCondition();
@@ -82,28 +133,30 @@ public class SpiralMatrix {
     }
 
     private boolean setIterationCondition() {
-        return rowIndex > spiralMatrix.length - 1
-                || columnIndex > spiralMatrix.length - 1
-                || rowIndex < 0
-                || columnIndex < 0;
+        return rowIndex <= spiralMatrix.length - 1
+                || columnIndex <= spiralMatrix.length - 1
+                || rowIndex >= 0
+                || columnIndex >= 0;
     }
 
     public void changeDirection() {
-        switch (choseDirection) {
+        System.out.println("changeDirection 시작");
+
+        switch (chosenDirection) {
             case "RIGHT" -> {
-                choseDirection = "DOWN";
+                chosenDirection = "DOWN";
                 rowIndex += 1;
             }
             case "DOWN" -> {
-                choseDirection = "LEFT";
+                chosenDirection = "LEFT";
                 columnIndex -= 1;
             }
             case "LEFT" -> {
-                choseDirection = "UP";
+                chosenDirection = "UP";
                 rowIndex -= 1;
             }
             case "UP" -> {
-                choseDirection = "RIGHT";
+                chosenDirection = "RIGHT";
                 columnIndex += 1;
             }
         }
