@@ -34,6 +34,12 @@ public class Calculator {
         if (words[1].equals("-")) {
             return x - y;
         }
+        if (words[1].equals("*")) {
+            return x * y;
+        }
+        if (words[1].equals("/")) {
+            return x / y;
+        }
 
         return 0;
     }
