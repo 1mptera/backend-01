@@ -71,9 +71,7 @@ public class SpiralMatrix {
     }
 
     public void putIncrementalNumber() {
-        boolean condition = setIterationCondition();
-
-        while (condition) {
+        while (checkIterationCondition()) {
             spiralMatrix[rowIndex][columnIndex] = puttingNumber;
             puttingNumber += 1;
 
@@ -123,12 +121,10 @@ public class SpiralMatrix {
                     rowIndex -= 1;
                 }
             }
-
-            condition = setIterationCondition();
         }
     }
 
-    public boolean setIterationCondition() {
+    public boolean checkIterationCondition() {
         return rowIndex <= spiralMatrix.length - 1
                 || columnIndex <= spiralMatrix.length - 1
                 || rowIndex >= 0
