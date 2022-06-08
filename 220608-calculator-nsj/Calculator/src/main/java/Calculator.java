@@ -34,20 +34,13 @@ public class Calculator {
 
         String operator = words[1];
 
-        if (operator.equals("+")) {
-            return x + y;
-        }
-        if (operator.equals("-")) {
-            return x - y;
-        }
-        if (operator.equals("*")) {
-            return x * y;
-        }
-        if (operator.equals("/")) {
-            return x / y;
-        }
-
-        return 0;
+        return switch (operator) {
+            case "+" -> x + y;
+            case "-" -> x - y;
+            case "*" -> x * y;
+            case "/" -> x / y;
+            default -> 0;
+        };
     }
 }
 
