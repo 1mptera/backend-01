@@ -8,10 +8,7 @@ public class MessageToYou {
 
     public void run() {
         // 입력
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("What's your name? ");
-        String name = scanner.nextLine();
+        inputUserName();
 
         // 처리
         MessageProvider messageProvider = new MessageProvider();
@@ -19,5 +16,12 @@ public class MessageToYou {
 
         // 출력
         System.out.println(messageProvider.message());
+    }
+
+    public void inputUserName() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("What's your name? ");
+        String name = scanner.nextLine();
     }
 }
