@@ -27,9 +27,15 @@ public class Calculator {
     }
 
     public int compute(String expression) {
+        String[] words = expression.split(" ");
 
-        if (expression.startsWith("1")) {
-            return 1;
+        int x = Integer.parseInt(words[0]);
+        int y = Integer.parseInt(words[2]);
+
+        String operator = words[1];
+
+        if (operator.equals("+")) {
+            return x + y;
         }
 
         return 0;
