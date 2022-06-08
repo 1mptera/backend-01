@@ -16,5 +16,8 @@ class PrimeNumberTest {
     void processTest() {
         PrimeNumber testApplication = new PrimeNumber();
         assertEquals("소수 아님", testApplication.process(1));
+        assertEquals("소수", testApplication.process(2));
+        assertEquals("소수", testApplication.process(3));
+        assertEquals("소수 아님", testApplication.process(4));
     }
 }
