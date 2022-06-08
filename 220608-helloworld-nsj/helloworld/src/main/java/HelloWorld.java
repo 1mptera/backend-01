@@ -9,7 +9,13 @@ public class HelloWorld {
     }
 
     private void run() {
-        messageProvider = new MessageProvider();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("이름을 입력해주세요 : ");
+
+        String name = scanner.nextLine();
+
+        messageProvider = new MessageProvider(name);
 
         System.out.println(messageProvider.message());
     }
