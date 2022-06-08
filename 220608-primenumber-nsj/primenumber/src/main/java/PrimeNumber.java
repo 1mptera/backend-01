@@ -11,7 +11,7 @@ public class PrimeNumber {
         Scanner scanner = new Scanner(System.in);
 
         // 입력
-        System.out.print("n :");
+        System.out.print("n: ");
         int naturalNumber = scanner.nextInt();
 
         // 처리
@@ -22,6 +22,9 @@ public class PrimeNumber {
     }
 
     public String process(int naturalNumber) {
+        if (naturalNumber == 1) {
+            return "소수 아님";
+        }
 
         for (int i = 2; i < naturalNumber; i += 1) {
             if(naturalNumber % i == 0) {
