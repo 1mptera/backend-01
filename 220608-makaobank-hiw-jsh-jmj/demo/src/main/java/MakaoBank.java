@@ -9,31 +9,45 @@
 
 import models.Account;
 import models.Transaction;
+import models.TransactionResult;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MakaoBank {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         MakaoBank application = new MakaoBank();
         application.run();
     }
 
-    public void run() {
+    public void run() throws FileNotFoundException {
         //준비 + input
         Account account = new Account();
 
         List<Transaction> transactions = loadTransactions();
 
         //process
-        //List<TransactionResult> transactionResultList = account.process(transactions);
+        List<TransactionResult> transactionResultList = account.process(transactions);
 
         //output
         //saveTransactionResults(transactionResultList);
     }
 
-    public List<Transaction> loadTransactions() {
+    public List<Transaction> loadTransactions() throws FileNotFoundException {
         List<Transaction> transactions = new ArrayList<>();
+
+        File file = new File("Input.csv");
+
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] words = line.split(",");
+            transactions.add(new Transaction(words[0], Integer.parseInt(words[1])));
+        }
 
         return transactions;
     }

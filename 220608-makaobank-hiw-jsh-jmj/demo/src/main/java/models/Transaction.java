@@ -7,7 +7,7 @@ public class Transaction {
     private final int amount;
 
     //TODO : 거래내역 관리(입금, 출금 + 금액까지)
-    Transaction(String type, int amount) {
+    public Transaction(String type, int amount) {
         this.type = type;
         this.amount = amount;
     }
@@ -17,5 +17,9 @@ public class Transaction {
         Transaction otherTransaction = (Transaction) other;
         return Objects.equals(this.type, otherTransaction.type) &&
                 this.amount == otherTransaction.amount;
+    }
+    @Override
+    public String toString() {
+        return "" + this.type + " " + this.amount;
     }
 }
