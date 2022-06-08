@@ -37,6 +37,15 @@ public class Calculator {
         if (operator.equals("+")) {
             return x + y;
         }
+        if (operator.equals("-")) {
+            return x - y;
+        }
+        if (operator.equals("*")) {
+            return x * y;
+        }
+        if (operator.equals("/")) {
+            return x / y;
+        }
 
         return 0;
     }
