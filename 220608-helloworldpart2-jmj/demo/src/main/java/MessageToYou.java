@@ -1,27 +1,35 @@
 import java.util.Scanner;
 
 public class MessageToYou {
+
+    private MessageProvider messageProvider;
+    private String name;
+
     public static void main(String[] args) {
         MessageToYou messageToYou = new MessageToYou();
         messageToYou.run();
     }
 
     public void run() {
-        // 입력
         inputUserName();
 
-        // 처리
-        MessageProvider messageProvider = new MessageProvider();
-        messageProvider.message();
+        processUserName();
 
-        // 출력
-        System.out.println(messageProvider.message());
+        printUserName();
     }
 
     public void inputUserName() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("What's your name? ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
+    }
+
+    private void processUserName() {
+        messageProvider = new MessageProvider(name);
+    }
+
+    private void printUserName() {
+        System.out.println(messageProvider.message());
     }
 }
