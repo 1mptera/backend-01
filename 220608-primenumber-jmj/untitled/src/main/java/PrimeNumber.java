@@ -36,6 +36,10 @@ public class PrimeNumber {
             return result;
         }
 
+        if (inputNumber == 2) {
+            result = "소수";
+            return result;
+        }
         return result;
     }
 }
