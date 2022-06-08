@@ -23,7 +23,18 @@ public class PrimeNumber {
     }
 
     public String process(int input) {
-        return "";
+        boolean isPrimeNumber = true;
+
+        if (input == 1) {
+            isPrimeNumber = false;
+        }
+
+
+
+        if (!isPrimeNumber) {
+            return "소수 아님";
+        }
+        return "소수";
     }
 
     public void printResult() {
