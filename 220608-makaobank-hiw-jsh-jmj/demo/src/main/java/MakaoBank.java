@@ -10,6 +10,7 @@
 import models.Account;
 import models.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MakaoBank {
@@ -32,6 +33,8 @@ public class MakaoBank {
     }
 
     public List<Transaction> loadTransactions() {
-        return null;
+        List<Transaction> transactions = new ArrayList<>();
+
+        return transactions;
     }
 }
