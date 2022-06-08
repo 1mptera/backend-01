@@ -16,10 +16,19 @@ class TransactionTest {
 
     @Test
     void equals() {
-        Transaction transaction1 = new Transaction("잔액", 1000);
+        Transaction transaction1 = new Transaction("잔액", 10000);
         Transaction transaction2 = new Transaction("잔액", 1000);
 
         assertEquals(transaction1, transaction2);
     }
+
+    @Test
+    void string() {
+        Transaction transaction = new Transaction("잔액",1000);
+
+        assertEquals("Transaction(잔액 : 1000)",transaction.toString());
+
+    }
+
 }
 

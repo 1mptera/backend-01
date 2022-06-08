@@ -19,5 +19,10 @@ public class Transaction {
         return Objects.equals(this.type, otherTransaction.type)
                 && this.amount == otherTransaction.amount;
     }
+
+    @Override
+    public String toString() {
+        return "Transaction(" + type + " : " + amount + ")";
+    }
 }
 

@@ -28,16 +28,22 @@ public class MakakoBank {
     }
 
     public List<Transaction> loadTransaction() throws FileNotFoundException {
+        List<Transaction> transactions = new ArrayList<>();
+
 
         File file = new File("input.csv");
 
         Scanner scanner = new Scanner(file);
 
-        String Line = scanner.nextLine();
+        while(scanner.hasNextLine()) {
+            String Line = scanner.nextLine();
 
-        System.out.println(Line);
+            String[] words = Line.split(",");
 
-        List<Transaction> transactions = new ArrayList<>();
+            Transaction transaction = new Transaction(words[0], Integer.parseInt(words[1]));
+
+            transactions.add(transaction);
+        }
 
         return transactions;
     }
