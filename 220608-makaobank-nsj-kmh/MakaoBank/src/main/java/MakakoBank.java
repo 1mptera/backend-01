@@ -1,17 +1,19 @@
 import models.Account;
 import models.Transaction;
 
-import javax.security.auth.login.AccountException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MakakoBank {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         MakakoBank application = new MakakoBank();
         application.run();
     }
 
-    private void run() {
+    private void run() throws FileNotFoundException {
         // 준비
         Account account = new Account();
 
@@ -25,7 +27,15 @@ public class MakakoBank {
 //        saveTransactionResult(transactionResults);
     }
 
-    public List<Transaction> loadTransaction() {
+    public List<Transaction> loadTransaction() throws FileNotFoundException {
+
+        File file = new File("input.csv");
+
+        Scanner scanner = new Scanner(file);
+
+        String Line = scanner.nextLine();
+
+        System.out.println(Line);
 
         List<Transaction> transactions = new ArrayList<>();
 
