@@ -11,19 +11,11 @@ public class Calculator {
     }
 
     private void run() {
-        // 준비
-        Scanner scanner = new Scanner(System.in);
+        String expression = InputExpression();
 
-        // 입력
-        System.out.println("Input Expression : ");
-
-        String expression = scanner.nextLine();
-
-        // 처리
         int result = compute(expression);
 
-        // 출력
-        System.out.println(result);
+        displayResult(result);
     }
 
     public int compute(String expression) {
@@ -41,6 +33,20 @@ public class Calculator {
             case "/" -> x / y;
             default -> 0;
         };
+    }
+
+    public String InputExpression() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Input Expression : ");
+
+        String expression = scanner.nextLine();
+
+        return expression;
+    }
+
+    public void displayResult(int result) {
+        System.out.println(result);
     }
 }
 
