@@ -8,6 +8,7 @@ class CalculatorTest {
         Calculator calculator = new Calculator();
 
         assertEquals(1, calculator.compute("1 + 0"));
+
     }
 }
 
