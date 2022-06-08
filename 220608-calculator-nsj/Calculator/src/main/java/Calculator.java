@@ -26,7 +26,7 @@ public class Calculator {
         System.out.println(result);
     }
 
-    private int compute(String expression) {
+    public int compute(String expression) {
 
         return 0;
     }
