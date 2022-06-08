@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class HelloWorld {
     public static void main(String[] args) {
         HelloWorld helloWorld = new HelloWorld();
@@ -5,6 +7,7 @@ public class HelloWorld {
     }
 
     public void run() {
-        System.out.println("Hello, world!");
+        MessageProvider messageProvider = new MessageProvider();
+        System.out.println(messageProvider.message());
     }
 }
