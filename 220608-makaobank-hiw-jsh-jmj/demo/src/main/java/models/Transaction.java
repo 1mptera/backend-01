@@ -6,6 +6,14 @@ public class Transaction {
     private final String type;
     private final int amount;
 
+    public String getType() {
+        return this.type;
+    }
+
+    public int getAmount() {
+        return this.amount;
+    }
+
     //TODO : 거래내역 관리(입금, 출금 + 금액까지)
     public Transaction(String type, int amount) {
         this.type = type;

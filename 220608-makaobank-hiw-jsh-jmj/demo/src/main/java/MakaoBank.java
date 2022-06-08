@@ -6,7 +6,6 @@
 // 만들어야 할 것 -> 계좌, 거래내역, 처리한 거래내역
 // 선택의 시간(거래내역을 따로 저장하고 그걸 계좌로 불러오거나)
 
-
 import models.Account;
 import models.Transaction;
 import models.TransactionResult;
@@ -30,7 +29,7 @@ public class MakaoBank {
         List<Transaction> transactions = loadTransactions();
 
         //process
-        List<TransactionResult> transactionResultList = account.process(transactions);
+        List<TransactionResult> transactionResults = account.process(transactions);
 
         //output
         //saveTransactionResults(transactionResultList);
