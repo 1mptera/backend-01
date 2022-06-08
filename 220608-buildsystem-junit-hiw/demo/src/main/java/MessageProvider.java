@@ -1,17 +1,15 @@
-import java.util.Scanner;
-
 public class MessageProvider {
-    public static void main(String[] args) {
-        System.out.println("Hello, world! (Main in MessageProvider)");
+    private final String NAME;
+
+    MessageProvider() {
+        this.NAME = "world";
+    }
+
+    MessageProvider(String name) {
+        this.NAME = name;
     }
 
     public String message() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("What's your name?: ");
-
-        String name = scanner.nextLine();
-
-        return "Hello, " + name + "!";
+        return "Hello, " + NAME + "!";
     }
 }
