@@ -15,7 +15,7 @@ public class Transaction {
     return this.TYPE;
   }
 
-  public int getAmount() {
+  public Integer getAmount() {
     return this.AMOUNT;
   }
 

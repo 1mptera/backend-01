@@ -12,4 +12,13 @@ class TransactionResultTest {
 
     assertEquals(transactionResult1, transactionResult2);
   }
+
+  @Test
+  void transferTest() {
+    TransactionResult transactionResult = new TransactionResult(new Transaction("잔액", 5000), 5000);
+
+    String line = transactionResult.transfer();
+
+    assertEquals("잔액,5000,5000", line);
+  }
 }

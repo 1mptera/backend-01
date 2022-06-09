@@ -15,24 +15,26 @@ import models.TransactionResult;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class MakaoBank {
-  public static void main(String[] args) throws FileNotFoundException {
+  public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
     application.run();
   }
 
-  public void run() throws FileNotFoundException {
+  public void run() throws IOException {
     Account myAccount = new Account();
 
     List<Transaction> transactions = loadTransactions();
 
     List<TransactionResult> transactionResults = myAccount.process(transactions);
 
-    //saveTransactionResults(transactionResults);
+    saveTransactionResults(transactionResults);
   }
 
   public List<Transaction> loadTransactions() throws FileNotFoundException {
@@ -52,5 +54,17 @@ public class MakaoBank {
     }
 
     return transactions;
+  }
+
+  public void saveTransactionResults(List<TransactionResult> transactionResults) throws IOException {
+    FileWriter fileWriter = new FileWriter("src/main/resources/output.csv");
+
+    for (TransactionResult transactionResult : transactionResults) {
+      String line = transactionResult.transfer() + "\n";
+
+      fileWriter.write(line);
+    }
+
+    fileWriter.close();
   }
 }
