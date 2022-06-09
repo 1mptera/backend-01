@@ -7,7 +7,7 @@ public class HelloWorld {
     }
 
     public void run() {
-        messageProvider = new MessageProvider();
+        messageProvider = new MessageProvider("seungjun");
 
         System.out.println("[HelloWorld]");
         System.out.println(messageProvider.message());
