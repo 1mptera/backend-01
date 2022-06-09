@@ -7,7 +7,7 @@
 import java.util.Scanner;
 
 public class Calculator {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Calculator application = new Calculator();
         application.run();
     }
@@ -32,6 +32,20 @@ public class Calculator {
 
         int x = Integer.parseInt(words[0]);
         int y = Integer.parseInt(words[2]);
-        return x;
+        String operator = words[1];
+
+        if(operator.equals("+")){
+            return x + y;
+        }
+        if(operator.equals("-")){
+            return x - y;
+        }
+        if(operator.equals("*")){
+            return x * y;
+        }
+        if(operator.equals("/")){
+            return x / y;
+        }
+        return 0;
     }
 }
