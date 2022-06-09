@@ -12,18 +12,20 @@ public class Calculator {
     }
 
     private void run() {
-        // 입력
+        String expression = inputExpression();
+
+        int result = compute(expression);
+
+        displayResult(result);
+    }
+
+    public String inputExpression() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Input Expression : ");
 
         String expression = scanner.nextLine();
-
-        // 처리
-        int result = compute(expression);
-
-        // 출력
-        System.out.println("Result : " + result);
+        return expression;
     }
 
     public int compute(String expression) {
@@ -42,6 +44,10 @@ public class Calculator {
             case "/" -> x / y;
             default -> 0;
         };
+    }
+
+    public void displayResult(int result) {
+        System.out.println("Result : " + result);
     }
 }
 
