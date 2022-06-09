@@ -30,6 +30,13 @@ class TransactionTest {
   @Test
   void process() {
     assertEquals(1000, new Transaction("잔액", 1000).process(0));
+    assertEquals(2000, new Transaction("잔액", 2000).process(100));
+
+    assertEquals(1100, new Transaction("입금", 100).process(1000));
+
+    assertEquals(800, new Transaction("출금", 200).process(1000));
+
+    assertEquals(1000, new Transaction("오류", 1000).process(1000));
   }
 }
 

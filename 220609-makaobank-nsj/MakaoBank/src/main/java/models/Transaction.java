@@ -39,7 +39,18 @@ public class Transaction extends Object{
   }
 
   public int process(int amount) {
-    return this.amount;
+    if(type.equals("잔액")) {
+      return this.amount;
+    }
+
+    if(type.equals("입금")) {
+      return amount + this.amount;
+    }
+
+    if(type.equals("출금")) {
+      return amount - this.amount;
+    }
+    return amount;
   }
 }
 

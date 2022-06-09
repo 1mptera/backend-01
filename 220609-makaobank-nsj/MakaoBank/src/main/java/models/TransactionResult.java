@@ -32,6 +32,11 @@ public class TransactionResult {
   @Override
   public String toString() {
     return "TransactionResult (" + transaction.toString() +
-        ", 잔액: " + amount  + ")";
+        ", 잔액: " + amount + ")";
+  }
+
+  public String toCsvRow() {
+
+    return transaction.type() + "," + transaction.amount() + "," + amount;
   }
 }
