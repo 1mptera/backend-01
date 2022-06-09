@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Pentanary {
     private int naturalNumber;
+    private Scanner scanner;
 
     public static void main(String[] args) {
         Pentanary application = new Pentanary();
@@ -10,7 +11,7 @@ public class Pentanary {
 
     public void run() {
         // 준비
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
 
         // 입력
         System.out.print("Input: ");
@@ -24,8 +25,8 @@ public class Pentanary {
     }
 
     public int process(int naturalNumber) {
-        if (naturalNumber == 4) {
-            return 4;
+        if (naturalNumber < 5) {
+            return naturalNumber;
         }
         return 0;
     }
