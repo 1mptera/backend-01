@@ -7,24 +7,26 @@
 import java.util.Scanner;
 
 public class Calculator {
+    private String expression;
+
     public static void main(String[] args) {
         Calculator application = new Calculator();
         application.run();
     }
 
     public void run() {
-        // 준비
-        Scanner scanner = new Scanner(System.in);
+        getExpression();
 
-        // 입력
-        System.out.print("Input expression: ");
-        String expression = scanner.nextLine();
-
-        // 처리
         int result = compute(expression);
 
-        // 출력
-        System.out.println("Result: " + result);
+        resultOfComputingExpression(result);
+    }
+
+    public void getExpression() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Input expression: ");
+        expression = scanner.nextLine();
     }
 
     public int compute(String expression) {
@@ -41,5 +43,9 @@ public class Calculator {
             case "/" -> x / y;
             default -> 0;
         };
+    }
+
+    public void resultOfComputingExpression(int result) {
+        System.out.println("Result: " + result);
     }
 }
