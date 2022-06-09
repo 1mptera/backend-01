@@ -26,4 +26,12 @@ public class Calculator {
         System.out.print(result);
 
     }
+
+    public int compute(String expression) {
+        String[] words = expression.split(" ");
+
+        int x = Integer.parseInt(words[0]);
+        int y = Integer.parseInt(words[2]);
+        return x;
+    }
 }
