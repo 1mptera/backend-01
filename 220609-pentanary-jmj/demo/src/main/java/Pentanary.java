@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Pentanary {
     private int naturalNumber;
     private Scanner scanner;
+    private String[] pentanaryNumbers;
 
     public static void main(String[] args) {
         Pentanary application = new Pentanary();
@@ -18,16 +19,25 @@ public class Pentanary {
         naturalNumber = scanner.nextInt();
 
         // 처리
-        int pentanary = process(naturalNumber);
+        pentanaryNumbers = process(naturalNumber);
 
         // 출력
-        System.out.println("5진수: " + pentanary);
+        System.out.println("5진수: " + pentanaryNumbers);
     }
 
-    public int process(int naturalNumber) {
-        if (naturalNumber < 5) {
-            return naturalNumber;
+    public String[] process(int naturalNumber) {
+        int quotient = 0;
+        String[] pentanaryNumbers = new String[]{};
+
+        for(int i = 0; naturalNumber >= 5; i += 1) {
+            quotient = naturalNumber / 5;
+            pentanaryNumbers[i] = Integer.toString(naturalNumber % 5);
+            naturalNumber = quotient;
         }
-        return 1022;
+
+        if (naturalNumber < 5) {
+            pentanaryNumbers[0] = Integer.toString(naturalNumber);
+        }
+        return pentanaryNumbers;
     }
 }
