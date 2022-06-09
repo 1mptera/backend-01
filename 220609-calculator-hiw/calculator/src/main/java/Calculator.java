@@ -30,9 +30,11 @@ public class Calculator {
   }
 
   public int process(String expression) {
-    //Do Something
+    String[] text = expression.split(" ");
 
-    return 0;
+    int number1 = Integer.parseInt(text[0]);
+
+    return number1;
   }
 
   public void print(int result) {
