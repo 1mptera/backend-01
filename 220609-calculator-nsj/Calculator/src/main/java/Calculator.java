@@ -26,8 +26,13 @@ public class Calculator {
         System.out.println("Result : " + result);
     }
 
-    private int compute(String expression) {
+    public int compute(String expression) {
+
+        if (expression.startsWith("1")) {
+            return 1;
+        }
 
         return 0;
     }
 }
+
