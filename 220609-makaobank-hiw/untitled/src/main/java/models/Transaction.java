@@ -11,9 +11,18 @@ public class Transaction {
     this.AMOUNT = amount;
   }
 
+  public String getType() {
+    return this.TYPE;
+  }
+
+  public int getAmount() {
+    return this.AMOUNT;
+  }
+
   @Override
   public boolean equals(Object other) {
     Transaction otherTransaction = (Transaction) other;
+
     return Objects.equals(this.TYPE, otherTransaction.TYPE)
         && this.AMOUNT == otherTransaction.AMOUNT;
   }

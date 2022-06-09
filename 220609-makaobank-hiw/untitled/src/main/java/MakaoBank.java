@@ -11,6 +11,7 @@
 
 import models.Account;
 import models.Transaction;
+import models.TransactionResult;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,7 +30,7 @@ public class MakaoBank {
 
     List<Transaction> transactions = loadTransactions();
 
-    //List<TransactionResult> transactionResults = myAccount.process(transactionList);
+    List<TransactionResult> transactionResults = myAccount.process(transactions);
 
     //saveTransactionResults(transactionResults);
   }

@@ -28,7 +28,7 @@ class MakaoBankTest {
   }
 
   @Test
-  void getAllTransactionTest() throws FileNotFoundException {
+  void getAllTransactionsTest() throws FileNotFoundException {
     MakaoBank testApplication = new MakaoBank();
 
     List<Transaction> transactions = testApplication.loadTransactions();
