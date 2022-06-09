@@ -12,21 +12,44 @@
 import models.Account;
 import models.Transaction;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MakaoBank {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
     MakaoBank application = new MakaoBank();
     application.run();
   }
 
-  public void run() {
+  public void run() throws FileNotFoundException {
     Account myAccount = new Account();
 
     List<Transaction> transactions = loadTransactions();
 
-    List<TransactionResult> transactionResults = myAccount.process(transactionList);
+    //List<TransactionResult> transactionResults = myAccount.process(transactionList);
 
-    saveTransactionResults(transactionResults);
+    //saveTransactionResults(transactionResults);
+  }
+
+  public List<Transaction> loadTransactions() throws FileNotFoundException {
+    File file = new File("src/main/resources/input.csv");
+    Scanner scanner = new Scanner(file);
+
+    List<Transaction> transactions = new ArrayList<>();
+
+    while (scanner.hasNextLine()) {
+      String line = scanner.nextLine();
+
+      String[] elements = line.split(",");
+
+      Transaction transaction = new Transaction(elements[0], Integer.parseInt(elements[1]));
+
+      transactions.add(transaction);
+    }
+
+    return transactions;
   }
 }
