@@ -33,8 +33,9 @@ public class Calculator {
     String[] text = expression.split(" ");
 
     int number1 = Integer.parseInt(text[0]);
+    int number2 = Integer.parseInt(text[2]);
 
-    return number1;
+    return number1 + number2;
   }
 
   public void print(int result) {

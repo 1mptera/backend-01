@@ -19,4 +19,13 @@ class CalculatorTest {
     assertEquals(7, testApplication.process("7 + 0"));
     assertEquals(12, testApplication.process("12 + 0"));
   }
+
+  @Test
+  void numbersTest() {
+    Calculator testApplication = new Calculator();
+
+    assertEquals(8, testApplication.process("3 + 5"));
+    assertEquals(10, testApplication.process("7 + 3"));
+    assertEquals(40, testApplication.process("12 + 28"));
+  }
 }
