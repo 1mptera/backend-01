@@ -6,9 +6,9 @@ class CalculatorTest {
     @Test
     void compute() {
         Calculator calculator = new Calculator();
-        assertEquals(1 ,calculator.compute("1 + 0"));
-        assertEquals(2 ,calculator.compute("1 + 1"));
-    }
 
+        assertEquals(1 ,calculator.compute("1 + 0"));
+        assertEquals(7 ,calculator.compute("5 + 2"));
+    }
 }
 

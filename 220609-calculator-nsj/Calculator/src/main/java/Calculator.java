@@ -28,8 +28,15 @@ public class Calculator {
 
     public int compute(String expression) {
 
-        if (expression.startsWith("1")) {
-            return 1;
+        String[] words = expression.split(" ");
+
+        int x = Integer.parseInt(words[0]);
+        int y = Integer.parseInt(words[2]);
+
+        String operator = words[1];
+
+        if (operator.equals("+")) {
+            return x + y;
         }
 
         return 0;
