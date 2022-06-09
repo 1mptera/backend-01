@@ -36,10 +36,13 @@ public class Calculator {
     int number2 = Integer.parseInt(text[2]);
     String operator = text[1];
 
-    if (text[1].equals("+")) {
-      return number1 + number2;
-    }
-    return number1 - number2;
+    return switch (operator) {
+      case "+" -> number1 + number2;
+      case "-" -> number1 - number2;
+      case "*" -> number1 * number2;
+      case "/" -> number1 / number2;
+      default -> 0;
+    };
   }
 
   public void print(int result) {

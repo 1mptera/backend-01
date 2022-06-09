@@ -46,4 +46,20 @@ class CalculatorTest {
     assertEquals(4, testApplication.process("7 - 3"));
     assertEquals(-16, testApplication.process("12 - 28"));
   }
+
+  @Test
+  void timesTest() {
+    Calculator testApplication = new Calculator();
+
+    assertEquals(24, testApplication.process("6 * 4"));
+    assertEquals(180, testApplication.process("15 * 12"));
+  }
+
+  @Test
+  void dividesTest() {
+    Calculator testApplication = new Calculator();
+
+    assertEquals(0, testApplication.process("3 / 5"));
+    assertEquals(2, testApplication.process("7 / 3"));
+  }
 }
