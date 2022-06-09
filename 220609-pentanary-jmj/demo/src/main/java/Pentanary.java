@@ -28,6 +28,6 @@ public class Pentanary {
         if (naturalNumber < 5) {
             return naturalNumber;
         }
-        return 0;
+        return 1022;
     }
 }

@@ -10,4 +10,10 @@ class PentanaryTest {
         assertEquals(3, pentanary.process(3));
         assertEquals(0, pentanary.process(0));
     }
+
+    @Test
+    void inputNumber5OrMore() {
+        Pentanary pentanary = new Pentanary();
+        assertEquals(1022, pentanary.process(137));
+    }
 }
