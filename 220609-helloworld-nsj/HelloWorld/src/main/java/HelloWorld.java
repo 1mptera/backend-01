@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class HelloWorld {
     private MessageProvider messageProvider;
 
@@ -7,9 +9,14 @@ public class HelloWorld {
     }
 
     public void run() {
-        messageProvider = new MessageProvider("seungjun");
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("[HelloWorld]");
+        System.out.print("What`s your name? ");
+
+        String name = scanner.nextLine();
+
+        messageProvider = new MessageProvider(name);
+
         System.out.println(messageProvider.message());
     }
 }
