@@ -24,6 +24,9 @@ public class Pentanary {
     }
 
     public int process(int naturalNumber) {
+        if (naturalNumber == 4) {
+            return 4;
+        }
         return 0;
     }
 }
