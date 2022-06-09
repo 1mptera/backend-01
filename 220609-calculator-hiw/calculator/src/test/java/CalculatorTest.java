@@ -28,4 +28,22 @@ class CalculatorTest {
     assertEquals(10, testApplication.process("7 + 3"));
     assertEquals(40, testApplication.process("12 + 28"));
   }
+
+  @Test
+  void plusTest() {
+    Calculator testApplication = new Calculator();
+
+    assertEquals(10, testApplication.process("6 + 4"));
+    assertEquals(27, testApplication.process("15 + 12"));
+    assertEquals(111111110, testApplication.process("11111119 + 99999991"));
+  }
+
+  @Test
+  void minusTest() {
+    Calculator testApplication = new Calculator();
+
+    assertEquals(-2, testApplication.process("3 - 5"));
+    assertEquals(4, testApplication.process("7 - 3"));
+    assertEquals(-16, testApplication.process("12 - 28"));
+  }
 }
