@@ -38,8 +38,8 @@ public class Zigzag {
     List<List<Character>> lists = makeLists(this.numberOfRows);
 
     while (wordIndex < userInput.length()) {
-      putCharacterUpToDown(lists);
-      putCharacterDiagonallyUpward(lists);
+      putWordUpToDown(lists);
+      putWordDiagonallyUpward(lists);
     }
 
     return result(lists);
@@ -57,7 +57,7 @@ public class Zigzag {
     return lists;
   }
 
-  public void putCharacterUpToDown(List<List<Character>> lists) {
+  public void putWordUpToDown(List<List<Character>> lists) {
     for (int i = 0; i < numberOfRows; i += 1) {
       if (wordIndex >= userInput.length()) {
         break;
@@ -71,7 +71,7 @@ public class Zigzag {
     }
   }
 
-  public void putCharacterDiagonallyUpward(List<List<Character>> lists) {
+  public void putWordDiagonallyUpward(List<List<Character>> lists) {
     for (int i = numberOfRows - 2; i >= 1; i -= 1) {
       if (wordIndex >= userInput.length()) {
         break;
