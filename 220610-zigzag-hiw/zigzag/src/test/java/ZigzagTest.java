@@ -19,4 +19,7 @@ class ZigzagTest {
 
     assertEquals(lists, testApplication.makeLists(2));
   }
+
+  @Test
+  void
 }

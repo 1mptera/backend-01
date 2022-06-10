@@ -35,6 +35,14 @@ public class Zigzag {
     //List<char> 배열 생성
     List<List<Character>> lists = makeLists(this.numberOfRows);
 
+    String result = "";
+    int wordIndex = 0;
+
+    while (wordIndex < userInput.length()) {
+      putUpToDown();
+      putDiagonallyUpward();
+    }
+
     return "";
   }
 
