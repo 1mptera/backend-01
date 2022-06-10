@@ -6,6 +6,8 @@ public class Zigzag {
   private String userInput;
   private int numberOfRows;
 
+  private int wordIndex = 0;
+
   public static void main(String[] args) {
     Zigzag application = new Zigzag();
     application.run();
@@ -35,15 +37,12 @@ public class Zigzag {
     //List<char> 배열 생성
     List<List<Character>> lists = makeLists(this.numberOfRows);
 
-    String result = "";
-    int wordIndex = 0;
-
     while (wordIndex < userInput.length()) {
-      putUpToDown();
-      putDiagonallyUpward();
+      putCharacterUpToDown(lists);
+      putCharacterDiagonallyUpward(lists);
     }
 
-    return "";
+    return result(lists);
   }
 
   public List<List<Character>> makeLists(int numberOfRows) {
@@ -58,7 +57,59 @@ public class Zigzag {
     return lists;
   }
 
-  public void printResult(String result) {
+  public void putCharacterUpToDown(List<List<Character>> lists) {
+    for (int i = 0; i < numberOfRows; i += 1) {
+      if (wordIndex >= userInput.length()) {
+        break;
+      }
 
+      char word = userInput.charAt(wordIndex);
+
+      lists.get(i).add(word);
+
+      wordIndex += 1;
+    }
+  }
+
+  public void putCharacterDiagonallyUpward(List<List<Character>> lists) {
+    for (int i = numberOfRows - 2; i >= 1; i -= 1) {
+      if (wordIndex >= userInput.length()) {
+        break;
+      }
+
+      char word = userInput.charAt(wordIndex);
+
+      for (int j = numberOfRows - 1; j >= 0; j -= 1) {
+        if (j != i) {
+          lists.get(j).add(' ');
+        }
+
+        if (j == i) {
+          lists.get(j).add(word);
+        }
+      }
+
+      wordIndex += 1;
+    }
+  }
+
+  public String result(List<List<Character>> lists) {
+    String result = "";
+
+    for (List<Character> list : lists) {
+      for (Character word : list) {
+        if (word == ' ') {
+          continue;
+        }
+
+        result += word;
+      }
+    }
+
+    return result;
+  }
+
+  public void printResult(String result) {
+    System.out.println("지그재그 메세지: " + result);
   }
 }
