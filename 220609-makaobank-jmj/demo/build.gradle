@@ -16,7 +16,7 @@ dependencies {
 }
 
 application {
-    mainClassName = "MakaoBank"
+    mainClass = 'MakaoBank'
 }
 
 test {
