@@ -3,7 +3,7 @@ package models;
 
 import java.util.Objects;
 
-public class Transaction {
+public class Transaction extends Object {
   private String type;
   private int amount;
 
@@ -29,7 +29,6 @@ public class Transaction {
   public String toString() {
     return "Transaction " + type + ":" + amount;
   }
-
 }
 
 

@@ -8,16 +8,19 @@
 import models.Account;
 import models.Transaction;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class MakaoBank {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
     MakaoBank application = new MakaoBank();
     application.run();
   }
 
-  public void run() {
+  public void run() throws FileNotFoundException {
     // preparation
     Account account = new Account();
 
@@ -31,12 +34,29 @@ public class MakaoBank {
 //    saveTransactionResults(transactionResults);
   }
 
-  public List<Transaction> loadTransaction() {
+  public List<Transaction> loadTransaction() throws FileNotFoundException {
+
 
     List<Transaction> transactions = new ArrayList<>();
 
-    Transaction transaction = new Transaction("잔액",1000);
+    File file = new File("Input.csv");
+
+    Scanner scanner = new Scanner(file);
+
+    String line = scanner.nextLine();
+
+
+    Transaction transaction = parseTransaction(line);
+
+    Transaction transaction2 = new Transaction("잔액", 1000);
     transactions.add(transaction);
     return transactions;
+  }
+
+  public Transaction parseTransaction(String text) {
+    String[] words = text.split(",");
+
+    int amount = Integer.parseInt(words[1]);
+    return new Transaction(words[0], amount);
   }
 }
