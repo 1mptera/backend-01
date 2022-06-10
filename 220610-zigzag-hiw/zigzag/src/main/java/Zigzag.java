@@ -3,8 +3,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Zigzag {
-  private String userInput;
-  private int numberOfRows;
+  private String sentence;
+  private int rows;
 
   private int wordIndex = 0;
 
@@ -26,18 +26,18 @@ public class Zigzag {
 
     System.out.print("문장을 입력해주세요: ");
 
-    this.userInput = scanner.nextLine();
+    this.sentence = scanner.nextLine();
 
     System.out.print("행의 수를 입력해주세요: ");
 
-    this.numberOfRows = scanner.nextInt();
+    this.rows = scanner.nextInt();
   }
 
   public String process() {
     //List<char> 배열 생성
-    List<List<Character>> lists = makeLists(this.numberOfRows);
+    List<List<Character>> lists = makeLists(rows);
 
-    while (wordIndex < userInput.length()) {
+    while (wordIndex < sentence.length()) {
       putWordUpToDown(lists);
       putWordDiagonallyUpward(lists);
     }
@@ -58,12 +58,12 @@ public class Zigzag {
   }
 
   public void putWordUpToDown(List<List<Character>> lists) {
-    for (int i = 0; i < numberOfRows; i += 1) {
-      if (wordIndex >= userInput.length()) {
+    for (int i = 0; i < rows; i += 1) {
+      if (wordIndex >= sentence.length()) {
         break;
       }
 
-      char word = userInput.charAt(wordIndex);
+      char word = sentence.charAt(wordIndex);
 
       lists.get(i).add(word);
 
@@ -72,14 +72,14 @@ public class Zigzag {
   }
 
   public void putWordDiagonallyUpward(List<List<Character>> lists) {
-    for (int i = numberOfRows - 2; i >= 1; i -= 1) {
-      if (wordIndex >= userInput.length()) {
+    for (int i = rows - 2; i >= 1; i -= 1) {
+      if (wordIndex >= sentence.length()) {
         break;
       }
 
-      char word = userInput.charAt(wordIndex);
+      char word = sentence.charAt(wordIndex);
 
-      for (int j = numberOfRows - 1; j >= 0; j -= 1) {
+      for (int j = rows - 1; j >= 0; j -= 1) {
         if (j != i) {
           lists.get(j).add(' ');
         }
