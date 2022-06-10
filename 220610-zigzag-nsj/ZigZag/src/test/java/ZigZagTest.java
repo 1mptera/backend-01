@@ -7,27 +7,34 @@ class ZigZagTest {
   void firstLine() {
     ZigZag zigZag = new ZigZag();
 
-    assertEquals("HOAR",zigZag.process("HELLOMEGAPTERA"));
+    assertEquals("HOAR",zigZag.inputRowThree("HELLOMEGAPTERA"));
   }
 
   @Test
   void secondLine() {
     ZigZag zigZag = new ZigZag();
 
-    assertEquals("ELMGPEA",zigZag.process("HELLOMEGAPTERA"));
+    assertEquals("ELMGPEA",zigZag.inputRowThree("HELLOMEGAPTERA"));
   }
 
   @Test
   void thirdLine() {
     ZigZag zigZag = new ZigZag();
 
-    assertEquals("LET",zigZag.process("HELLOMEGAPTERA"));
+    assertEquals("LET",zigZag.inputRowThree("HELLOMEGAPTERA"));
   }
 
   @Test
-  void zigZag() {
+  void inputRowThree() {
     ZigZag zigZag = new ZigZag();
 
-    assertEquals("HOARELMGPEALET",zigZag.process("HELLOMEGAPTERA"));
+    assertEquals("HOARELMGPEALET",zigZag.inputRowThree("HELLOMEGAPTERA"));
+  }
+
+  @Test
+  void inputRowFour() {
+    ZigZag zigZag = new ZigZag();
+
+    assertEquals("HEREMGEALOATLP",zigZag.inputRowFour("HELLOMEGAPTERA"));
   }
 }
