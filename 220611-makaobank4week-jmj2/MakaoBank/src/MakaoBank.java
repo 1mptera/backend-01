@@ -6,10 +6,12 @@ import java.awt.*;
 // 3. 패널을 만들고 그 안에 3개의 버튼(잔액 조회, 송금, 거래내역) 만듦
 // 4. 각 버튼을 누르면 해당 버튼에 대한 내용이 컨텐트 패널에서 변경되며 출력될 수 있도록 함
 // 5. 각각의 버튼에 대한 컨텐트 패널 제작
+// 6. 잔액 관리를 할 수 있는 Account 생성
 
 public class MakaoBank {
   private JFrame frame;
   private JPanel contentPanel;
+  private Account account;
 
   public static void main(String[] args) {
     MakaoBank application = new MakaoBank();
@@ -17,6 +19,8 @@ public class MakaoBank {
   }
 
   public void run() {
+    account = new Account();
+
     frame = new JFrame();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(500, 600);
@@ -40,7 +44,7 @@ public class MakaoBank {
   private JButton createAmountButton() {
     JButton button = new JButton("잔액 조회");
     button.addActionListener(event -> {
-      AmountPanel amountPanel = new AmountPanel();
+      AmountPanel amountPanel = new AmountPanel(account);
 
       showContentPanel(amountPanel);
     });
@@ -50,7 +54,7 @@ public class MakaoBank {
   private JButton createTransferButton() {
     JButton button = new JButton("송금");
     button.addActionListener(event -> {
-      TransferPanel transferPanel = new TransferPanel();
+      TransferPanel transferPanel = new TransferPanel(account);
 
       showContentPanel(transferPanel);
     });
@@ -75,6 +79,10 @@ public class MakaoBank {
   private void showContentPanel(JPanel panel) {
     contentPanel.removeAll();
     contentPanel.add(panel);
+
+    contentPanel.setVisible(false);
+    contentPanel.setVisible(true);
+
     frame.setVisible(true);
   }
 }
