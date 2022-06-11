@@ -41,7 +41,7 @@ public class MakaoBank {
     panel.add(createTransactionsButton());
   }
 
-  private JButton createAmountButton() {
+  public JButton createAmountButton() {
     JButton button = new JButton("잔액 조회");
     button.addActionListener(event -> {
       AmountPanel amountPanel = new AmountPanel(account);
@@ -51,7 +51,7 @@ public class MakaoBank {
     return button;
   }
 
-  private JButton createTransferButton() {
+  public JButton createTransferButton() {
     JButton button = new JButton("송금");
     button.addActionListener(event -> {
       TransferPanel transferPanel = new TransferPanel(account);
@@ -61,10 +61,10 @@ public class MakaoBank {
     return button;
   }
 
-  private JButton createTransactionsButton() {
+  public JButton createTransactionsButton() {
     JButton button = new JButton("거래 내역");
     button.addActionListener(event -> {
-      TransactionsPanel transactionsPanel = new TransactionsPanel();
+      TransactionsPanel transactionsPanel = new TransactionsPanel(account);
 
       showContentPanel(transactionsPanel);
     });
@@ -76,7 +76,7 @@ public class MakaoBank {
     frame.add(contentPanel);
   }
 
-  private void showContentPanel(JPanel panel) {
+  public void showContentPanel(JPanel panel) {
     contentPanel.removeAll();
     contentPanel.add(panel);
 

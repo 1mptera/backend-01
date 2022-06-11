@@ -13,11 +13,11 @@ public class AmountPanel extends JPanel {
     this.add(new JLabel(amount()));
   }
 
-  private String accountNumber() {
+  public String accountNumber() {
     return "계좌번호 : " + account.getAccountNumber();
   }
 
-  private String amount() {
+  public String amount() {
     return "잔액 : " + account.getAmount() + "원";
   }
 }

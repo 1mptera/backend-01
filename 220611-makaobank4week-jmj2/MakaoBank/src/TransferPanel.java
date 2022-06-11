@@ -3,7 +3,6 @@ import java.awt.*;
 
 public class TransferPanel extends JPanel {
   TransferPanel(Account account) {
-
     this.setLayout(new GridLayout(3, 1));
 
     JLabel label = new JLabel("송금하기");
@@ -18,6 +17,5 @@ public class TransferPanel extends JPanel {
       account.transfer(amount);
     });
     this.add(button);
-
   }
 }
