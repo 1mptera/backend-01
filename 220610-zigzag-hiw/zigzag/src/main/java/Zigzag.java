@@ -37,7 +37,7 @@ public class Zigzag {
     //List<char> 배열 생성
     List<List<Character>> lists = makeLists(rows);
 
-    while (checkWordIndexCondition()) {
+    while (checkWordIndex()) {
       putWordUpToDown(lists);
       putWordDiagonallyUpward(lists);
     }
@@ -57,13 +57,13 @@ public class Zigzag {
     return lists;
   }
 
-  public boolean checkWordIndexCondition() {
+  public boolean checkWordIndex() {
     return wordIndex < sentence.length();
   }
 
   public void putWordUpToDown(List<List<Character>> lists) {
     for (int i = 0; i < rows; i += 1) {
-      if (!checkWordIndexCondition()) {
+      if (!checkWordIndex()) {
         break;
       }
 
@@ -77,7 +77,7 @@ public class Zigzag {
 
   public void putWordDiagonallyUpward(List<List<Character>> lists) {
     for (int i = rows - 2; i >= 1; i -= 1) {
-      if (!checkWordIndexCondition()) {
+      if (!checkWordIndex()) {
         break;
       }
 
