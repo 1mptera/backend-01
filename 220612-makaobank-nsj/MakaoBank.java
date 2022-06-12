@@ -55,7 +55,7 @@ public class MakaoBank {
   public JButton createTransactionButton() {
     JButton button = new JButton("거래 내역");
     button.addActionListener(event -> {
-      JPanel transactionsPanel = new TransactionPanel();
+      JPanel transactionsPanel = new TransactionPanel(account);
       showContentPanel(transactionsPanel);
     });
     return button;
