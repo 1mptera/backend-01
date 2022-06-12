@@ -16,6 +16,7 @@ public class MakaoBank {
   public void run() {
     initFrame();
     initPanels();
+    initButtons();
 
     showFrame();
   }
@@ -35,8 +36,6 @@ public class MakaoBank {
 
     contentPanel = new JPanel();
     frame.add(contentPanel);
-
-    initButtons();
   }
 
   public void initButtons() {
