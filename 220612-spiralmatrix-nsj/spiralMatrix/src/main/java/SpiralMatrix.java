@@ -14,30 +14,29 @@ public class SpiralMatrix {
 
     int[][] matrix = new int[oneSideLength][oneSideLength];
 
-    int row = 0;
+    int row = -1;
     int column = 0;
     int addNumber = 0;
-    int conversion = 1;
+    int changeDirection = 1;
     int minusLength = oneSideLength;
-    double lastNumber = Math.pow(oneSideLength, 2) - 1;
-
+    double lastNumber = Math.pow(oneSideLength, 2);
 
     while (lastNumber != addNumber) {
-      for(int i = 0; i < minusLength; i += 1) {
-        row += conversion;
+      for (int i = 0; i < minusLength; i += 1) {
+        row += changeDirection;
         matrix[column][row] = addNumber;
         addNumber += 1;
       }
 
       minusLength -= 1;
 
-      for(int i = 0; i < minusLength; i += 1) {
-        column += conversion;
+      for (int i = 0; i < minusLength; i += 1) {
+        column += changeDirection;
         matrix[column][row] = addNumber;
         addNumber += 1;
       }
 
-      conversion *= -1;
+      changeDirection *= -1;
     }
 
     for (int i = 0; i < oneSideLength; i += 1) {
@@ -45,7 +44,9 @@ public class SpiralMatrix {
         System.out.print(matrix[i][j]);
         System.out.print("\t");
       }
+      System.out.println();
     }
+
   }
 }
 
