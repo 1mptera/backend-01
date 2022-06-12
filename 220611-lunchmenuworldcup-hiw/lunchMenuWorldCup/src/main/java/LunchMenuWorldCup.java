@@ -11,7 +11,7 @@ public class LunchMenuWorldCup {
       "제육볶음", "쭈꾸미볶음", "부대찌개", "김치찌개", "우동", "냉면", "냉모밀", "국수",
       "생선구이", "육회비빔밥", "물회국수", "뼈해장국", "닭갈비", "마라탕", "샌드위치", "타코"
   };
-  private boolean[] isValidMenu = {
+  private boolean[] isSurvivedMenu = new boolean[]{
       true, true, true, true, true, true, true, true,
       true, true, true, true, true, true, true, true,
       true, true, true, true, true, true, true, true,
@@ -51,20 +51,20 @@ public class LunchMenuWorldCup {
     int candidate2Index = EMPTY;
 
     for (int i = 0; i < MENUS.length; i += 1) {
-      if (candidate1Index == EMPTY && !isValidMenu[i]) {
+      if (candidate1Index == EMPTY && !isSurvivedMenu[i]) {
         continue;
       }
 
-      if (candidate1Index == EMPTY && isValidMenu[i]) {
+      if (candidate1Index == EMPTY && isSurvivedMenu[i]) {
         candidate1Index = i;
         continue;
       }
 
-      if (candidate2Index == EMPTY && !isValidMenu[i]) {
+      if (candidate2Index == EMPTY && !isSurvivedMenu[i]) {
         continue;
       }
 
-      if (candidate2Index == EMPTY && isValidMenu[i]) {
+      if (candidate2Index == EMPTY && isSurvivedMenu[i]) {
         candidate2Index = i;
 
         compete(candidate1Index, candidate2Index);
@@ -87,8 +87,8 @@ public class LunchMenuWorldCup {
       choice = scanner.nextInt();
 
       switch (choice) {
-        case 1 -> isValidMenu[candidate2Index] = false;
-        case 2 -> isValidMenu[candidate1Index] = false;
+        case 1 -> isSurvivedMenu[candidate2Index] = false;
+        case 2 -> isSurvivedMenu[candidate1Index] = false;
         default -> System.out.print("다시 입력해주세요.\n\n");
       }
 
@@ -97,8 +97,8 @@ public class LunchMenuWorldCup {
   }
 
   public void declareSelectedMenu() {
-    for (int i = 0; i < isValidMenu.length; i += 1) {
-      if (isValidMenu[i]) {
+    for (int i = 0; i < MENUS.length; i += 1) {
+      if (isSurvivedMenu[i]) {
         finallySelectedMenu = MENUS[i];
       }
     }
