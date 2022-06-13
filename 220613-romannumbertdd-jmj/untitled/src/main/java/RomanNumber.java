@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class RomanNumber {
   private String inputNumber;
+  private final String romanNumberTable = "IVXLCDM";
+  private int[] arabicNumberTable;
 
   public static void main(String[] args) {
     RomanNumber application = new RomanNumber();
@@ -15,7 +17,7 @@ public class RomanNumber {
   public void run() {
     // 준비
     Scanner scanner = new Scanner(System.in);
-    String romanNumberTable = "IVXLCDM";
+    arabicNumberTable = new int[]{1, 5, 10, 50, 100, 500, 1000};
 
     // 입력
     System.out.print("로마 숫자: ");
@@ -34,6 +36,30 @@ public class RomanNumber {
       return 1;
     }
 
-    return 5;
+    if (inputNumber.equals("V")) {
+      return 5;
+    }
+
+    if (inputNumber.equals("X")) {
+      return 10;
+    }
+
+    if (inputNumber.equals("L")) {
+      return 50;
+    }
+
+    if (inputNumber.equals("C")) {
+      return 100;
+    }
+
+    if (inputNumber.equals("D")) {
+      return 500;
+    }
+
+    if (inputNumber.equals("M")) {
+      return 1000;
+    }
+
+    return 0;
   }
 }
