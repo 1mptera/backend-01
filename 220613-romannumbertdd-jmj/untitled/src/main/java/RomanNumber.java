@@ -17,26 +17,34 @@ public class RomanNumber {
   public void run() {
     // 준비
     Scanner scanner = new Scanner(System.in);
-    arabicNumberTable = new int[]{1, 5, 10, 50, 100, 500, 1000};
 
     // 입력
     System.out.print("로마 숫자: ");
     inputNumber = scanner.next();
 
     // 처리
-    int arabicNumber = 0;
     process(inputNumber);
 
     // 출력
-    System.out.println("아라비아 숫자: " + arabicNumber);
+    System.out.println("아라비아 숫자: " + process(inputNumber));
   }
 
   public int process(String inputNumber) {
-    int value = 0;
+    this.inputNumber = inputNumber;
     int arabicNumber = 0;
+    boolean isLessThan = false;
 
     for (int i = 0; i < inputNumber.length(); i += 1) {
       char symbol = inputNumber.charAt(i);
+
+      if (i + 1 < inputNumber.length()) {
+        char nextSymbol = inputNumber.charAt(i + 1);
+        int index1 = romanNumberTable.indexOf(symbol);
+        int index2 = romanNumberTable.indexOf(nextSymbol);
+        isLessThan = index1 < index2;
+      }
+
+      int value = 0;
 
       if (symbol == 'I') {
         value = 1;
@@ -64,6 +72,10 @@ public class RomanNumber {
 
       if (symbol == 'M') {
         value = 1000;
+      }
+
+      if (isLessThan) {
+        value *= -1;
       }
 
       arabicNumber += value;
