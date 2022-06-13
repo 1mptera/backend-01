@@ -25,41 +25,50 @@ public class RomanNumber {
 
     // 처리
     int arabicNumber = 0;
-
+    process(inputNumber);
 
     // 출력
     System.out.println("아라비아 숫자: " + arabicNumber);
   }
 
   public int process(String inputNumber) {
-    if (inputNumber.equals("I")) {
-      return 1;
+    int value = 0;
+    int arabicNumber = 0;
+
+    for (int i = 0; i < inputNumber.length(); i += 1) {
+      char symbol = inputNumber.charAt(i);
+
+      if (symbol == 'I') {
+        value = 1;
+      }
+
+      if (symbol == 'V') {
+        value = 5;
+      }
+
+      if (symbol == 'X') {
+        value = 10;
+      }
+
+      if (symbol == 'L') {
+        value = 50;
+      }
+
+      if (symbol == 'C') {
+        value = 100;
+      }
+
+      if (symbol == 'D') {
+        value = 500;
+      }
+
+      if (symbol == 'M') {
+        value = 1000;
+      }
+
+      arabicNumber += value;
     }
 
-    if (inputNumber.equals("V")) {
-      return 5;
-    }
-
-    if (inputNumber.equals("X")) {
-      return 10;
-    }
-
-    if (inputNumber.equals("L")) {
-      return 50;
-    }
-
-    if (inputNumber.equals("C")) {
-      return 100;
-    }
-
-    if (inputNumber.equals("D")) {
-      return 500;
-    }
-
-    if (inputNumber.equals("M")) {
-      return 1000;
-    }
-
-    return 0;
+    return arabicNumber;
   }
 }

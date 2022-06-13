@@ -12,4 +12,11 @@ class RomanNumberTest {
     assertEquals(5, romanNumber.process("V"));
     assertEquals(100, romanNumber.process("C"));
   }
+  @Test
+  void inputTwoNumber() {
+    RomanNumber romanNumber = new RomanNumber();
+    assertEquals(2, romanNumber.process("II"));
+    assertEquals(6, romanNumber.process("VI"));
+    assertEquals(60, romanNumber.process("LX"));
+  }
 }
