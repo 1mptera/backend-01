@@ -9,6 +9,6 @@ class RomaNumberTest {
 
     assertEquals(1, romaNumber.process("I"));
     assertEquals(50, romaNumber.process("L"));
-  }
 
+  }
 }

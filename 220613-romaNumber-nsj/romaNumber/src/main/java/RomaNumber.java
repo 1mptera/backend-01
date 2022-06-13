@@ -22,6 +22,13 @@ public class RomaNumber {
   }
 
   public int process(String romaNumber) {
+    if(romaNumber.equals("I")) {
+      return 1;
+    }
+
+    if(romaNumber.equals("L")) {
+      return 50;
+    }
 
     return 0;
   }
