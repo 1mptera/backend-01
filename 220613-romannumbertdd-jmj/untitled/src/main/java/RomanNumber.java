@@ -5,6 +5,8 @@
 import java.util.Scanner;
 
 public class RomanNumber {
+  private String inputNumber;
+
   public static void main(String[] args) {
     RomanNumber application = new RomanNumber();
     application.run();
@@ -17,12 +19,18 @@ public class RomanNumber {
 
     // 입력
     System.out.print("로마 숫자: ");
-    String inputNumber = scanner.next();
+    inputNumber = scanner.next();
 
     // 처리
     int arabicNumber = 0;
 
+
     // 출력
     System.out.println("아라비아 숫자: " + arabicNumber);
+  }
+
+  public int process(String inputNumber) {
+    this.inputNumber = inputNumber;
+    return 1;
   }
 }
