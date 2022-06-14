@@ -29,8 +29,14 @@ class HexaDecimalTest {
     HexaDecimal hexaDecimal = new HexaDecimal();
 
     assertEquals("10", hexaDecimal.computeHexa(16));
+    assertEquals("11", hexaDecimal.computeHexa(17));
   }
 
+  @Test
+  void testOver100() {
+    HexaDecimal hexaDecimal = new HexaDecimal();
 
-
+    assertEquals("80", hexaDecimal.computeHexa(128));
+    assertEquals("396", hexaDecimal.computeHexa(918));
+  }
 }

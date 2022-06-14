@@ -24,8 +24,13 @@ public class HexaDecimal {
 
     String hexaDecimalArray = "0123456789ABCDEF";
 
-    return "" + hexaDecimalArray.charAt(number);
+    int remainder = number % 16;
+    int quotient = number / 16;
+    if (number > 15) {
+      return "" + quotient + hexaDecimalArray.charAt(remainder);
+    }
+    return "" + hexaDecimalArray.charAt(remainder);
   }
-
 }
+
 
