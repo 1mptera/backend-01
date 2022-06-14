@@ -13,29 +13,27 @@ public class Hexadecimal {
   }
 
   public void run() {
-    // 준비
+    int decimalNumber = inputDecimalNumber();
+
+    String hexadecimalNumber = compute(decimalNumber);
+
+    displayHexadecimal(hexadecimalNumber);
+  }
+
+  public int inputDecimalNumber() {
     Scanner scanner = new Scanner(System.in);
 
-    // 입력
     System.out.print("십진수를 입력해주세요 : ");
     int decimalNumber = scanner.nextInt();
 
-    // 처리
-    String hexadecimalNumber = compute(decimalNumber);
-
-    // 출력
-    System.out.print("16 진수 : " + hexadecimalNumber);
+    return decimalNumber;
   }
 
   public String compute(int decimalNumber) {
     String hexadecimal = "0123456789ABCDEF";
     String hexadecimalResult = "";
 
-    if (decimalNumber == 0) {
-      hexadecimalResult = "0";
-    }
-
-    if (decimalNumber < 15) {
+    if (decimalNumber <= 15) {
       hexadecimalResult = String.valueOf(hexadecimal.charAt(decimalNumber));
     }
 
@@ -50,6 +48,10 @@ public class Hexadecimal {
     }
 
     return hexadecimalResult;
+  }
+
+  public void displayHexadecimal(String hexadecimalNumber) {
+    System.out.print("16 진수 : " + hexadecimalNumber);
   }
 }
 
