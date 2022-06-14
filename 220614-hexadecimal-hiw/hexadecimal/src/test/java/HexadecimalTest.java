@@ -23,4 +23,15 @@ class HexadecimalTest {
     String hexadecimal2 = testApplication.process(10);
     assertEquals("A", hexadecimal2);
   }
+
+  @Test
+  void processTestMoreThanTwoDigits() {
+    Hexadecimal testApplication = new Hexadecimal();
+
+    String hexadecimal1 = testApplication.process(128);
+    assertEquals("80", hexadecimal1);
+
+    String hexadecimal2 = testApplication.process(918);
+    assertEquals("396", hexadecimal2);
+  }
 }

@@ -23,15 +23,33 @@ public class Hexadecimal {
   }
 
   public String process(int decimal) {
-    return switch (decimal) {
-      case 10 -> "A";
-      case 11 -> "B";
-      case 12 -> "C";
-      case 13 -> "D";
-      case 14 -> "E";
-      case 15 -> "F";
-      default -> Integer.toString(decimal);
-    };
+    String hexadecimal = "";
+
+    int quotient = decimal;
+
+    if (quotient == 0) {
+      hexadecimal = "0";
+    }
+
+    while (quotient > 0) {
+      int remainder = quotient % 16;
+
+      String transferredDigit = switch (remainder) {
+        case 10 -> "A";
+        case 11 -> "B";
+        case 12 -> "C";
+        case 13 -> "D";
+        case 14 -> "E";
+        case 15 -> "F";
+        default -> Integer.toString(remainder);
+      };
+
+      hexadecimal = transferredDigit + hexadecimal;
+
+      quotient /= 16;
+    }
+
+    return hexadecimal;
   }
 
   public void print(String hexadecimal) {
