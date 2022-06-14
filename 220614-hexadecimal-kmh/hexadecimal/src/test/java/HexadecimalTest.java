@@ -22,31 +22,7 @@ class HexadecimalTest {
     String[] hexadecimalCharArrayOver9 = new String[] {"A","B","C","D","E","F"};
 
     String hexadecimalChar = "";
-/*
-    if(hexadecimalNumber2 == 10) {
-      hexadecimalChar = hexadecimalCharArrayOver9[0];
 
-    }
-    if(hexadecimalNumber2 == 11) {
-      hexadecimalChar = hexadecimalCharArrayOver9[1];
-
-    }
-    if(hexadecimalNumber2 == 12) {
-      hexadecimalChar = hexadecimalCharArrayOver9[2];
-
-    }
-    if(hexadecimalNumber2 == 13) {
-      hexadecimalChar = hexadecimalCharArrayOver9[3];
-
-    }
-    if(hexadecimalNumber2 == 14) {
-      hexadecimalChar = hexadecimalCharArrayOver9[4];
-
-    }
-    if(hexadecimalNumber2 == 15) {
-      hexadecimalChar = hexadecimalCharArrayOver9[5];
-
-    }*/
     for(int i = 10; i < 16; i +=1){
       if(hexadecimalNumber2 == i) {
         hexadecimalChar = hexadecimalCharArrayOver9[i-10];
@@ -54,6 +30,56 @@ class HexadecimalTest {
     }
     assertEquals("C",hexadecimalChar);
 
+  }
+
+  @Test
+  void example3() {
+    //이그잼플2와 비슷하므로 그대로 복사해서 가져오기
+    int hexadecimalNumber3 = 10 % 16;
+
+    String[] hexadecimalCharArrayOver9 = new String[] {"A","B","C","D","E","F"};
+
+    String hexadecimalChar = "";
+
+    for(int i = 10; i < 16; i +=1){
+      if(hexadecimalNumber3 == i) {
+        hexadecimalChar = hexadecimalCharArrayOver9[i-10];
+      }
+    }
+    assertEquals("A",hexadecimalChar);
+
+  }
+
+  @Test
+  void example4() {
+    int decimalNumber = 128;
+    int divider = 16;
+    int hexadecimalNumber4 = 80;
+    //128 의 첫 몫 8 나머지 0 그 다음 몫 0 나머지 0
+    int quotient1 = decimalNumber / divider;
+    int quotient2 = quotient1 % divider;
+    int remainder1 = decimalNumber % divider;
+    int remainder2 = quotient2 % divider;
+
+    String result = Integer.toString(remainder2) + Integer.toString(remainder1);
+
+
+    assertEquals("80",result);
+  }
+
+  @Test
+  void example5() {
+    int decimalNumber = 918;
+    int divider = 16;
+    int hexadecimalNumber4 = 396;
+    //918
+    int quotient1 = decimalNumber / divider;
+    int quotient2 = quotient1 / divider;
+
+    String result = Integer.toString(quotient1) + Integer.toString(quotient2);
+
+
+    assertEquals("80",result);
   }
 
 }
