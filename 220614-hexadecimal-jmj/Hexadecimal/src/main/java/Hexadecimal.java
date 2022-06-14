@@ -21,4 +21,8 @@ public class Hexadecimal {
     // 출력
     System.out.println("16진수: " + hexadecimal);
   }
+
+  public String compute(int inputNumber) {
+    return "0";
+  }
 }
