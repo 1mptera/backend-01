@@ -11,12 +11,12 @@ public class HexaDecimal {
 
   public void run() {
     Scanner scanner = new Scanner(System.in);
-
+    //입력
     System.out.print("십진수를 입력해주세요");
     int number = scanner.nextInt();
-
+    //처리
     computeHexa(number);
-
+    //출력
     System.out.print(computeHexa(number));
   }
 

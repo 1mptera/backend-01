@@ -16,7 +16,7 @@ class HexaDecimalTest {
   }
 
   @Test
-  void test10over() {
+  void testOver10() {
     HexaDecimal hexaDecimal = new HexaDecimal();
 
     assertEquals("A", hexaDecimal.computeHexa(10));
@@ -24,6 +24,12 @@ class HexaDecimalTest {
     assertEquals("F", hexaDecimal.computeHexa(15));
   }
 
+  @Test
+  void testOver15() {
+    HexaDecimal hexaDecimal = new HexaDecimal();
+
+    assertEquals("10", hexaDecimal.computeHexa(16));
+  }
 
 
 
