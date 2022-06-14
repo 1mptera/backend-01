@@ -23,13 +23,21 @@ public class HexaDecimal {
   public String computeHexa(int number) {
 
     String hexaDecimalArray = "0123456789ABCDEF";
+    String hexaDecimal = "";
+      if(number <= 15){
+        hexaDecimal = "" + hexaDecimalArray.charAt(number);
+      }
 
-    int remainder = number % 16;
-    int quotient = number / 16;
-    if (number > 15) {
-      return "" + quotient + hexaDecimalArray.charAt(remainder);
-    }
-    return "" + hexaDecimalArray.charAt(remainder);
+      if(number > 15) {
+        int quotient = number;
+
+        while (quotient > 0) {
+
+          hexaDecimal =   hexaDecimalArray.charAt(quotient % 16) + hexaDecimal;
+          quotient /= 16;
+        }
+      }
+    return hexaDecimal;
   }
 }
 
