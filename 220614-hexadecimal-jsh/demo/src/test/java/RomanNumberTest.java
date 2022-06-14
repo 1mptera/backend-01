@@ -18,5 +18,11 @@ class RomanNumberTest {
     assertEquals(60, romanNumber.convert("LX"));
     assertEquals(150, romanNumber.convert("CL"));
   }
+  @Test
+  void over3CharactersTest() {
+    RomanNumber romanNumber = new RomanNumber();
 
+    assertEquals(190, romanNumber.convert("CXC"));
+    assertEquals(1954, romanNumber.convert("MCMLIV"));
+  }
 }

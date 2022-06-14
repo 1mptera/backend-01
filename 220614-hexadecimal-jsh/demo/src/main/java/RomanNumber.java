@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class RomanNumber {
   private int arabiaNumber = 0;
   private int arabiaNumberSum = 0;
-  public void main(String[] args){
+
+  public void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 
     System.out.print("로마 숫자를 입력하세요");
@@ -14,7 +15,7 @@ public class RomanNumber {
 
     int arabiaNumber = convert(romanNumber);
 
-    System.out.print("아라비아 숫자" + arabiaNumber);
+    System.out.print("아라비아 숫자" + arabiaNumberSum);
 
   }
 
@@ -48,6 +49,11 @@ public class RomanNumber {
 
       arabiaNumberList.add(arabiaNumber);
       arabiaNumberSum += arabiaNumber;
+    }
+    for (int i = 0; i < arabiaNumberList.size() - 1; i += 1) {
+      if (arabiaNumberList.get(i) < arabiaNumberList.get(i + 1)) {
+        arabiaNumberSum -= arabiaNumberList.get(i) * 2;
+      }
     }
     return arabiaNumberSum;
   }
