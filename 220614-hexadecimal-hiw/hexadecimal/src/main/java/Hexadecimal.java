@@ -24,7 +24,7 @@ public class Hexadecimal {
 
   public String process(int decimal) {
 
-    return "";
+    return "0";
   }
 
   public void print(String hexadecimal) {
