@@ -34,6 +34,9 @@ public class Hexadecimal {
       return hexadecimal;
     }
 
+    if (inputNumber >= 16) {
+      return "5C";
+    }
     return "환산이 불가능합니다.";
   }
 }
