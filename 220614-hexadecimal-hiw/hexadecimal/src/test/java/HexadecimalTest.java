@@ -12,4 +12,15 @@ class HexadecimalTest {
 
     assertEquals("0", hexadecimal);
   }
+
+  @Test
+  void processTestOneHexadecimal() {
+    Hexadecimal testApplication = new Hexadecimal();
+
+    String hexadecimal1 = testApplication.process(12);
+    assertEquals("C", hexadecimal1);
+
+    String hexadecimal2 = testApplication.process(10);
+    assertEquals("A", hexadecimal2);
+  }
 }

@@ -23,8 +23,15 @@ public class Hexadecimal {
   }
 
   public String process(int decimal) {
-
-    return "0";
+    return switch (decimal) {
+      case 10 -> "A";
+      case 11 -> "B";
+      case 12 -> "C";
+      case 13 -> "D";
+      case 14 -> "E";
+      case 15 -> "F";
+      default -> Integer.toString(decimal);
+    };
   }
 
   public void print(String hexadecimal) {
