@@ -28,7 +28,18 @@ public class Hexadecimal {
   }
 
   public String compute(int decimalNumber) {
-    return null;
+    String hexadecimal = "0123456789ABCDEF";
+    String hexadecimalResult = "";
+
+    if(decimalNumber < 10) {
+      hexadecimalResult += hexadecimal.charAt(decimalNumber);
+    }
+
+    if(decimalNumber > 9) {
+      hexadecimalResult += hexadecimal.charAt(decimalNumber);
+    }
+
+    return hexadecimalResult;
   }
 }
 
