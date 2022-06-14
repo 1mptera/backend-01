@@ -1,4 +1,9 @@
 /* header */
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     overflow-x: hidden;
     flex-wrap: nowrap;
@@ -69,8 +74,6 @@ li {
     right: 0;
 }
 
-
-
 #movie_content .add_neighbors_button {
     height: 49px;
     min-width: 135px;
@@ -100,26 +103,72 @@ li {
 .movie_text_box p:nth-child(2) {
     font-size: 58px;
     font-weight: 800;
+    margin-top: 30px;
 }
 
 .movie_text_box p:nth-child(3) {
-
     font-size: 18px;
+    font-weight: 800;
+    margin-top: 60px;
 }
 
 .movie_text_box button {
     margin-top: 30px;
     font-size: 16px;
+    margin-top: 50px;
+}
+
+/* timeline */
+
+.timeline {
+    background-color: #f2f2f2;
+    width: 100%;
+}
+
+.timeline_title {
+    margin: 0 400px;
+    padding: 25px 0;
+    font-size: 20px;
 }
 
 .timeline_content_box {
     display: flex;
     flex-direction: row;
+    margin: 0 400px;
 }
 
-.timeline_content_title {}
+.timeline_content_title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.timeline_content_date {
+    font-size: 13px;
+    color: #999;
+
+}
+
+.timeline_content_link {
+    margin-right: 16px;
+}
 
 #main_content {
     position: relative;
-    margin: 0 400px;
+}
+
+/* interview */
+
+.interview {
+    margin: 50px 400px;
+}
+
+.interview_title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* qna_content */
+
+.qna_content {
+    position: relative;
 }
