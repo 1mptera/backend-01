@@ -34,4 +34,16 @@ class HexadecimalTest {
     String hexadecimal2 = testApplication.process(918);
     assertEquals("396", hexadecimal2);
   }
+
+  @Test
+  void processTestAllTestCases() {
+    Hexadecimal testApplication = new Hexadecimal();
+
+    int[] testCases = new int[]{1028, 4893, 19284, 183748};
+    String[] answers = new String[]{"404", "131D", "4B54", "2CDC4"};
+
+    for (int i = 0; i < testCases.length; i += 1) {
+      assertEquals(answers[i], testApplication.process(testCases[i]));
+    }
+  }
 }
