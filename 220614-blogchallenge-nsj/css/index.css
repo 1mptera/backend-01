@@ -1,0 +1,65 @@
+/* header */
+
+#menu_bar {
+    display: block;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+
+}
+
+.menu_logo {
+    float: left;
+}
+
+.menu_list {
+    display: inline-block;
+}
+
+.menu_box {
+    float: right;
+}
+
+.menu_list li {
+    float: left;
+    padding-left: 20px;
+}
+
+#movie_content {
+    padding-top: 80px;
+}
+
+#movie_content .add_neighbors_button {
+    height: 39px;
+    min-width: 126px;
+    border: 1px solid #EB4C9F;
+    border-radius: 6px;
+    background-color: #EB4C9F;
+    color: white;
+}
+
+#movie_content .move_blog_button {
+    height: 39px;
+    min-width: 126px;
+    border: 1px solid whitesmoke;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    color: #EB4C9F;
+}
+
+.timeline_content_box {
+    display: flex;
+    flex-direction: row;
+}
