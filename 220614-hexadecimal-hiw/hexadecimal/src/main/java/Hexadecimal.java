@@ -23,28 +23,20 @@ public class Hexadecimal {
   }
 
   public String process(int decimal) {
-    String hexadecimal = "";
+    final String HEXADECIMAL_INDEX = "0123456789ABCDEF";
 
     int quotient = decimal;
 
     if (quotient == 0) {
-      hexadecimal = "0";
+      return "0";
     }
+
+    String hexadecimal = "";
 
     while (quotient > 0) {
       int remainder = quotient % 16;
 
-      String transferredDigit = switch (remainder) {
-        case 10 -> "A";
-        case 11 -> "B";
-        case 12 -> "C";
-        case 13 -> "D";
-        case 14 -> "E";
-        case 15 -> "F";
-        default -> Integer.toString(remainder);
-      };
-
-      hexadecimal = transferredDigit + hexadecimal;
+      hexadecimal = HEXADECIMAL_INDEX.charAt(remainder) + hexadecimal;
 
       quotient /= 16;
     }
