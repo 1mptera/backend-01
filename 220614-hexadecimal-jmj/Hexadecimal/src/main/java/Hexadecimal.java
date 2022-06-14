@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Hexadecimal {
   private String hexadecimal = "";
-  private String tempHexadecimal = "";
 
   public static void main(String[] args) {
     Hexadecimal application = new Hexadecimal();
@@ -26,6 +25,8 @@ public class Hexadecimal {
 
   public String compute(int inputNumber) {
     String symbolTable = "0123456789ABCDEF";
+    hexadecimal = "";
+    String tempHexadecimal = "";
 
     if (inputNumber < 16) {
       return String.valueOf(symbolTable.charAt(inputNumber));
