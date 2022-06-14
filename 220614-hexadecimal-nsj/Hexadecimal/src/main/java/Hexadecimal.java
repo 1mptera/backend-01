@@ -31,12 +31,22 @@ public class Hexadecimal {
     String hexadecimal = "0123456789ABCDEF";
     String hexadecimalResult = "";
 
-    if(decimalNumber < 10) {
-      hexadecimalResult += hexadecimal.charAt(decimalNumber);
+    if(decimalNumber == 0) {
+      hexadecimalResult = "0";
     }
 
-    if(decimalNumber > 9) {
-      hexadecimalResult += hexadecimal.charAt(decimalNumber);
+    if(decimalNumber < 15) {
+      hexadecimalResult = String.valueOf(hexadecimal.charAt(decimalNumber));
+    }
+
+    if(decimalNumber > 15) {
+      int quotient = decimalNumber;
+
+      while (quotient > 0) {
+        hexadecimalResult = hexadecimalResult + hexadecimal.charAt(quotient / 16) ;
+
+        quotient /= 16;
+      }
     }
 
     return hexadecimalResult;

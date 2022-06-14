@@ -12,7 +12,8 @@ class HexadecimalTest {
     assertEquals("0", hexadecimal.compute(0));
     assertEquals("C", hexadecimal.compute(12));
     assertEquals("A", hexadecimal.compute(10));
+    assertEquals("80", hexadecimal.compute(128));
 
   }
-
 }
+
