@@ -23,6 +23,6 @@ public class Hexadecimal {
   }
 
   public String compute(int inputNumber) {
-    return "0";
+    return Integer.toString(inputNumber);
   }
 }
