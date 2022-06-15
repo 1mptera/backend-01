@@ -16,4 +16,12 @@ class RomanNumberTest {
     assertEquals(5, romanNumber.compute("V"));
     assertEquals(10, romanNumber.compute("X"));
   }
+
+  @Test
+  void doubleDigitNumber() {
+    RomanNumber romanNumber = new RomanNumber();
+    assertEquals(2, romanNumber.compute("II"));
+    assertEquals(6, romanNumber.compute("VI"));
+    assertEquals(60, romanNumber.compute("LX"));
+  }
 }
