@@ -6,6 +6,6 @@ class RomanNumberTest {
   @Test
   void workingTest() {
     RomanNumber romanNumber = new RomanNumber();
-    assertEquals(0, 0);
+    assertEquals(0,romanNumber.compute("0"));
   }
 }
