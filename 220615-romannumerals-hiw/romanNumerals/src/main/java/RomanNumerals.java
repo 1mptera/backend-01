@@ -25,26 +25,11 @@ public class RomanNumerals {
   public int process(String romanNumerals) {
     int arabicNumerals = 0;
 
-    char firstRomanNumerals = romanNumerals.charAt(0);
-    char secondRomanNumerals = ' ';
+    for (int i = 0; i < romanNumerals.length(); i += 1) {
+      char precedingRomanNumerals = romanNumerals.charAt(i);
+      char followingRomanNumerals = ' ';
 
-    int firstArabicNumerals = switch (firstRomanNumerals) {
-      case 'I' -> 1;
-      case 'V' -> 5;
-      case 'X' -> 10;
-      case 'L' -> 50;
-      case 'C' -> 100;
-      case 'D' -> 500;
-      case 'M' -> 1000;
-      default -> 0;
-    };
-
-    int secondArabicNumerals = 0;
-
-    if (romanNumerals.length() >= 2) {
-      secondRomanNumerals = romanNumerals.charAt(1);
-
-      secondArabicNumerals = switch (secondRomanNumerals) {
+      int precedingArabicNumerals = switch (precedingRomanNumerals) {
         case 'I' -> 1;
         case 'V' -> 5;
         case 'X' -> 10;
@@ -54,16 +39,31 @@ public class RomanNumerals {
         case 'M' -> 1000;
         default -> 0;
       };
-    }
 
-    if (firstArabicNumerals < secondArabicNumerals) {
-      arabicNumerals -= firstArabicNumerals;
-    }
-    if (firstArabicNumerals >= secondArabicNumerals) {
-      arabicNumerals += firstArabicNumerals;
-    }
+      int followingArabicNumerals = 0;
 
-    arabicNumerals += secondArabicNumerals;
+      if (i < romanNumerals.length() - 1) {
+        followingRomanNumerals = romanNumerals.charAt(i + 1);
+
+        followingArabicNumerals = switch (followingRomanNumerals) {
+          case 'I' -> 1;
+          case 'V' -> 5;
+          case 'X' -> 10;
+          case 'L' -> 50;
+          case 'C' -> 100;
+          case 'D' -> 500;
+          case 'M' -> 1000;
+          default -> 0;
+        };
+      }
+
+      if (precedingArabicNumerals < followingArabicNumerals) {
+        arabicNumerals -= precedingArabicNumerals;
+      }
+      if (precedingArabicNumerals >= followingArabicNumerals) {
+        arabicNumerals += precedingArabicNumerals;
+      }
+    }
 
     return arabicNumerals;
   }

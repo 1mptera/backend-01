@@ -39,4 +39,14 @@ class RomanNumeralsTest {
     assertEquals(495, testApplication.process("VD"));
     assertEquals(900, testApplication.process("CM"));
   }
+
+  @Test
+  void convertMoreThanThreeDigitsEqualOrGreater() {
+    RomanNumerals testApplication = new RomanNumerals();
+
+    assertEquals(3, testApplication.process("III"));
+    assertEquals(7, testApplication.process("VII"));
+    assertEquals(266, testApplication.process("CCLXVI"));
+    assertEquals(1776, testApplication.process("MDCCLXXVI"));
+  }
 }
