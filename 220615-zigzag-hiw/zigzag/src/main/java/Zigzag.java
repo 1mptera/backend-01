@@ -42,8 +42,6 @@ public class Zigzag {
 
     while (charIndex < sentence.length()) {
       for (int i = 0; i < lists.size(); i += 1) {
-        //System.out.println("charIndex: " + charIndex);
-        //System.out.println(sentence.charAt(charIndex));
         lists.get(i).add(sentence.charAt(charIndex));
         charIndex += 1;
 
@@ -54,15 +52,12 @@ public class Zigzag {
 
       if (charIndex < sentence.length()) {
         for (int i = lists.size() - 2; i >= 1; i -= 1) {
-          //System.out.println("charIndex: " + charIndex);
 
           for (int j = 0; j < lists.size(); j += 1) {
             if (j == i) {
-              //System.out.println(sentence.charAt(charIndex));
               lists.get(j).add(sentence.charAt(charIndex));
             }
             if (j != i) {
-              //System.out.println("빈칸");
               lists.get(j).add(' ');
             }
           }

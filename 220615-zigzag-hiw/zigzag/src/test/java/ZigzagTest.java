@@ -19,7 +19,7 @@ class ZigzagTest {
   }
 
   @Test
-  void oneZigzaging() {
+  void zigzagingOnce() {
     Zigzag testApplication = new Zigzag();
 
     testApplication.setMembers("ABCDE", 3);
@@ -33,7 +33,7 @@ class ZigzagTest {
   }
 
   @Test
-  void twoZigzaging() {
+  void zigzagingTwice() {
     Zigzag testApplication = new Zigzag();
 
     testApplication.setMembers("HELLOMEGAPTERA", 6);
@@ -44,5 +44,19 @@ class ZigzagTest {
 
     testApplication.setMembers("ABCDEFGHIJKLMN", 4);
     assertEquals("AGMBFHLNCEIKDJ", testApplication.process());
+  }
+
+  @Test
+  void zigzagingMoreThanThreeTimes() {
+    Zigzag testApplication = new Zigzag();
+
+    testApplication.setMembers("HELLOMEGAPTERA", 3);
+    assertEquals("HOARELMGPEALET", testApplication.process());
+
+    testApplication.setMembers("HANWHAEAGLESVICTORY22SEASONS", 4);
+    assertEquals("HEVYSAAASIR2AONHGECO2ENWLTSS", testApplication.process());
+
+    testApplication.setMembers("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 6);
+    assertEquals("AKUBJLTVCIMSWDHNRXEGOQYFPZ", testApplication.process());
   }
 }
