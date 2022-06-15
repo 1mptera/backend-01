@@ -49,4 +49,13 @@ class RomanNumeralsTest {
     assertEquals(266, testApplication.process("CCLXVI"));
     assertEquals(1776, testApplication.process("MDCCLXXVI"));
   }
+
+  @Test
+  void convertMoreThanThreeDigitsLess() {
+    RomanNumerals testApplication = new RomanNumerals();
+
+    assertEquals(39, testApplication.process("XXXIX"));
+    assertEquals(246, testApplication.process("CCXLVI"));
+    assertEquals(1954, testApplication.process("MCMLIV"));
+  }
 }
