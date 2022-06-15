@@ -21,8 +21,20 @@ public class RomaNumber {
     System.out.print("아라비아 숫자 : " + arabiaNumber);
   }
 
-  private int process(String romaNumber) {
-    return 0;
+  public int process(String romaNumber) {
+    int eachArabiaNumber = 0;
+
+    return switch (romaNumber) {
+      case "I" -> eachArabiaNumber = 1;
+      case "V" -> eachArabiaNumber = 5;
+      case "X" -> eachArabiaNumber = 10;
+      case "L" -> eachArabiaNumber = 50;
+      case "C" -> eachArabiaNumber = 100;
+      case "D" -> eachArabiaNumber = 500;
+      case "M" -> eachArabiaNumber = 1000;
+      default -> eachArabiaNumber = 0;
+    };
+
   }
 }
 
