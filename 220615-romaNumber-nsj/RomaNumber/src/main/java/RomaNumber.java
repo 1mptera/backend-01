@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class RomaNumber {
+  private int eachArabiaNumber = 0;
+
   public static void main(String[] args) {
     RomaNumber application = new RomaNumber();
     application.run();
@@ -22,8 +24,19 @@ public class RomaNumber {
   }
 
   public int process(String romaNumber) {
-    int eachArabiaNumber = 0;
+    int sumArabiaNumber = 0;
 
+    String[] romaNumberList = romaNumber.split("");
+
+    for (int i = 0; i < romaNumberList.length; i += 1) {
+      eachArabiaNumber = romaNumberConversion(romaNumberList[i]);
+
+    }
+    
+    return eachArabiaNumber;
+  }
+
+  public int romaNumberConversion(String romaNumber) {
     return switch (romaNumber) {
       case "I" -> eachArabiaNumber = 1;
       case "V" -> eachArabiaNumber = 5;
