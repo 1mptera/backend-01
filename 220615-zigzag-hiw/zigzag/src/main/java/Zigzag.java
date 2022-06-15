@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Zigzag {
   private String sentence = "";
   private int rows = 0;
+  private int charIndex = 0;
 
   public static void main(String[] args) {
     Zigzag application = new Zigzag();
@@ -30,6 +31,22 @@ public class Zigzag {
   }
 
   public String process() {
+    List<List<Character>> lists = makeLists();
+
+    charIndex = 0;
+
+    while (charIndex < sentence.length()) {
+      putWordUpToDown(lists);
+
+      if (charIndex < sentence.length()) {
+        putWordDiagonallyUpward(lists);
+      }
+    }
+
+    return resultSentence(lists);
+  }
+
+  public List<List<Character>> makeLists() {
     List<List<Character>> lists = new ArrayList<>();
 
     for (int i = 0; i < rows; i += 1) {
@@ -38,47 +55,45 @@ public class Zigzag {
       lists.add(list);
     }
 
-    int charIndex = 0;
+    return lists;
+  }
 
-    while (charIndex < sentence.length()) {
-      for (int i = 0; i < lists.size(); i += 1) {
-        lists.get(i).add(sentence.charAt(charIndex));
-        charIndex += 1;
+  public void putWordUpToDown(List<List<Character>> lists) {
+    for (List<Character> list : lists) {
+      list.add(sentence.charAt(charIndex));
+      charIndex += 1;
 
-        if (charIndex >= sentence.length()) {
-          break;
-        }
-      }
-
-      if (charIndex < sentence.length()) {
-        for (int i = lists.size() - 2; i >= 1; i -= 1) {
-
-          for (int j = 0; j < lists.size(); j += 1) {
-            if (j == i) {
-              lists.get(j).add(sentence.charAt(charIndex));
-            }
-            if (j != i) {
-              lists.get(j).add(' ');
-            }
-          }
-
-          charIndex += 1;
-
-          if (charIndex >= sentence.length()) {
-            break;
-          }
-        }
+      if (charIndex >= sentence.length()) {
+        break;
       }
     }
+  }
 
+  public void putWordDiagonallyUpward(List<List<Character>> lists) {
+    for (int i = lists.size() - 2; i >= 1; i -= 1) {
+
+      for (int j = 0; j < lists.size(); j += 1) {
+        if (j == i) {
+          lists.get(j).add(sentence.charAt(charIndex));
+        }
+        if (j != i) {
+          lists.get(j).add(' ');
+        }
+      }
+
+      charIndex += 1;
+
+      if (charIndex >= sentence.length()) {
+        break;
+      }
+    }
+  }
+
+  public String resultSentence(List<List<Character>> lists) {
     String result = "";
 
-    for (int i = 0; i < lists.size(); i += 1) {
-      List<Character> list = lists.get(i);
-
-      for (int j = 0; j < list.size(); j += 1) {
-        char word = list.get(j);
-
+    for (List<Character> list : lists) {
+      for (char word : list) {
         if (word != ' ') {
           result += word;
         }
@@ -92,7 +107,7 @@ public class Zigzag {
     System.out.println("지그재그 메세지: " + result);
   }
 
-  //for test
+  //just for testing
   public void setMembers(String sentence, int rows) {
     this.sentence = sentence;
     this.rows = rows;
