@@ -23,52 +23,48 @@ public class RomanNumerals {
   }
 
   public int process(String romanNumerals) {
-    int arabicNumerals = 0;
+    int arabic = 0;
 
     for (int i = 0; i < romanNumerals.length(); i += 1) {
-      char precedingRomanNumerals = romanNumerals.charAt(i);
-      char followingRomanNumerals = ' ';
+      char precedingRoman = romanNumerals.charAt(i);
+      int precedingArabic = romanToArabic(precedingRoman);
 
-      int precedingArabicNumerals = switch (precedingRomanNumerals) {
-        case 'I' -> 1;
-        case 'V' -> 5;
-        case 'X' -> 10;
-        case 'L' -> 50;
-        case 'C' -> 100;
-        case 'D' -> 500;
-        case 'M' -> 1000;
-        default -> 0;
-      };
-
-      int followingArabicNumerals = 0;
+      char followingRoman = ' ';
+      int followingArabic = 0;
 
       if (i < romanNumerals.length() - 1) {
-        followingRomanNumerals = romanNumerals.charAt(i + 1);
-
-        followingArabicNumerals = switch (followingRomanNumerals) {
-          case 'I' -> 1;
-          case 'V' -> 5;
-          case 'X' -> 10;
-          case 'L' -> 50;
-          case 'C' -> 100;
-          case 'D' -> 500;
-          case 'M' -> 1000;
-          default -> 0;
-        };
+        followingRoman = romanNumerals.charAt(i + 1);
+        followingArabic = romanToArabic(followingRoman);
       }
 
-      if (precedingArabicNumerals < followingArabicNumerals) {
-        arabicNumerals -= precedingArabicNumerals;
-      }
-      if (precedingArabicNumerals >= followingArabicNumerals) {
-        arabicNumerals += precedingArabicNumerals;
-      }
+      arabic += addition(precedingArabic, followingArabic);
     }
 
-    return arabicNumerals;
+    return arabic;
   }
 
-  public void print(int arabicNumerals) {
-    System.out.println("아라비아 숫자: " + arabicNumerals);
+  public int romanToArabic(char roman) {
+    return switch (roman) {
+      case 'I' -> 1;
+      case 'V' -> 5;
+      case 'X' -> 10;
+      case 'L' -> 50;
+      case 'C' -> 100;
+      case 'D' -> 500;
+      case 'M' -> 1000;
+      default -> 0;
+    };
+  }
+
+  public int addition(int precedingArabic, int followingArabic) {
+    if (precedingArabic < followingArabic) {
+      precedingArabic *= -1;
+    }
+
+    return precedingArabic;
+  }
+
+  public void print(int arabic) {
+    System.out.println("아라비아 숫자: " + arabic);
   }
 }
