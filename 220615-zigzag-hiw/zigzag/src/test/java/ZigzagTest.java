@@ -31,4 +31,18 @@ class ZigzagTest {
     testApplication.setMembers("HANWHAE", 4);
     assertEquals("HEAANHW", testApplication.process());
   }
+
+  @Test
+  void twoZigzaging() {
+    Zigzag testApplication = new Zigzag();
+
+    testApplication.setMembers("HELLOMEGAPTERA", 6);
+    assertEquals("HTEPELARLGAOEM", testApplication.process());
+
+    testApplication.setMembers("HANWHAEAGLES", 4);
+    assertEquals("HEAAASNHGEWL", testApplication.process());
+
+    testApplication.setMembers("ABCDEFGHIJKLMN", 4);
+    assertEquals("AGMBFHLNCEIKDJ", testApplication.process());
+  }
 }
