@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+/* menu_bar */
+
+#menu_bar {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 30px 40px;
+}
+
+#menu_bar .menu_logo {
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+}
+
+#menu_bar .menu_list {
+    display: inline-block;
+}
+
+#menu_bar .menu_list li {
+    float: left;
+    padding-left: 55px;
+}
+
+#menu_bar .menu_list_text {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+#menu_bar i {
+    float: right;
+}
+
+/* movie_play_box */
+#movie_play_box {
+    position: relative;
+}
+
+.movie_play {
+    position: relative;
+    height: 800px;
+    z-index: -1;
+}
+
+.movie_play .video {
+    object-fit: cover;
+    height: 800px;
+    width: 100%;
+}
+
+.movie_play_inner {
+    position: absolute;
+    transform: translate(50%, -150%);
+}
+
+.movie_play_inner h1 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.movie_play_inner p:nth-child(2) {
+    font-size: 58px;
+    font-weight: bold;
+    color: white;
+}
+
+.movie_play_inner p:nth-child(3) {
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    margin-top: 35px;
+}
+
+.movie_play_inner button {
+    margin-top: 70px;
+
+}
+
+.movie_play_inner .add_neighbors-button {
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #eb4c9f;
+    background-color: #eb4c9f;
+    border-radius: 6px;
+    width: 135px;
+    height: 49px;
+    color: white;
+}
+
+.movie_play_inner .move_blog_button {
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 6px;
+    width: 135px;
+    height: 49px;
+    color: #eb4c9f;
+}
