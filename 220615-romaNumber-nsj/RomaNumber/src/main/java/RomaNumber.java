@@ -1,3 +1,9 @@
+// 수련의도
+// if문 대신 switch문을 이용하기
+// for문 대신 while문 이용하기
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RomaNumber {
@@ -9,31 +15,49 @@ public class RomaNumber {
   }
 
   public void run() {
-    // 준비
-    Scanner scanner = new Scanner(System.in);
+    String romaNumber = inputRomaNumber();
 
-    // 입력
-    System.out.print("로마 숫자 : ");
-    String romaNumber = scanner.nextLine();
-
-    // 처리
     int arabiaNumber = process(romaNumber);
 
-    // 출력
-    System.out.print("아라비아 숫자 : " + arabiaNumber);
+    displayArabiaNumber(arabiaNumber);
+  }
+
+  public String inputRomaNumber() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("로마 숫자 : ");
+    String romaNumber = scanner.nextLine();
+    return romaNumber;
   }
 
   public int process(String romaNumber) {
     int sumArabiaNumber = 0;
 
     String[] romaNumberList = romaNumber.split("");
+    List<Integer> arabiaNuberList = new ArrayList<>();
 
-    for (int i = 0; i < romaNumberList.length; i += 1) {
-      eachArabiaNumber = romaNumberConversion(romaNumberList[i]);
+    int count = 0;
 
+    while (count != romaNumberList.length) {
+      eachArabiaNumber = romaNumberConversion(romaNumberList[count]);
+
+      sumArabiaNumber += eachArabiaNumber;
+      arabiaNuberList.add(eachArabiaNumber);
+
+      count += 1;
     }
-    
-    return eachArabiaNumber;
+
+    count = 0;
+
+    while (count != arabiaNuberList.size() - 1) {
+      if (arabiaNuberList.get(count) < arabiaNuberList.get(count + 1)) {
+        sumArabiaNumber -= arabiaNuberList.get(count) * 2;
+      }
+
+      count += 1;
+    }
+
+    return sumArabiaNumber;
   }
 
   public int romaNumberConversion(String romaNumber) {
@@ -48,6 +72,10 @@ public class RomaNumber {
       default -> eachArabiaNumber = 0;
     };
 
+  }
+
+  public void displayArabiaNumber(int arabiaNumber) {
+    System.out.print("아라비아 숫자 : " + arabiaNumber);
   }
 }
 
