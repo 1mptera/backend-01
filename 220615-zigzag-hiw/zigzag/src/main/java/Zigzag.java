@@ -38,8 +38,40 @@ public class Zigzag {
       lists.add(list);
     }
 
-    for (int i = 0; i < sentence.length(); i += 1) {
-      lists.get(i).add(sentence.charAt(i));
+    int charIndex = 0;
+
+    for (int i = 0; i < lists.size(); i += 1) {
+      //System.out.println("charIndex: " + charIndex);
+      //System.out.println(sentence.charAt(charIndex));
+      lists.get(i).add(sentence.charAt(charIndex));
+      charIndex += 1;
+
+      if (charIndex >= sentence.length()) {
+        break;
+      }
+    }
+
+    if (charIndex < sentence.length()) {
+      for (int i = lists.size() - 2; i >= 0; i -= 1) {
+        //System.out.println("charIndex: " + charIndex);
+
+        for (int j = 0; j < lists.size(); j += 1) {
+          if (j == i) {
+            //System.out.println(sentence.charAt(charIndex));
+            lists.get(j).add(sentence.charAt(charIndex));
+          }
+          if (j != i) {
+            //System.out.println("빈칸");
+            lists.get(j).add(' ');
+          }
+        }
+
+        charIndex += 1;
+
+        if (charIndex >= sentence.length()) {
+          break;
+        }
+      }
     }
 
     String result = "";
@@ -48,7 +80,11 @@ public class Zigzag {
       List<Character> list = lists.get(i);
 
       for (int j = 0; j < list.size(); j += 1) {
-        result += list.get(j);
+        char word = list.get(j);
+
+        if (word != ' ') {
+          result += word;
+        }
       }
     }
 
