@@ -9,18 +9,18 @@ public class RomanNumber {
   }
 
   public void run() {
-    // 준비
-    Scanner scanner = new Scanner(System.in);
+    String inputNumber = requestNumber();
 
-    // 입력
-    System.out.print("로마 숫자: ");
-    String inputNumber = scanner.next();
-
-    // 처리
     int arabicNumber = compute(inputNumber);
 
-    // 출력
-    System.out.print("아라비아 숫자: " + arabicNumber);
+    displayProcessedNumber(arabicNumber);
+  }
+
+  public String requestNumber() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("로마 숫자: ");
+    String inputNumber = scanner.next();
+    return inputNumber;
   }
 
   public int compute(String inputNumber) {
@@ -75,6 +75,10 @@ public class RomanNumber {
     }
 
     return amount;
+  }
+
+  public void displayProcessedNumber(int arabicNumber) {
+    System.out.print("아라비아 숫자: " + arabicNumber);
   }
 }
 
