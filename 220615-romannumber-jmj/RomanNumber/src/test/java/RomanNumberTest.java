@@ -24,4 +24,20 @@ class RomanNumberTest {
     assertEquals(6, romanNumber.compute("VI"));
     assertEquals(60, romanNumber.compute("LX"));
   }
+
+  @Test
+  void minusProcessedNumber() {
+    RomanNumber romanNumber = new RomanNumber();
+    assertEquals(4, romanNumber.compute("IV"));
+    assertEquals(190, romanNumber.compute("CXC"));
+    assertEquals(40, romanNumber.compute("XL"));
+  }
+
+  @Test
+  void exampleNumber() {
+    RomanNumber romanNumber = new RomanNumber();
+    assertEquals(246, romanNumber.compute("CCXLVI"));
+    assertEquals(1066, romanNumber.compute("MLXVI"));
+    assertEquals(1776, romanNumber.compute("MDCCLXXVI"));
+  }
 }
