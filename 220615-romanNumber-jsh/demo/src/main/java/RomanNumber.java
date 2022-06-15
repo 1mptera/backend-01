@@ -1,7 +1,12 @@
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class RomanNumber {
-  public static void main(String[] args){
+  private int arabiaNumber = 0;
+
+  public static void main(String[] args) {
     RomanNumber application = new RomanNumber();
     application.run();
   }
@@ -20,29 +25,40 @@ public class RomanNumber {
   }
 
   public int convert(String romanNumber) {
+    int arabiaNumberSum = 0;
+    String[] romanNumberList = romanNumber.split("");
 
-    if(romanNumber.equals("I")){
-      return 1;
-    }
-    if(romanNumber.equals("V")){
-      return 5;
-    }
-    if(romanNumber.equals("X")){
-      return 10;
-    }
-    if(romanNumber.equals("L")){
-      return 50;
-    }
-    if(romanNumber.equals("C")){
-      return 100;
-    }
-    if(romanNumber.equals("D")){
-      return 500;
-    }
-    if(romanNumber.equals("M")){
-      return 1000;
+    List<Integer> arabiaNumberList = new ArrayList<>();
+
+
+    for (int i = 0;i < romanNumberList.length; i+=1) {
+      if (romanNumberList[i].equals("I")) {
+        arabiaNumber = 1;
+      }
+      if (romanNumberList[i].equals("V")) {
+        arabiaNumber = 5;
+      }
+      if (romanNumberList[i].equals("X")) {
+        arabiaNumber = 10;
+      }
+      if (romanNumberList[i].equals("L")) {
+        arabiaNumber = 50;
+      }
+      if (romanNumberList[i].equals("C")) {
+        arabiaNumber = 100;
+      }
+      if (romanNumberList[i].equals("D")) {
+        arabiaNumber = 500;
+      }
+      if (romanNumberList[i].equals("M")) {
+        arabiaNumber = 1000;
+      }
+       arabiaNumberSum += arabiaNumber;
+      arabiaNumberList.add(arabiaNumber);
+
+
     }
 
-    return 1;
+    return arabiaNumberSum;
   }
 }
