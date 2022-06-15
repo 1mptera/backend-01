@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RomanNumeralsTest {
 
   @Test
-  void processConvertingOneDigit() {
+  void convertOneDigit() {
     RomanNumerals testApplication = new RomanNumerals();
 
     assertEquals(1, testApplication.process("I"));
@@ -15,5 +15,17 @@ class RomanNumeralsTest {
     assertEquals(100, testApplication.process("C"));
     assertEquals(500, testApplication.process("D"));
     assertEquals(1000, testApplication.process("M"));
+  }
+
+  @Test
+  void convertTwoDigitsEqualOrGreater() {
+    RomanNumerals testApplication = new RomanNumerals();
+
+    assertEquals(2, testApplication.process("II"));
+    assertEquals(6, testApplication.process("VI"));
+    assertEquals(15, testApplication.process("XV"));
+    assertEquals(20, testApplication.process("XX"));
+    assertEquals(505, testApplication.process("DV"));
+    assertEquals(1001, testApplication.process("MI"));
   }
 }
