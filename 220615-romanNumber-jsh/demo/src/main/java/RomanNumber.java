@@ -20,6 +20,29 @@ public class RomanNumber {
   }
 
   public int convert(String romanNumber) {
+
+    if(romanNumber.equals("I")){
+      return 1;
+    }
+    if(romanNumber.equals("V")){
+      return 5;
+    }
+    if(romanNumber.equals("X")){
+      return 10;
+    }
+    if(romanNumber.equals("L")){
+      return 50;
+    }
+    if(romanNumber.equals("C")){
+      return 100;
+    }
+    if(romanNumber.equals("D")){
+      return 500;
+    }
+    if(romanNumber.equals("M")){
+      return 1000;
+    }
+
     return 1;
   }
 }
