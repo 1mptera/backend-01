@@ -54,6 +54,7 @@ li {
 }
 
 /* movie_play_box */
+
 #movie_play_box {
     position: relative;
 }
@@ -273,4 +274,127 @@ li {
 .qna_text .posting_title {
     display: block;
     margin: 5px 30px 0px;
+}
+
+/* like_box */
+
+.like_box {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.like_box .like_count {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.like_box .like_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_people_v11.png);
+    background-size: 99px 99px;
+    background-position: -37px 0px;
+    width: 31px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+/* additional_content */
+
+.additional_content {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 70px 0 50px;
+}
+
+.event_box {
+    transform: translate(44%, 0%);
+    background-color: #00D29E;
+    width: 1083px;
+    height: 141px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.event_box p {
+    padding: 5px 25px;
+}
+
+.event_box p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFF389;
+    padding-top: 35px;
+}
+
+.event_box p:nth-child(2) {
+    display: inline;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.move_blog {
+    transform: translate(44%, 0%);
+    width: 1083px;
+    height: 141px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.move_blog p {
+    padding: 0px 25px;
+}
+
+.move_blog p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 900;
+    padding-top: 35px;
+}
+
+.move_blog p:nth-child(2) {
+    display: inline;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.move_blog button {
+    background-color: #ff39a2;
+    border: 1px solid #ff39a2;
+    color: white;
+    margin-left: 450px;
+    min-width: 167px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+/* other_interviews */
+
+.other_interviews {
+    transform: translate(25%, 0%);
+}
+
+.other_interviews h3 {
+    margin: 50px 0 30px;
+}
+
+.other_interviews div {
+    display: flex;
+    flex-direction: row;
+}
+
+.other_interviews .other_interviews_title {
+    font-weight: bold;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: block;
+}
+
+.other_interviews .other_interviews_bloger {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.other_interviews img {
+    width: 250px;
+    height: 250px;
 }
