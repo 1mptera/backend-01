@@ -26,8 +26,9 @@ public class RomanNumerals {
     int arabicNumerals = 0;
 
     char firstRomanNumerals = romanNumerals.charAt(0);
+    char secondRomanNumerals = ' ';
 
-    arabicNumerals += switch (firstRomanNumerals) {
+    int firstArabicNumerals = switch (firstRomanNumerals) {
       case 'I' -> 1;
       case 'V' -> 5;
       case 'X' -> 10;
@@ -38,10 +39,12 @@ public class RomanNumerals {
       default -> 0;
     };
 
-    if (romanNumerals.length() >= 2) {
-      char secondRomanNumerals = romanNumerals.charAt(1);
+    int secondArabicNumerals = 0;
 
-      arabicNumerals += switch (secondRomanNumerals) {
+    if (romanNumerals.length() >= 2) {
+      secondRomanNumerals = romanNumerals.charAt(1);
+
+      secondArabicNumerals = switch (secondRomanNumerals) {
         case 'I' -> 1;
         case 'V' -> 5;
         case 'X' -> 10;
@@ -52,6 +55,15 @@ public class RomanNumerals {
         default -> 0;
       };
     }
+
+    if (firstArabicNumerals < secondArabicNumerals) {
+      arabicNumerals -= firstArabicNumerals;
+    }
+    if (firstArabicNumerals >= secondArabicNumerals) {
+      arabicNumerals += firstArabicNumerals;
+    }
+
+    arabicNumerals += secondArabicNumerals;
 
     return arabicNumerals;
   }

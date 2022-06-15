@@ -28,4 +28,15 @@ class RomanNumeralsTest {
     assertEquals(505, testApplication.process("DV"));
     assertEquals(1001, testApplication.process("MI"));
   }
+
+  @Test
+  void convertTwoDigitsLess() {
+    RomanNumerals testApplication = new RomanNumerals();
+
+    assertEquals(4, testApplication.process("IV"));
+    assertEquals(9, testApplication.process("IX"));
+    assertEquals(40, testApplication.process("XL"));
+    assertEquals(495, testApplication.process("VD"));
+    assertEquals(900, testApplication.process("CM"));
+  }
 }
