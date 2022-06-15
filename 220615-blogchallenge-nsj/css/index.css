@@ -3,10 +3,8 @@
     padding: 0;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-
+.contanier {
+    overflow-x: hidden;
 }
 
 a {
@@ -122,3 +120,67 @@ li {
     height: 49px;
     color: #eb4c9f;
 }
+
+/* timeline */
+
+#main_content_box {
+    width: 100%;
+}
+
+.timeline {
+    background-color: #f2f2f2;
+}
+
+.timeline h2 {
+    transform: translate(20%, 0%);
+    padding-top: 40px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.timeline .timeline_content {
+    display: flex;
+    flex-direction: row;
+    transform: translate(20%, 0%);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.timeline_content .timeline_content_title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 7px;
+
+}
+
+.timeline_content .timeline_content_date {
+    font-size: 13px;
+    padding-top: 5px;
+    color: #999;
+}
+
+.timeline .timeline_content_link {
+    margin-right: 16px;
+}
+
+/* interview */
+
+.interview {
+    transform: translate(20%, 0%);
+}
+
+.interview .interview_title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* qna_content */
+
+.qna_content_box {
+    max-width: 900px;
+    transform: translate(42%, 0%);
+}
+
+.qna_content_text {}
