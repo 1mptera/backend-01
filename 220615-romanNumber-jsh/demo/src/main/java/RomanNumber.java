@@ -31,7 +31,7 @@ public class RomanNumber {
     List<Integer> arabiaNumberList = new ArrayList<>();
 
 
-    for (int i = 0;i < romanNumberList.length; i+=1) {
+    for (int i = 0; i < romanNumberList.length; i += 1) {
       if (romanNumberList[i].equals("I")) {
         arabiaNumber = 1;
       }
@@ -53,12 +53,15 @@ public class RomanNumber {
       if (romanNumberList[i].equals("M")) {
         arabiaNumber = 1000;
       }
-       arabiaNumberSum += arabiaNumber;
+      arabiaNumberSum += arabiaNumber;
       arabiaNumberList.add(arabiaNumber);
-
-
     }
-
+    for(int i = 0; i< arabiaNumberList.size() - 1; i+=1){
+      if(arabiaNumberList.get(i) < arabiaNumberList.get(i + 1)){
+        arabiaNumberSum -= arabiaNumberList.get(i + 1) * 2;
+      }
+    }
     return arabiaNumberSum;
   }
+
 }

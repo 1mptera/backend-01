@@ -28,4 +28,14 @@ class RomanNumberTest {
     assertEquals(1000, romanNumber.convert("DD"));
     assertEquals(2000, romanNumber.convert("MM"));
   }
+  @Test
+  void character3over() {
+    RomanNumber romanNumber = new RomanNumber();
+
+    assertEquals(207, romanNumber.convert("CCVII"));
+    assertEquals(553, romanNumber.convert("DLIII"));
+    assertEquals(1066, romanNumber.convert("MLXVI"));
+    assertEquals(1776, romanNumber.convert("MDCCLXXVI"));
+
+  }
 }
