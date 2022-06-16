@@ -1,17 +1,43 @@
 @media (max-width: 1920px) {
     .interview {
-        transform: translate(20%, 0%);
+        transform: translate(20vw, 0%);
     }
 }
 
 @media (max-width: 1440px) {
     .interview {
-        transform: translate(10%, 0%);
+        transform: translate(10vw, 0%);
     }
 }
 
 @media (max-width: 980px) {
     .interview {
-        transform: translate(5%, 0%);
+        transform: translate(5vw, 0%);
+    }
+}
+
+.interview_title {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1920px) {
+    .interview iframe {
+        width: 65vw;
+        height: 70vh;
+    }
+}
+
+@media (max-width: 1440px) {
+    .interview iframe {
+        width: 77vw;
+        height: 77vh;
+    }
+}
+
+@media (max-width: 980px) {
+    .interview iframe {
+        width: 80vw;
+        height: 50vh;
     }
 }

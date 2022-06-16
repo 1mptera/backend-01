@@ -1,0 +1,88 @@
+.advertise_box {
+    background: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/common/img_download_bg.jpg);
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.black_box {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 500px;
+    width: 100%;
+}
+
+@media (max-width: 1920px) {
+    .advertise p {
+        padding-left: 35vw;
+    }
+
+    .apple_button,
+    .google_button {
+        margin-top: 5vh;
+        margin-left: 40vw;
+    }
+}
+
+@media (max-width: 1440px) {
+    .advertise p {
+        padding-left: 30vw;
+    }
+
+    .apple_button,
+    .google_button {
+        margin-top: 5vh;
+        margin-left: 37vw;
+    }
+}
+
+@media (max-width: 980px) {
+    .advertise p {
+        padding-left: 15vw;
+    }
+
+    .advertise_box,
+    .black_box {
+        height: 300px;
+    }
+
+    .apple_button,
+    .google_button {
+        margin-top: 3vh;
+        margin-left: 25vw;
+    }
+}
+
+.advertise p:nth-child(1) {
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    padding-top: 10%;
+}
+
+.advertise p:nth-child(2) {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    padding-top: 17px;
+    margin-left: 80px;
+}
+
+.apple_button {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -425px -214px;
+    width: 200px;
+    height: 67px;
+
+}
+
+.google_button {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -425px -142px;
+    width: 200px;
+    height: 67px;
+    margin-left: 20px;
+}
