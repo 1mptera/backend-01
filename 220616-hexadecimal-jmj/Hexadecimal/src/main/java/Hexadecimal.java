@@ -6,6 +6,8 @@
 import java.util.Scanner;
 
 public class Hexadecimal {
+  private final static String SYMBOLTABLE = "0123456789ABCDEF";
+
   public static void main(String[] args) {
     Hexadecimal application = new Hexadecimal();
     application.run();
@@ -30,6 +32,10 @@ public class Hexadecimal {
   public String compute(int inputNumber) {
     if (inputNumber < 10) {
       return Integer.toString(inputNumber);
+    }
+
+    if (inputNumber >= 10 && inputNumber < 16) {
+      return String.valueOf(SYMBOLTABLE.charAt(inputNumber));
     }
     return "";
   }

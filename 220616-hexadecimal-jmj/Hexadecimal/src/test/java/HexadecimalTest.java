@@ -17,4 +17,12 @@ class HexadecimalTest {
     assertEquals("5", hexadecimal.compute(5));
     assertEquals("9", hexadecimal.compute(9));
   }
+
+  @Test
+  void betweenTenToFifteen() {
+    Hexadecimal hexadecimal = new Hexadecimal();
+    assertEquals("F", hexadecimal.compute(15));
+    assertEquals("A", hexadecimal.compute(10));
+    assertEquals("C", hexadecimal.compute(12));
+  }
 }
