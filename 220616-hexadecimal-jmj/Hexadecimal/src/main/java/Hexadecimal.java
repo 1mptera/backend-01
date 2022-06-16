@@ -28,6 +28,9 @@ public class Hexadecimal {
   }
 
   public String compute(int inputNumber) {
+    if (inputNumber < 10) {
+      return Integer.toString(inputNumber);
+    }
     return "";
   }
 }
