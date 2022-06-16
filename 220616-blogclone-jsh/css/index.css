@@ -1,0 +1,26 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+.container {
+    overflow : hidden;
+}
+
+
+a {
+    text-decoration: none;
+    color : black;
+}
+li {
+    list-style: none;
+}
+
+.movie_box{
+    position: relative;
+    height: 800px;
+    top: auto;
+    
+}
+
