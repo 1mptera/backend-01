@@ -1,0 +1,14 @@
+.fixed_box {
+    position: fixed;
+
+    top: 92.5%;
+    left: 90%;
+}
+
+.like_button {
+    margin-right: 5px;
+}
+
+video {
+    width: 100%;
+}
