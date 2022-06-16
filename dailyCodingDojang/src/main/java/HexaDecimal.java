@@ -21,6 +21,9 @@ public class HexaDecimal {
   }
 
   public String compute(int number) {
-    return hexaDecimal + number;
+
+    String hexaDecimalArray = "0123456789ABCDEF";
+
+    return hexaDecimal + hexaDecimalArray.charAt(number);
   }
 }
