@@ -1,0 +1,17 @@
+@media (max-width: 1920px) {
+    .interview {
+        transform: translate(20%, 0%);
+    }
+}
+
+@media (max-width: 1440px) {
+    .interview {
+        transform: translate(10%, 0%);
+    }
+}
+
+@media (max-width: 980px) {
+    .interview {
+        transform: translate(5%, 0%);
+    }
+}
