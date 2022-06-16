@@ -14,19 +14,21 @@ public class Hexadecimal {
   }
 
   public void run() {
-    // 준비
-    Scanner scanner = new Scanner(System.in);
-
     // 입력
-    System.out.print("십진수를 입력해주세요: ");
-    int inputNumber = scanner.nextInt();
+    int inputNumber = getInputNumber();
 
     // 처리
-    String hexadecimal = "";
-    hexadecimal = compute(inputNumber);
+    String hexadecimal = compute(inputNumber);
 
     // 출력
-    System.out.println("16진수: " + hexadecimal);
+    displayHexadecimalNumber(hexadecimal);
+  }
+
+  public int getInputNumber() {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("십진수를 입력해주세요: ");
+    int inputNumber = scanner.nextInt();
+    return inputNumber;
   }
 
   public String compute(int inputNumber) {
@@ -48,5 +50,9 @@ public class Hexadecimal {
     String reverse = stringBuffer.reverse().toString();
 
     return reverse;
+  }
+
+  public void displayHexadecimalNumber(String hexadecimal) {
+    System.out.println("16진수: " + hexadecimal);
   }
 }
