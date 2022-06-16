@@ -25,4 +25,12 @@ class HexadecimalTest {
     assertEquals("A", hexadecimal.compute(10));
     assertEquals("C", hexadecimal.compute(12));
   }
+
+  @Test
+  void inputDoubleDigits() {
+    Hexadecimal hexadecimal = new Hexadecimal();
+    assertEquals("1E", hexadecimal.compute(30));
+    assertEquals("3A", hexadecimal.compute(58));
+    assertEquals("5B", hexadecimal.compute(91));
+  }
 }

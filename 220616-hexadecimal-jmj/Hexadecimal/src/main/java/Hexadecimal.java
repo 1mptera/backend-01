@@ -37,6 +37,23 @@ public class Hexadecimal {
     if (inputNumber >= 10 && inputNumber < 16) {
       return String.valueOf(SYMBOLTABLE.charAt(inputNumber));
     }
+
+    if (inputNumber >= 16 && inputNumber < 100) {
+      int quotient = 0;
+      int remainder = 0;
+      String tempResult = "";
+
+      while (inputNumber > 0) {
+        quotient = inputNumber / 16;
+        remainder = inputNumber % 16;
+        tempResult += SYMBOLTABLE.charAt(remainder);
+        inputNumber = quotient;
+      }
+      StringBuffer stringBuffer = new StringBuffer(tempResult);
+      String reverse = stringBuffer.reverse().toString();
+
+      return reverse;
+    }
     return "";
   }
 }
