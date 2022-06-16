@@ -1,0 +1,60 @@
+.fixed_box {
+    position: fixed;
+
+    top: 92.5%;
+    left: 90%;
+}
+
+.like_button {
+    margin-right: 5px;
+}
+
+.eye_catching_video {
+    position: absolute;
+
+    width: 100%;
+}
+
+.eye_catching_section {
+    position: relative;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 200px;
+
+    color: #ffffff;
+}
+
+.sub_title {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+.eye_catching_section_buttons_box {
+    padding-top: 40px;
+}
+
+.eye_catching_section_buttons_box nav [class$="button"] {
+    height: 40px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.add_neighbor_button {
+    margin-right: 5px;
+    border: 1px solid #ff39a2;
+    background-color: #ff39a2;
+
+    color: #ffffff;
+}
+
+.go_to_blog_button {
+    margin-right: 5px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+
+    color: ff39a2;
+}
