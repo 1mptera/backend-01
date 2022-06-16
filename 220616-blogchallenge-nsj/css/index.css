@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.contanier {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* menu_bar */
+#menu_bar {
+    position: fixed;
+}
+
+/* movie_box */
+#movie_play_box {
+    position: relative;
+    z-index: -1;
+}
+
+.movie_play {
+    position: relative;
+    height: 800px;
+}
+
+.movie_play video {
+    height: 800px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1249px) {
+    .movie_play {
+        height: 700px;
+    }
+}
+
+@media (max-width: 1249px) {
+    .movie_play video {
+        height: 700px;
+    }
+}
+
+@media (max-width: 767px) {
+    .movie_play {
+        height: 500px;
+    }
+}
+
+@media (max-width: 767px) {
+    .movie_play video {
+        height: 500px;
+    }
+}
+
+#movie_play_box .movie_play_inner {
+    position: absolute;
+}
