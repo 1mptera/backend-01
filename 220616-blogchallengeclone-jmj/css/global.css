@@ -25,3 +25,53 @@ ul {
 .menulist {
    font-family: 'NanumSquareBold';
 }
+
+/* .movie_wrapping {
+   position: absolute;
+} */
+
+video {
+   object-fit: contain;
+   vertical-align: top;
+   border: 0;
+}
+
+.inner_texts * {
+   color: white;
+}
+
+.follow {
+   border: 1px solid #ff39a2;
+   background-color: #ff39a2;
+   color: #fff;
+   display: inline-block;
+   height: 46px;
+   border-radius: 6px;
+   min-width: 137px;
+   font-size: 16px;
+   margin-top: 60px;
+   font-weight: bold;
+   vertical-align: middle;
+}
+
+.visit {
+   border: 1px solid white;
+   background-color: white;
+   color: #ff39a2;
+   display: inline-block;
+   height: 46px;
+   border-radius: 6px;
+   min-width: 137px;
+   font-size: 16px;
+   margin-top: 60px;
+   font-weight: bold;
+   vertical-align: middle;
+}
+
+.timeline_box {
+   background-color: rgb(234, 234, 234);
+   border-top: 5em;
+}
+.timeline_area {
+   display: flex;   
+}
