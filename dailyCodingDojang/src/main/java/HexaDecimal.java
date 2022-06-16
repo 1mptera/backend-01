@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class HexaDecimal {
+  private String hexaDecimal = "";
+
   public static void main(String[] args){
     HexaDecimal application = new HexaDecimal();
     application.run();
@@ -12,8 +14,13 @@ public class HexaDecimal {
     System.out.print("십진수를 입력해주세요");
     int number = scanner.nextInt();
 
-    String hexaDecimal = compute(number);
+    String hexaDecimal = "";
+       hexaDecimal =  compute(number);
 
     System.out.print(hexaDecimal);
+  }
+
+  public String compute(int number) {
+    return hexaDecimal + number;
   }
 }
