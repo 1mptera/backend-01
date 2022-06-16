@@ -30,30 +30,23 @@ public class Hexadecimal {
   }
 
   public String compute(int inputNumber) {
-    if (inputNumber < 10) {
+    if (inputNumber == 0) {
       return Integer.toString(inputNumber);
     }
 
-    if (inputNumber >= 10 && inputNumber < 16) {
-      return String.valueOf(SYMBOLTABLE.charAt(inputNumber));
+    int quotient = 0;
+    int remainder = 0;
+    String tempResult = "";
+
+    while (inputNumber > 0) {
+      quotient = inputNumber / 16;
+      remainder = inputNumber % 16;
+      tempResult += SYMBOLTABLE.charAt(remainder);
+      inputNumber = quotient;
     }
+    StringBuffer stringBuffer = new StringBuffer(tempResult);
+    String reverse = stringBuffer.reverse().toString();
 
-    if (inputNumber >= 16 && inputNumber < 100) {
-      int quotient = 0;
-      int remainder = 0;
-      String tempResult = "";
-
-      while (inputNumber > 0) {
-        quotient = inputNumber / 16;
-        remainder = inputNumber % 16;
-        tempResult += SYMBOLTABLE.charAt(remainder);
-        inputNumber = quotient;
-      }
-      StringBuffer stringBuffer = new StringBuffer(tempResult);
-      String reverse = stringBuffer.reverse().toString();
-
-      return reverse;
-    }
-    return "";
+    return reverse;
   }
 }
