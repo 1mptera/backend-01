@@ -1,3 +1,6 @@
+// 의도적 수련
+// 배열, charAt 사용하지 않기
+
 import java.util.Scanner;
 
 public class Hexadecimal {
@@ -22,6 +25,22 @@ public class Hexadecimal {
   }
 
   public String compute(int decimalNumber) {
-    return null;
+    StringBuilder hexadecimalResult = new StringBuilder();
+
+    String hexadecimal = conversion(decimalNumber);
+
+    hexadecimalResult.append(hexadecimal);
+
+    return hexadecimalResult.toString();
+  }
+
+  public String conversion(int decimalNumber) {
+
+    return switch (decimalNumber) {
+      case 0 -> "0";
+      case 1 -> "1";
+      case 15 -> "F";
+      default -> "0";
+    };
   }
 }
