@@ -1,7 +1,7 @@
 header {
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 2fr 7fr 4fr 7fr 2fr;
+    grid-template-columns: 2fr 6fr 5fr 6fr 2fr;
 }
 
 #main_title {
@@ -32,6 +32,7 @@ h1 {
 li[class^="header_menu"] {
     list-style: none;
     text-align: center;
+    font-size: 0.75em;
 }
 
 .header_menu1 {
@@ -55,5 +56,5 @@ li[class^="header_menu"] {
 }
 
 .hamburger {
-    
+
 }
