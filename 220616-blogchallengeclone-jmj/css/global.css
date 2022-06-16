@@ -75,3 +75,43 @@ video {
 .timeline_area {
    display: flex;   
 }
+
+#article_interview {
+   padding: 60px 0;
+   max-width: 900px;
+}
+
+#article_interview .prologue {
+   font-weight: bold;
+   font-size: 20px;
+   line-height: 34px;
+   color: #999;
+}
+
+.quotation {
+   /* position: relative; */
+   font-family: NanumMyeongjo;
+   font-size: 26px;
+   line-height: 38px;
+   letter-spacing: -1px;
+   color: #999;
+   text-align: center;
+   margin: 60px 0 !important;
+   padding: 25px 0;
+   font-weight: bold;
+}
+
+.answer + .question {
+   margin-top: 60px;
+}
+
+.question {
+   font-weight: 700;
+   font-size: 24px;
+   line-height: 38px;
+}
+
+.answer {
+   font-size: 18px;
+   line-height: 32px;
+}
