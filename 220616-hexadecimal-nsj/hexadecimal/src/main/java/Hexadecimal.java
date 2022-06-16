@@ -10,26 +10,43 @@ public class Hexadecimal {
   }
 
   public void run() {
-    // 준비
-    Scanner scanner = new Scanner(System.in);
-
     // 입력
-    System.out.print("십진수를 입력해주세요 : ");
-    int decimalNumber = scanner.nextInt();
+    int decimalNumber = inputDecimalNuber();
 
     // 처리
     String hexadecimalNumber = compute(decimalNumber);
 
     // 출력
-    System.out.print("16 진수 : " + hexadecimalNumber);
+    displayHexadecimalNumber(hexadecimalNumber);
+  }
+
+  public int inputDecimalNuber() {
+    Scanner scanner = new Scanner(System.in);
+
+    System.out.print("십진수를 입력해주세요 : ");
+    int decimalNumber = scanner.nextInt();
+
+    return decimalNumber;
   }
 
   public String compute(int decimalNumber) {
     StringBuilder hexadecimalResult = new StringBuilder();
 
-    String hexadecimal = conversion(decimalNumber);
+    if(decimalNumber == 0) {
+      return "0";
+    }
 
-    hexadecimalResult.append(hexadecimal);
+    int quotient = decimalNumber;
+
+    while (quotient != 0) {
+      String hexadecimal = conversion(quotient % 16);
+
+      hexadecimalResult.append(hexadecimal);
+
+      quotient /= 16;
+    }
+
+    hexadecimalResult.reverse();
 
     return hexadecimalResult.toString();
   }
@@ -39,8 +56,26 @@ public class Hexadecimal {
     return switch (decimalNumber) {
       case 0 -> "0";
       case 1 -> "1";
+      case 2 -> "2";
+      case 3 -> "3";
+      case 4 -> "4";
+      case 5 -> "5";
+      case 6 -> "6";
+      case 7 -> "7";
+      case 8 -> "8";
+      case 9 -> "9";
+      case 10 -> "A";
+      case 11 -> "B";
+      case 12 -> "C";
+      case 13 -> "D";
+      case 14 -> "E";
       case 15 -> "F";
       default -> "0";
     };
   }
+
+  public void displayHexadecimalNumber(String hexadecimalNumber) {
+    System.out.print("16 진수 : " + hexadecimalNumber);
+  }
 }
+
