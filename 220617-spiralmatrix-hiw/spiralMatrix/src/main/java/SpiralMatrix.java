@@ -36,13 +36,36 @@ public class SpiralMatrix {
     int[][] spiralMatrix = new int[length][length];
 
     final int MAX_VALUE = length * length - 1;
+
     int puttingNumber = 0;
+    int rowIndex = 0;
+    int columnIndex = 0;
+    String direction = "RIGHT";
 
     while (puttingNumber <= MAX_VALUE) {
-      spiralMatrix[0][0] = puttingNumber;
+      spiralMatrix[rowIndex][columnIndex] = puttingNumber;
 
       puttingNumber += 1;
+
+      switch (direction) {
+        case "RIGHT" -> columnIndex += 1;
+        case "DOWN" -> rowIndex -= 1;
+        case "LEFT" -> columnIndex -= 1;
+        case "UP" -> rowIndex += 1;
+      }
+
+      if (rowIndex == length - 1) {
+        direction = "DOWN";
+      }
+      if (columnIndex == length - 1) {
+        direction = "LEFT";
+      }
+      if (rowIndex == 0) {
+        direction = "UP";
+      }
     }
+
+    //print(spiralMatrix, length);
 
     return spiralMatrix;
   }
@@ -56,27 +79,4 @@ public class SpiralMatrix {
       System.out.println();
     }
   }
-
-  /*@Override
-  public boolean equals(Object other) {
-    int[][] otherTwoDimensionalArray = (int[][]) other;
-
-    boolean isEqualTo = true;
-
-    for (int i = 0; i < ; i += 1) {
-      for (int j = 0; j < ; j += 1) {
-        if ( != otherTwoDimensionalArray[i][j]) {
-          isEqualTo = false;
-
-          break;
-        }
-      }
-
-      if (!isEqualTo) {
-        break;
-      }
-    }
-
-    return isEqualTo;
-  }*/
 }

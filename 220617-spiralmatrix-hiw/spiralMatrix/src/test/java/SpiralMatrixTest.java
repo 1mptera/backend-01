@@ -5,14 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class SpiralMatrixTest {
 
   @Test
-  void isInitializedNormally() {
-    SpiralMatrix testApplication = new SpiralMatrix();
-
-    assertNotNull(testApplication.process(1));
-    assertNotNull(testApplication.process(5));
-  }
-
-  @Test
   void oneLength() {
     SpiralMatrix testApplication = new SpiralMatrix();
 
@@ -21,5 +13,17 @@ class SpiralMatrixTest {
     };
 
     assertArrayEquals(testMatrix, testApplication.process(1));
+  }
+
+  @Test
+  void twoLength() {
+    SpiralMatrix testApplication = new SpiralMatrix();
+
+    int[][] testMatrix = new int[][]{
+        {0, 1},
+        {3, 2}
+    };
+
+    assertArrayEquals(testMatrix, testApplication.process(2));
   }
 }
