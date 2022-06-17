@@ -1,0 +1,40 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    z-index: 1;
+}
+
+#hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--hero-height);
+    padding: 12em var(--content-padding-inline) 10em;
+    z-index: -1;
+}
+
+main {
+    margin-top: var(--hero-height);
+    margin-bottom: calc(var(--promotion-height) + var(--footer-height));
+    z-index: 0;
+}
+
+#promotion {
+    position: fixed;
+    bottom: var(--footer-height);
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
