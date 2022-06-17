@@ -12,31 +12,26 @@ public class SpiralMatrix {
 
     int length = scanner.nextInt();
 
-    int result = transformSpiral(length);
+    int[][] spiralArray = new int[length][length];
+    spiralArray = process(length);
 
-    System.out.println("니선형 배열 " + result);
-
+    System.out.println("나선형 배열");
+    for (int i = 0; i < spiralArray.length; i += 1) {
+      for (int j = 0; i < spiralArray.length; j += 1)
+        System.out.print(spiralArray[i][j] + "\t");
+    }
+    System.out.println();
   }
 
-  public int transformSpiral(int length) {
+  public int[][] process(int length) {
+    int[][] spiralArray = new int[length][length];
 
-    int[] spiralArray = new int[length];
+    int fianlNumber = length * length -1;
 
-    for (int i = 0; i < spiralArray.length; i += 1) {
-      if (spiralArray.length == 1) {
-        return 0;
-      }
-      if (spiralArray.length == 2) {
-        return 1;
-      }
-      if (spiralArray.length == 3) {
-        return 2;
-      }
-      if (spiralArray.length == 4) {
-        return 3;
-      }
 
-    }
-    return 0;
   }
 }
+
+
+
+
