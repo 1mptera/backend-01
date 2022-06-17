@@ -43,6 +43,9 @@ public class SpiralMatrix {
     String direction = "RIGHT";
 
     while (puttingNumber <= MAX_VALUE) {
+      System.out.println("row: " + rowIndex + ", column: " + columnIndex +
+          ", num: " + puttingNumber);
+
       spiralMatrix[rowIndex][columnIndex] = puttingNumber;
 
       puttingNumber += 1;
@@ -54,18 +57,18 @@ public class SpiralMatrix {
         case "UP" -> rowIndex += 1;
       }
 
-      if (rowIndex == length - 1) {
+      if (columnIndex == length - 1) {
         direction = "DOWN";
       }
-      if (columnIndex == length - 1) {
+      else if (rowIndex == length - 1) {
         direction = "LEFT";
       }
-      if (rowIndex == 0) {
+      else if (columnIndex == 0) {
         direction = "UP";
       }
     }
 
-    //print(spiralMatrix, length);
+    print(spiralMatrix, length);
 
     return spiralMatrix;
   }

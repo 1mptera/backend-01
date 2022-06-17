@@ -26,4 +26,17 @@ class SpiralMatrixTest {
 
     assertArrayEquals(testMatrix, testApplication.process(2));
   }
+
+  @Test
+  void threeLength() {
+    SpiralMatrix testApplication = new SpiralMatrix();
+
+    int[][] testMatrix = new int[][]{
+        {0, 1, 2},
+        {7, 8, 3},
+        {6, 5, 4}
+    };
+
+    assertArrayEquals(testMatrix, testApplication.process(3));
+  }
 }
