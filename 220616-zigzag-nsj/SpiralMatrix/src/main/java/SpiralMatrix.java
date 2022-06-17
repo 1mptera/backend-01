@@ -26,8 +26,23 @@ public class SpiralMatrix {
 
     int index = 0;
 
+    int row = 0;
+    int column = 0;
+
     for(int i = 0; i < arrayLength; i += 1) {
-      spiralMatrixArray[0][i] = index;
+      spiralMatrixArray[column][row] = index;
+      row += 1;
+      index += 1;
+    }
+
+    row -= 1;
+
+    for(int i = 0; i < arrayLength - 1; i += 1) {
+
+      column += 1;
+
+      spiralMatrixArray[column][row] = index;
+
       index += 1;
     }
 
