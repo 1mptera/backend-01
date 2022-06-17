@@ -37,6 +37,7 @@
             <a href="#">블로그 가기</a>
         </div>
         <main>
+            <!-- aside, section, article의 차이 확인하기 -->
             <aside id="timeline">
                 <h3>홀맨 블로그 타임라인</h3>
                 <ol>
@@ -71,6 +72,68 @@
                         <date>2013.11.22</date>
                     </li><li>
                 </li></ol>
+            </aside>
+            <section id="video">
+                <h3>최수형님 인터뷰 이미지</h3>
+                <img src="./assets/images/sample-01.png" alt="">
+            </section>
+            <article id="interview">
+                <section class="introduction">
+                    <!-- 아래 있는 H3 서론은 화면에서 볼 수 없음. 있지 않은 내용을 왜 넣은걸까?
+                        오타일까 의도일까 -->
+                    <h3>서론</h3>
+                    <p>
+                        부트캠프 수료 후 개발자로 취업해도 어떻게 해야할지 아무도 알려주지 않습니다.
+                        제대로 된 사수없는 스타트업들이 즐비 합니다.
+                        회사생활은 어떻게 해야할지, 연봉협상은 어떻게 해야할지,
+                        앞으로 커리어 준비는 어떻게 해야할지 막막한 현실을 마주합니다.
+                        메가테라는 개발자로 취업 후에도 수료생이 길을 잃지 않도록
+                        2년간 추가로 개발자 레벨업을 위한 교육을 제공하고,
+                        든든한 사수가 되어 드립니다.
+                    </p>
+                    <img src="#" alt class="photo">
+                    <!-- 이 아래 나오는 내용은 javascript 관련 내용이라 우선 이렇구나~ 하고 넘어갈 것 -->
+                    <blockquote>
+                        ::before
+                        " 안녕하세요. 홀맨인 최수형이고요, 10년째 개발하고 있습니다. "
+                        ::after
+                    </blockquote>
+                </section>
+                <section>
+                    <h3>Q. 블로그는 어떤 계기로 시작하게 되었나요 ?</h3>
+                    <p>
+                        대학교 1학년 때, 시간 여유가 많아져서 블로그를 시작했어요.
+                        어릴 적부터 네이버 검색을 자주 써서 자연스럽게 네이버 블로그를 골랐고요.
+                        많은 블로거분의 도움을 받으며 생활을 해왔거든요. 제일 오래 사용한 SNS가 블로그네요.
+                    </p>
+                    <a href="#" class="post">
+                        <img src="./assets/images/sample-03.png">
+                        <div class="content">
+                            <div class="title">'일력대장정' 포스팅 &gt;</div>
+                            <div class="summary">일력대장정</div>
+                        </div>
+                    </a>
+                </section>
+                <section>
+                    <h3>Q. 메가테라 수료하면 어떻게 되나요 ?</h3>
+                    <p>
+                        <!-- 아래 문구에 쌍따옴표가 있는데, 블로그에서는 안보이는 이유는???? 이것도 자바스크립트인가? -->
+                        " 메가테라 수료생은 경력 개발자들도 갖추기 힘든 테스트 주도 개발 숙련도를 갖추게 됩니다.
+                        메가테라 수료생만의 특별한 역량으로 신입 개발자 평균 연봉 보다 40% 이상 높은 연봉을 제시받습니다. "
+                    </p>
+                </section>
+            </article>
+            <div id="reaction">
+                <button type="button">
+                    <!-- 하단부에 div, p 등이 아닌 span이 사용된 이유는 아마 in-line이라서? -->
+                    <span class="icon-heart"></span>
+                    <span>6,123</span>
+                </button>
+            </div>
+            <aside id="visit">
+                <div class="blog">
+                    
+                </div>
             </aside>
         </main>
         <footer>
