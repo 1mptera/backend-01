@@ -29,5 +29,14 @@ class SpiralMatrixTest {
                                   {0,0,3},
                                   {6,5,4}}, spiralMatrix.process(3));
   }
+
+  @Test
+  void outsideLine() {
+    SpiralMatrix spiralMatrix = new SpiralMatrix();
+
+    assertArrayEquals(new int[][]{{0,1,2},
+                                  {7,0,3},
+                                  {6,5,4}}, spiralMatrix.process(3));
+  }
 }
 

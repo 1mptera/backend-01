@@ -49,6 +49,12 @@ public class SpiralMatrix {
       index += 1;
     }
 
+    for(int i = 0; i< arrayLength - 2; i += 1) {
+      column -= 1;
+      spiralMatrixArray[column][row] = index;
+      index += 1;
+    }
+
     return spiralMatrixArray;
   }
 }
