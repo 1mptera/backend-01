@@ -3,40 +3,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SpiralMatrixTest {
-  @Test
-  void outsideFirstLine() {
-    SpiralMatrix spiralMatrix = new SpiralMatrix();
-
-    assertArrayEquals(new int[][]{{0,1,2},
-                                  {0,0,0},
-                                  {0,0,0}}, spiralMatrix.process(3));
-  }
+  private SpiralMatrix spiralMatrix;
 
   @Test
-  void outsideSecondLine() {
-    SpiralMatrix spiralMatrix = new SpiralMatrix();
-
-    assertArrayEquals(new int[][]{{0,1,2},
-                                  {0,0,3},
-                                  {0,0,4}}, spiralMatrix.process(3));
-  }
-
-  @Test
-  void outsideThirdLine() {
-    SpiralMatrix spiralMatrix = new SpiralMatrix();
-
-    assertArrayEquals(new int[][]{{0,1,2},
-                                  {0,0,3},
-                                  {6,5,4}}, spiralMatrix.process(3));
-  }
-
-  @Test
-  void outsideLine() {
-    SpiralMatrix spiralMatrix = new SpiralMatrix();
+  void SpiralMatrix() {
+    spiralMatrix = new SpiralMatrix();
 
     assertArrayEquals(new int[][]{{0,1,2},
                                   {7,0,3},
                                   {6,5,4}}, spiralMatrix.process(3));
+
+    assertArrayEquals(new int[][]{{0,1,2,3},
+                                  {11,12,13,4},
+                                  {10,15,14,5},
+                                  {9,8,7,6}}, spiralMatrix.process(4));
   }
 }
 
