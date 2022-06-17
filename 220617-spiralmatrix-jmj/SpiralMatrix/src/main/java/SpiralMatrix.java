@@ -31,7 +31,40 @@ public class SpiralMatrix {
 
   public int[][] compute(int size) {
     int[][] tempMatrix = new int[size][size];
-    tempMatrix = new int[][]{{1, 2}, {4, 3}};
+
+    int value = 0;
+    int minColumn = 0;
+    int maxColumn = size - 1;
+    int minRow = 0;
+    int maxRow = size - 1;
+
+    while (value < size * size) {
+      for (int i = minColumn; i <= maxColumn; i += 1) {
+        tempMatrix[minRow][i] = value;
+        value += 1;
+      }
+
+      for (int i = minRow + 1; i <= maxRow; i += 1) {
+        tempMatrix[i][maxColumn] = value;
+        value += 1;
+      }
+
+      for (int i = maxColumn - 1; i >= minColumn; i -= 1) {
+        tempMatrix[maxRow][i] = value;
+        value += 1;
+      }
+
+      for (int i = maxRow - 1; i >= minRow + 1; i -= 1) {
+        tempMatrix[i][minColumn] = value;
+        value += 1;
+      }
+
+      minColumn += 1;
+      maxColumn -= 1;
+      minRow += 1;
+      maxRow -= 1;
+    }
+
     return tempMatrix;
   }
 }
