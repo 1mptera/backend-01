@@ -1,0 +1,33 @@
+#visit {
+    padding-block: 4.8em;
+    background: #f2f2f2;
+}
+
+#visit .blog {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5em 1.2em;
+    background: #fff;
+    border-radius: 4px;
+}
+
+#visit .content {
+    color: #666;
+}
+
+#visit strong {
+    font-size: 1.4em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5em;
+    color: #000;
+}
+
+#visit .blog a {
+    color: #fff;
+    line-height: 48px;
+    padding-inline: 1.5em;
+    background: #ff39a2;
+    border-radius: 4px;
+}
