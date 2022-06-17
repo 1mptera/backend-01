@@ -1,0 +1,43 @@
+/* root의 역할, 기능, 형태 등 공부하기 */
+:root {
+    --header-height: 60px;
+    --hero-height: 800px;
+    --promotion-height: 560px;
+    --footer-height: 140px;
+    --content-padding-inline: calc((100%-1100px) / 2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* 줄바꿈 속성이 word-break이며 속성값으로 normal / break-all / keep-all 로 나뉨*/
+/* https://developer.mozilla.org/ko/docs/Web/CSS/word-break 공부할 것 */
+h1, h2, h3 {
+    word-break: keep-all;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+/* 하단 내용은 자바스크립트 관련. 단 display: block은 찾아보고 알아두기 */
+blockquote:before {
+    display: block;
+    margin-bottom: -.6em;
+    content: "“";
+}
+
+blockquote:after {
+    display: block;
+    content: "”";
+}
