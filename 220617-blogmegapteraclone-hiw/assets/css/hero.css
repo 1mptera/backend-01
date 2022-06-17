@@ -1,0 +1,54 @@
+#hero {
+    background: url(../images/sample-04.png) no-repeat 0 0;
+    background-size: cover;
+}
+
+#hero.hidden {
+    display: none;
+}
+
+#hero .episode,
+#hero h2,
+#hero .interviewee {
+    text-shadow: 0 0 4px #000;
+}
+
+#hero .episode {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+}
+
+#hero h2 {
+    font-size: 4em;
+    margin: 0.5em 0;
+    width: 85%;
+    color: #fff;
+}
+
+#hero .interviewee {
+    font-weight: bold;
+    color: #fff;
+}
+
+#hero button {
+    margin: 5em 0.5em 0 0;
+    width: 8.5em;
+    height: 2.9em;
+    vertical-align: bottom;
+    background: #ff39a2;
+    border-radius: 6px;
+    color: #fff;
+}
+
+#hero a {
+    display: inline-block;
+    margin: 5em 0.5em 0 0;
+    width: 8.5em;
+    height: 2.9em;
+    padding: 1em 1.5em;
+    background: #fff;
+    border-radius: 6px;
+    color: #ff39a2;
+    text-align: center;
+}

@@ -1,0 +1,15 @@
+#reaction {
+    padding: 1em calc(var(--content-padding-inline) + 6em) 3em;
+}
+
+#reaction span {
+    vertical-align: middle;
+}
+
+#reaction .icon-heart {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    background: url(../images/heart.png) no-repeat 0 0;
+    background-size: cover;
+}

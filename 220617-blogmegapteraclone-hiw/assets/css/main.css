@@ -1,0 +1,7 @@
+main {
+    background: #FFF;
+}
+
+main > * {
+    padding-inline: var(--content-padding-inline);
+}
