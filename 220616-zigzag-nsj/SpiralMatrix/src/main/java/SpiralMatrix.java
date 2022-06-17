@@ -38,11 +38,14 @@ public class SpiralMatrix {
     row -= 1;
 
     for(int i = 0; i < arrayLength - 1; i += 1) {
-
       column += 1;
-
       spiralMatrixArray[column][row] = index;
+      index += 1;
+    }
 
+    for(int i = 0; i < arrayLength - 1; i += 1) {
+      row -= 1;
+      spiralMatrixArray[column][row] = index;
       index += 1;
     }
 
