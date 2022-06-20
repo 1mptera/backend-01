@@ -1,0 +1,174 @@
+/* header */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+}
+
+#menu_bar {
+    display: block;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 40px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+li {
+    list-style: none;
+}
+
+.menu_logo {
+    font-size: 22px;
+    float: left;
+    color: white;
+}
+
+.menu_list {
+    display: inline-block;
+}
+
+.menu_box {
+    float: right;
+    color: white;
+}
+
+.menu_list li {
+    float: left;
+    padding-left: 30px;
+}
+
+.menu_list_text {
+    font-size: 18px;
+    color: white;
+}
+
+
+/* movie_content */
+#movie_content {
+    position: relative;
+}
+
+.movie_play {
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    height: 800px;
+}
+
+.movie_play video {
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#movie_content .add_neighbors_button {
+    height: 49px;
+    min-width: 135px;
+    border: 1px solid #EB4C9F;
+    border-radius: 6px;
+    background-color: #EB4C9F;
+    color: white;
+    font-weight: bold;
+}
+
+#movie_content .move_blog_button {
+    height: 49px;
+    min-width: 135px;
+    border: 1px solid whitesmoke;
+    border-radius: 6px;
+    background-color: whitesmoke;
+    color: #EB4C9F;
+    font-weight: bold;
+}
+
+.movie_text_box {
+    position: relative;
+    padding: 230px 400px;
+    color: white;
+}
+
+.movie_text_box p:nth-child(2) {
+    font-size: 58px;
+    font-weight: 800;
+    margin-top: 30px;
+}
+
+.movie_text_box p:nth-child(3) {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 60px;
+}
+
+.movie_text_box button {
+    margin-top: 30px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+/* timeline */
+
+.timeline {
+    background-color: #f2f2f2;
+    width: 100%;
+}
+
+.timeline_title {
+    margin: 0 400px;
+    padding: 25px 0;
+    font-size: 20px;
+}
+
+.timeline_content_box {
+    display: flex;
+    flex-direction: row;
+    margin: 0 400px;
+}
+
+.timeline_content_title {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.timeline_content_date {
+    font-size: 13px;
+    color: #999;
+
+}
+
+.timeline_content_link {
+    margin-right: 16px;
+}
+
+#main_content {
+    position: relative;
+}
+
+/* interview */
+
+.interview {
+    margin: 50px 400px;
+}
+
+.interview_title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* qna_content */
+
+.qna_content {
+    position: relative;
+}
