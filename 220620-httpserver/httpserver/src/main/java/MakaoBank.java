@@ -7,6 +7,7 @@
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import utils.MessageGenerator;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -26,8 +27,15 @@ public class MakaoBank {
     HttpServer httpServer = HttpServer.create(address, 0);
 
     httpServer.createContext("/" , (exchange) -> {
-      String content = "Hello, world! ";
-      System.out.println(content);
+
+      //인사말 만들기
+
+      MessageGenerator messageGenerator = new MessageGenerator();
+      String content = messageGenerator.text();
+
+
+
+       // 내용을 http로 전달
 
       exchange.sendResponseHeaders(200, content.getBytes().length);
 
@@ -36,6 +44,23 @@ public class MakaoBank {
       outputStream.write(content.getBytes());
       outputStream.flush();
       outputStream.close();
+
+    });
+
+    httpServer.createContext("/sunghwan" , (exchange) -> {
+      MessageGenerator messageGenerator = new MessageGenerator("sunghwna");
+      String content = messageGenerator.text();
+
+
+
+      exchange.sendResponseHeaders(200, content.getBytes().length);
+
+      OutputStream outputStream = exchange.getResponseBody();
+
+      outputStream.write(content.getBytes());
+      outputStream.flush();
+      outputStream.close();
+
     });
 
     httpServer.start();
