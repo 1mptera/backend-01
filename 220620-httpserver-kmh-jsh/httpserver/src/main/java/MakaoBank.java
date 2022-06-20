@@ -9,13 +9,17 @@
 // 400 클라이언트 잘못 404 낫 파운드
 // 500 서버 내부 잘못
 // 중복 발견 => 중복 제거 => 리팩토링 => 관심사의 분리
+// 서버에 이름을 입력하면 그 이름을 헬로 이름 으로 반영
 
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import utils.MessageGenerator;
+import utils.MessageWriter;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.net.URI;
 
 public class MakaoBank {
   public static void main(String[] args) throws IOException {
@@ -28,29 +32,25 @@ public class MakaoBank {
     HttpServer httpServer = HttpServer.create(address,0);
 
     httpServer.createContext("/" , (exchange) -> {
-      MessageGenerator messageGenerator = new MessageGenerator();
-      String content = messageGenerator.text();
+      //입력
+      URI requestURI = exchange.getRequestURI();
+      String path = requestURI.getPath();
 
-      exchange.sendResponseHeaders(200 ,content.getBytes().length);
-      OutputStream outputStream = exchange.getResponseBody();
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
+      String name = path.substring(1);
+
+      //처리
+      MessageGenerator messageGenerator = new MessageGenerator(name);
+      String content = messageGenerator.text();
+      //출력
+      MessageWriter messageWriter = new MessageWriter(exchange);
+      messageWriter.write(content);
     });
 
-    httpServer.createContext("/ashal" , (exchange) -> {
-      MessageGenerator messageGenerator = new MessageGenerator("Ashal");
-      String content = messageGenerator.text();
-
-      exchange.sendResponseHeaders(200 ,content.getBytes().length);
-      OutputStream outputStream = exchange.getResponseBody();
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
-    });
 
     httpServer.start();
     System.out.println("http://localhost:8000/");
   }
+
+
 
 }
