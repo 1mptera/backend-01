@@ -1,0 +1,58 @@
+#promotion {
+    text-align: center;
+    padding-block: 8em;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url(../images/background.png) no-repeat 50%;
+    background-size: cover;
+}
+
+#promotion.hidden {
+    display: none;
+}
+
+#promotion .text {
+    font-weight: bold;
+    margin-top: 1em;
+    color: #fff;
+}
+
+#promotion .text strong {
+    display: block;
+    font-size: 2.5em;
+    margin-bottom: .5em;
+}
+
+#promotion .links {
+    margin-top: 2.4em;
+}
+
+#promotion a {
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 0.7em;
+    margin: 4em 0 0 0.5em;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+
+#promotion a span {
+    vertical-align: middle;
+}
+
+#promotion .icon {
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+}
+
+#promotion .ios .icon {
+    background-image: url(../images/app-store.png);
+}
+
+#promotion .android .icon {
+    background-image: url(../images/google-play.png);
+}

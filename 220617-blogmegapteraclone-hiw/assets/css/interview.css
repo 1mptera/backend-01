@@ -1,0 +1,75 @@
+#interview {
+    padding-inline: calc(var(--content-padding-inline) + 6em);
+}
+
+#interview section {
+    margin-block: 3em;
+}
+
+#interview section:last-of-type {
+    border-bottom: 1px solid #e8e8e8;
+    margin-bottom: 0;
+}
+
+#interview .photo {
+    display: block;
+    margin: 3em auto;
+    max-width: 100%;
+}
+
+#interview h3 {
+    font-size: 1.5em;
+}
+
+#interview .introduction h3 {
+    margin: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+#interview .introduction p {
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 2em;
+    color: #999;
+}
+
+#interview p {
+    margin: 1em 0 2em;
+}
+
+#interview blockquote {
+    font-size: 2em;
+    margin: .7em 4em;
+    padding-block: .5em;
+    color: #999;
+    text-align: center;
+}
+
+#interview .post {
+    display: flex;
+    align-items: center;
+    border: 1px solid #CCC;
+}
+
+#interview .post img {
+    display: block;
+    width: calc(12em + 1px);
+    border-right: 1px solid #CCC;
+}
+
+#interview .post .content {
+    margin-left: 1em;
+}
+
+#interview .post .title {
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: .4em;
+    color: #ff39a2;
+}
+
+#interview .post .summary {
+    font-size: 1.1em;
+    color: #000;
+}

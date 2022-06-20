@@ -1,0 +1,42 @@
+#related-interviews {
+    padding-bottom: 2.4em;
+    background: #f2f2f2;
+}
+
+#related-interviews h3 {
+    font-size: 1.4em;
+    float: left;
+}
+
+#related-interviews a {
+    float: right;
+    color: #666;
+}
+
+#related-interviews ol {
+    clear: both;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+}
+
+#related-interviews img {
+    width: 100%;
+    height: 16em;
+}
+
+#related-interviews li {
+    width: 16em;
+}
+
+#related-interviews .title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 0.8em;
+}
+
+#related-interviews .interviewee {
+    font-size: 0.81em;
+    margin-top: 0.6em;
+    color: #666;
+}

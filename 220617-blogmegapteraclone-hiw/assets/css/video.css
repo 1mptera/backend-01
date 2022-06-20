@@ -1,0 +1,14 @@
+#video {
+    padding-top: 4em;
+}
+
+#video h3 {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+#video img {
+    display: block;
+    margin-inline: auto;
+    max-width: 100%;
+}
