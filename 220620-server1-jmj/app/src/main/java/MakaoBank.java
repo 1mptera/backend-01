@@ -31,6 +31,17 @@ public class MakaoBank {
       outputStream.close();
     });
 
+    httpServer.createContext("/ashal", (exchange) -> {
+      String content = "Hello, Ashal!";
+
+      exchange.sendResponseHeaders(200, content.getBytes().length);
+
+      OutputStream outputStream = exchange.getResponseBody();
+      outputStream.write(content.getBytes());
+      outputStream.flush();
+      outputStream.close();
+    });
+
     httpServer.start();
     System.out.println("http://localhost:8000/");
   }
