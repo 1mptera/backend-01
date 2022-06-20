@@ -1,0 +1,199 @@
+.fixed_box {
+    position: fixed;
+    z-index: 1;
+
+    bottom: 5%;
+    right: 2%;
+}
+
+.like_button {
+    margin-right: 5px;
+}
+
+.eye_catching_video {
+    position: absolute;
+
+    width: 100%;
+}
+
+.eye_catching_section {
+    position: relative;
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 95px 0;
+
+    color: #ffffff;
+}
+
+.sub_title {
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+.eye_catching_section_buttons_box {
+    padding-top: 40px;
+}
+
+.eye_catching_section_buttons_box nav [class$="button"] {
+    height: 40px;
+    width: 100px;
+    border-radius: 6px;
+}
+
+.add_neighbor_button {
+    margin-right: 5px;
+    border: 1px solid #ff39a2;
+    background-color: #ff39a2;
+
+    color: #ffffff;
+}
+
+.go_to_blog_button {
+    margin-right: 5px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+
+    color: ff39a2;
+}
+
+article {
+    position: relative;
+
+    background-color: #ffffff;
+}
+
+.timeline_section {
+    background-color: #f2f2f2
+}
+
+.section_title {
+    padding-top: 50px;
+
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.section_title, .timeline_section_array {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline_section_array {
+    padding-top: 20px;
+    padding-bottom: 50px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.timeline_thumbnail {
+    border-radius: 4px;
+    width: 125px;
+    height: 125px;
+}
+
+.timeline_section_array a {
+    text-decoration: none;
+    color: #000000;
+}
+
+/* 각 타임라인 썸네일 소개 문구 */
+.timeline_section_array p:nth-child(2) {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 5px;
+    font-size: 0.8em;
+}
+
+/* 각 타임라인 썸네일 날짜 */
+.timeline_section_array p:last-child {
+    margin-top: 0;
+    font-size: 0.5em;
+
+    color: #999;
+}
+
+/* .left_link_box {
+    position: fixed;
+    z-index: 1;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.right_link_box {
+    position: fixed;
+} */
+
+iframe {
+    padding-top: 20px;
+    width: 100%;
+}
+
+.interview_box {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.introducing_paragraph {
+    padding-top: 40px;
+    font-weight: bold;
+    line-height: 25px;
+    color: #999;
+}
+
+.interview_photo {
+    padding-top: 40px;
+    width: 100%;
+}
+
+.quotation {
+    margin: 40px 0;
+
+    text-align: center;
+    font-size: 1.2em;;
+    font-weight: bold;
+    color: #999;
+}
+
+.question {
+    padding-top: 30px;
+    font-weight: bold;
+}
+
+.answer {
+    font-size: 0.9em;
+    line-height: 23px;
+}
+
+.link_box {
+    margin-top: 40px;
+}
+
+.posting_link {
+    text-decoration: none;
+}
+
+.posting_link_image {
+    width: 190px;
+    height: 130px;
+}
+
+.posting_link_title {
+    font-size: 0.8em;
+    color: #ff39a2;
+
+    margin-bottom: 7px;
+}
+
+.posting_link_content_cat {
+    font-size: 0.9em;
+    color: #000000;
+
+    margin-top: 7px;
+}
