@@ -24,6 +24,10 @@ public class MakaoBank {
 
       String name = path.substring(1);
 
+      if(!path.equals("/account")) {
+        // TODO : 뭔가 잘못됨
+      }
+
       // 처리
       MessageGenerator messageGenerator = new MessageGenerator(name);
       String content = messageGenerator.text();
