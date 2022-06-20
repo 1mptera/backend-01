@@ -1,0 +1,17 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class MessageProviderTest {
+    @Test
+    void simpleTest() {
+        MessageProvider messageProvider = new MessageProvider();
+        assertEquals("Hello, world!", messageProvider.message());
+    }
+
+    @Test
+    void messageToAshal() {
+        MessageProvider messageProvider = new MessageProvider("Ashal");
+        assertEquals("Hello, Ashal!", messageProvider.message());
+    }
+}
