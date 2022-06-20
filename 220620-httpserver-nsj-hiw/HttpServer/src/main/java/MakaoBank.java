@@ -1,5 +1,7 @@
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import utils.MessageGenerator;
+import utils.MessageWriter;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -13,27 +15,27 @@ public class MakaoBank {
   }
 
   public void run() throws IOException {
-    HttpServer httpServer = HttpServer.create(new InetSocketAddress(8000), 0);
+    InetSocketAddress address = new InetSocketAddress(8000);
+
+    HttpServer httpServer = HttpServer.create(address, 0);
 
     httpServer.createContext("/", (exchange) -> {
+      //input
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
       String name = path.substring(1);
 
+      //process
       MessageGenerator messageGenerator = new MessageGenerator(name);
       String content = messageGenerator.text();
 
-      exchange.sendResponseHeaders(200, content.getBytes().length);
-
-      OutputStream outputStream = exchange.getResponseBody();
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
+      //output
+      MessageWriter messageWriter = new MessageWriter(exchange);
+      messageWriter.write(content);
     });
 
     httpServer.start();
 
     System.out.println("Server is listening... http://localhost:8000");
   }
-
 }
