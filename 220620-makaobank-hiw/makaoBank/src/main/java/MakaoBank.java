@@ -9,7 +9,10 @@
 //  송금 시 거래내역에 내역 추가
 
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.GreetingPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
@@ -32,12 +35,18 @@ public class MakaoBank {
       String name = path.substring(1);
 
       //처리
-      MessageGenerator messageGenerator = new MessageGenerator(name);
-      String context = messageGenerator.text();
+      Account account = new Account("352-0528-2645-53", "Inu", 100000);
+
+      PageGenerator pageGenerator = switch (path) {
+        case "/Account" -> new AccountPageGenerator(account);
+        default -> new GreetingPageGenerator(name);
+      };
+
+      String html = pageGenerator.html();
 
       //출력
       MessageWriter messageWriter = new MessageWriter(exchange);
-      messageWriter.write(context);
+      messageWriter.write(html);
     });
 
     httpServer.start();
