@@ -1,0 +1,192 @@
+@media (max-width: 1920px) {
+    .qna_content {
+        transform: translate(25vw, 0%);
+    }
+}
+
+@media (max-width: 1440px) {
+    .qna_content {
+        transform: translate(15vw, 0%);
+    }
+}
+
+@media (max-width: 980px) {
+    .qna_content {
+        transform: translate(5vw, 0%);
+    }
+}
+
+.qna_content_text {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 34px;
+    color: #999;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 1920px) {
+    .qna_content_text {
+        width: 50vw;
+
+    }
+}
+
+@media (max-width: 1440px) {
+    .qna_content_text {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 980px) {
+    .qna_content_text {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 1920px) {
+    .qna_content_box img {
+        width: 50vw;
+
+    }
+}
+
+@media (max-width: 1440px) {
+    .qna_content_box img {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 980px) {
+    .qna_content_box img {
+        width: 80vw;
+    }
+}
+
+.qna_summary_text {
+    font-size: 26px;
+    font-family: 'Nanum Myeongjo', serif;
+    line-height: 38px;
+    letter-spacing: -1px;
+    color: #999;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 1920px) {
+    .qna_summary_text {
+        width: 50vw;
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 1440px) {
+    .qna_summary_text {
+        width: 70vw;
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 980px) {
+    .qna_summary_text {
+        width: 80vw;
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 1920px) {
+    .qna_text {
+        width: 50vw;
+    }
+}
+
+@media (max-width: 1440px) {
+    .qna_text {
+        width: 70vw;
+    }
+}
+
+@media (max-width: 980px) {
+    .qna_text {
+        width: 80vw;
+    }
+}
+
+.question {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 38px;
+    margin-bottom: 15px;
+}
+
+.answer {
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 50px;
+}
+
+@media (max-width: 1920px) {
+    .answer .posting_img {
+        width: 9vw;
+        height: 6vw;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
+@media (max-width: 1440px) {
+    .answer .posting_img {
+        width: 13vw;
+        height: 10vw;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
+@media (max-width: 980px) {
+    .answer .posting_img {
+        width: 14vw;
+        height: 10vw;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+}
+
+.qna_text a {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 40px 0px;
+}
+
+.qna_text .posting {
+    display: block;
+    color: #ff39a2;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 30px 30px 0px;
+}
+
+.qna_text .posting_title {
+    display: block;
+    margin: 5px 30px 0px;
+}
+
+/* like_box */
+
+.like_box {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+    margin-bottom: 80px;
+}
+
+.like_box .like_count {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.like_box .like_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_people_v11.png);
+    background-size: 99px 99px;
+    background-position: -37px 0px;
+    width: 31px;
+    height: 20px;
+    margin-right: 9px;
+}

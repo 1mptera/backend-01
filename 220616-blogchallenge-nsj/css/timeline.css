@@ -1,0 +1,106 @@
+#main_content_box {
+    width: 100%;
+}
+
+.timeline {
+    background-color: #f2f2f2;
+}
+
+.timeline .timeline_content img {
+    border-radius: 5px;
+}
+
+@media (max-width: 1920px) {
+    .timeline h2 {
+        transform: translate(20%, 0%);
+        padding-top: 40px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 1440px) {
+    .timeline h2 {
+        transform: translate(10%, 0%);
+        padding-top: 30px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 980px) {
+    .timeline h2 {
+        transform: translate(5%, 0%);
+        padding-top: 20px;
+        font-size: 10px;
+        font-weight: 800;
+    }
+}
+
+@media (max-width: 1920px) {
+    .timeline .timeline_content {
+        display: flex;
+        flex-direction: row;
+        transform: translate(20%, 0%);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .timeline .timeline_content {
+        display: flex;
+        flex-direction: row;
+        transform: translate(10%, 0%);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 980px) {
+    .timeline .timeline_content {
+        display: flex;
+        flex-direction: row;
+        transform: translate(5%, 0%);
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .timeline .timeline_content img {
+        width: 170px;
+        height: 170px;
+    }
+}
+
+@media (max-width: 980px) {
+    .timeline .timeline_content img {
+        width: 120px;
+        height: 100px;
+    }
+}
+
+.timeline .timeline_content_link {
+    margin-right: 16px;
+}
+
+.timeline_content .timeline_content_title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 7px;
+}
+
+.timeline_content .timeline_content_date {
+    font-size: 13px;
+    padding-top: 5px;
+    color: #999;
+}
+
+@media (max-width: 980px) {
+
+    .timeline .timeline_content_link,
+    .timeline_content .timeline_content_title {
+        font-size: 1px;
+    }
+}
