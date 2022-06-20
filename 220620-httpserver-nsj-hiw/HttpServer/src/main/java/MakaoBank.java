@@ -16,7 +16,6 @@ public class MakaoBank {
 
   public void run() throws IOException {
     InetSocketAddress address = new InetSocketAddress(8000);
-
     HttpServer httpServer = HttpServer.create(address, 0);
 
     httpServer.createContext("/", (exchange) -> {
