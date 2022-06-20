@@ -19,10 +19,11 @@ public class Account {
   }
 
   public String name() {
+
     return name;
   }
 
-  public int amont() {
+  public int amount() {
     return amount;
   }
 }

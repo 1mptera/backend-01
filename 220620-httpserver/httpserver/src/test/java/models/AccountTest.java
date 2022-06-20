@@ -10,14 +10,12 @@ class AccountTest {
   // 잔액
   @Test
   void creation() {
-      Account account = new Account("1234" , "Ashal" , 3000);
+    Account account = new Account("1234", "Ashal", 3000);
 
-      assertEquals("1234" , account.identifer());
-    assertEquals("Ashal" , account.name());
-    assertEquals(3000 , account.amont());
+    assertEquals("1234", account.identifer());
+    assertEquals("Ashal", account.name());
+    assertEquals(3000, account.amount());
   }
-
-
 
 
 }
