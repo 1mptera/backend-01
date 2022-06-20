@@ -5,13 +5,16 @@
 
 
 import com.sun.net.httpserver.HttpContext;
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 import utils.MessageGenerator;
+import utils.MessageWriter;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executor;
 
@@ -27,44 +30,32 @@ public class MakaoBank {
     HttpServer httpServer = HttpServer.create(address, 0);
 
     httpServer.createContext("/" , (exchange) -> {
-
+      String name = getName(exchange);
       //인사말 만들기
 
-      MessageGenerator messageGenerator = new MessageGenerator();
+      MessageGenerator messageGenerator = new MessageGenerator(name);
       String content = messageGenerator.text();
 
 
 
        // 내용을 http로 전달
-
-      exchange.sendResponseHeaders(200, content.getBytes().length);
-
-      OutputStream outputStream = exchange.getResponseBody();
-
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
+      MessageWriter messageWriter = new MessageWriter(exchange);
+      messageWriter.write(content);
 
     });
 
-    httpServer.createContext("/sunghwan" , (exchange) -> {
-      MessageGenerator messageGenerator = new MessageGenerator("sunghwna");
-      String content = messageGenerator.text();
 
-
-
-      exchange.sendResponseHeaders(200, content.getBytes().length);
-
-      OutputStream outputStream = exchange.getResponseBody();
-
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
-
-    });
 
     httpServer.start();
-
+    System.out.print("http://localhost:8000");
 
   }
+
+  public String getName(HttpExchange exchange) {
+    URI requestURI = exchange.getRequestURI();
+    String path = requestURI.getPath();
+    String name = path.substring(1);
+    return name;
+  }
+
 }

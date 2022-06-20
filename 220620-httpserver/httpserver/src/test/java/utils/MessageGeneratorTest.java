@@ -19,6 +19,12 @@ class MessageGeneratorTest {
 
     assertEquals("Hello , sunghwan!", messageGenerator.text());
   }
+  @Test
+  void nameIsBlank() {
+    MessageGenerator messageGenerator = new MessageGenerator("     ");
+
+    assertEquals("Hello , world!", messageGenerator.text());
+  }
 
 
 

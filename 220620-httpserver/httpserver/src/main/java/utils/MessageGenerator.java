@@ -7,7 +7,12 @@ public class MessageGenerator {
   private String name;
 
   public MessageGenerator(String name) {
-     this.name = name;
+    if(name.isBlank()){
+       this.name = "world";
+       return;
+    }
+
+    this.name = name;
   }
 
   public MessageGenerator() {
