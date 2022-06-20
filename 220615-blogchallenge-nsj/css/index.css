@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contanier {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+/* menu_bar */
+
+#menu_bar {
+    position: fixed;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    padding: 30px 40px;
+}
+
+#menu_bar .menu_logo {
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+}
+
+#menu_bar .menu_list {
+    display: inline-block;
+}
+
+#menu_bar .menu_list li {
+    float: left;
+    padding-left: 55px;
+}
+
+#menu_bar .menu_list_text {
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+}
+
+#menu_bar i {
+    float: right;
+}
+
+/* movie_play_box */
+
+#movie_play_box {
+    position: relative;
+}
+
+.movie_play {
+    position: relative;
+    height: 800px;
+    z-index: -1;
+}
+
+.movie_play .video {
+    object-fit: cover;
+    height: 800px;
+    width: 100%;
+}
+
+.movie_play_inner {
+    position: absolute;
+    transform: translate(50%, -150%);
+}
+
+.movie_play_inner h1 {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.movie_play_inner p:nth-child(2) {
+    font-size: 58px;
+    font-weight: bold;
+    color: white;
+}
+
+.movie_play_inner p:nth-child(3) {
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    margin-top: 35px;
+}
+
+.movie_play_inner button {
+    margin-top: 70px;
+
+}
+
+.movie_play_inner .add_neighbors-button {
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #eb4c9f;
+    background-color: #eb4c9f;
+    border-radius: 6px;
+    width: 135px;
+    height: 49px;
+    color: white;
+}
+
+.movie_play_inner .move_blog_button {
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 6px;
+    width: 135px;
+    height: 49px;
+    color: #eb4c9f;
+}
+
+/* timeline */
+
+#main_content_box {
+    position: relative;
+    width: 100%;
+}
+
+.timeline {
+    background-color: #f2f2f2;
+}
+
+.timeline h2 {
+    transform: translate(20%, 0%);
+    padding-top: 40px;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.timeline .timeline_content {
+    display: flex;
+    flex-direction: row;
+    transform: translate(20%, 0%);
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.timeline_content .timeline_content_title {
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 7px;
+}
+
+.timeline_content .timeline_content_date {
+    font-size: 13px;
+    padding-top: 5px;
+    color: #999;
+}
+
+.timeline .timeline_content_link {
+    margin-right: 16px;
+}
+
+/* interview */
+
+.interview {
+    transform: translate(20%, 0%);
+}
+
+.interview .interview_title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* qna_content */
+
+.qna_content_box {
+    position: relative;
+    max-width: 900px;
+    transform: translate(42%, 0%);
+    padding: 100px 100px;
+}
+
+.qna_content_box img {
+    width: 100%;
+}
+
+.qna_content_text {
+    font-size: 20px;
+    line-height: 34px;
+    font-weight: bold;
+    color: #999;
+    padding-bottom: 50px;
+}
+
+.qna_summary_text {
+    font-size: 26px;
+    line-height: 38px;
+    letter-spacing: -1px;
+    color: #999;
+    text-align: center;
+    font-weight: bold;
+    padding: 45px 0;
+    margin-bottom: 45px;
+}
+
+.qna_content_box .qna_summary_text::before {
+    content: '“';
+    transform: translate(0%, -50%);
+}
+
+.qna_content_box .qna_summary_text::after {
+    content: '“';
+    transform: translate(0%, 100%);
+}
+
+.qna_content_box .qna_summary_text::before,
+.qna_summary_text::after {
+    color: #999;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.qna_text {
+    position: relative;
+}
+
+.qna_text .question {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.qna_text .answer {
+    font-size: 18px;
+    line-height: 32px;
+    margin-bottom: 50px;
+}
+
+.answer .qna_answer_img {
+    margin-top: 50px;
+}
+
+.answer .posting_img {
+    border: 1px solid rgba(0, 0, 0, 0.12)
+}
+
+.qna_text a {
+    display: flex;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    margin: 40px 0px;
+
+}
+
+.qna_text a img {
+    width: 190px;
+    height: 130px;
+}
+
+.qna_text .posting {
+    display: block;
+    color: #ff39a2;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 30px 30px 0px;
+}
+
+.qna_text .posting_title {
+    display: block;
+    margin: 5px 30px 0px;
+}
+
+/* like_box */
+
+.like_box {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.like_box .like_count {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.like_box .like_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_people_v11.png);
+    background-size: 99px 99px;
+    background-position: -37px 0px;
+    width: 31px;
+    height: 20px;
+    margin-right: 9px;
+}
+
+/* additional_content */
+
+.additional_content {
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: 70px 0 50px;
+}
+
+.event_box {
+    transform: translate(44%, 0%);
+    background-color: #00D29E;
+    width: 1083px;
+    height: 141px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+}
+
+.event_box p {
+    padding: 5px 25px;
+}
+
+.event_box p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFF389;
+    padding-top: 35px;
+}
+
+.event_box p:nth-child(2) {
+    display: inline;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+}
+
+.move_blog {
+    transform: translate(44%, 0%);
+    width: 1083px;
+    height: 141px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.move_blog p {
+    padding: 0px 25px;
+}
+
+.move_blog p:nth-child(1) {
+    font-size: 22px;
+    font-weight: 900;
+    padding-top: 35px;
+}
+
+.move_blog p:nth-child(2) {
+    display: inline;
+    font-size: 15px;
+    margin-top: 4px;
+}
+
+.move_blog button {
+    background-color: #ff39a2;
+    border: 1px solid #ff39a2;
+    color: white;
+    margin-left: 450px;
+    min-width: 167px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+/* other_interviews */
+
+.other_interviews {
+    transform: translate(25%, 0%);
+}
+
+.other_interviews h3 {
+    margin: 50px 0 30px;
+}
+
+.other_interviews div {
+    display: flex;
+    flex-direction: row;
+}
+
+.other_interviews .other_interviews_title {
+    font-weight: bold;
+    font-size: 16px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: block;
+}
+
+.other_interviews .other_interviews_bloger {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.other_interviews img {
+    width: 250px;
+    height: 250px;
+}
+
+.other_interviews a {
+    margin-right: 20px;
+}
+
+/* advertise */
+
+.advertise_box {
+    background: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/common/img_download_bg.jpg);
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+
+}
+
+.black_box {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 500px;
+    width: 100%;
+}
+
+.advertise p {
+    padding-left: 35%;
+}
+
+.advertise p:nth-child(1) {
+    font-size: 40px;
+    font-weight: 800;
+    color: white;
+    padding-top: 10%;
+}
+
+.advertise p:nth-child(2) {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    padding-top: 17px;
+    margin-left: 80px;
+}
+
+.apple_button {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -425px -214px;
+    width: 200px;
+    height: 67px;
+    margin-top: 50px;
+    margin-left: 770px;
+}
+
+.google_button {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -425px -142px;
+    width: 200px;
+    height: 67px;
+    margin-left: 20px;
+}
+
+/* footer */
+
+.footer {
+    padding: 30px 100px;
+}
+
+.footer a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.campaign_inquiry {
+    font-size: 14px;
+}
+
+.copyright {
+    color: #999;
+}
+
+.bottom_box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.icon_box span {
+    margin-left: 15px;
+}
+
+.naver_blog_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -720px -200px;
+    width: 23px;
+    height: 21px;
+}
+
+.naver_band_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -590px -522px;
+    width: 19px;
+    height: 23px;
+}
+
+.naver_cafe_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -396px -187px;
+    width: 23px;
+    height: 23px;
+}
+
+.facebook_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -721px -304px;
+    width: 23px;
+    height: 23px;
+}
+
+.twitter_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -368px -127px;
+    width: 23px;
+    height: 19px;
+}
+
+.link_icon {
+    display: inline-block;
+    background-image: url(https://campaign-cdn.pstatic.net/0/campaign/2022/05/weeklydiary/img/sp_common.png);
+    background-size: 744px 626px;
+    background-position: -396px -159px;
+    width: 23px;
+    height: 23px;
+}
