@@ -1,22 +1,24 @@
-// main -> non static run 으로 만들어주기
-// web application server로 만들어주기
-//
+// 마카오 뱅크
+// 잔액 조회
+// 1. account 계좌 번호 필요함
+// 2. 송금
+// 여러 계좌 -> 계좌 번호로 구분
+// Transaction 추가
+// 3. 거래내역 transactions
+// 거래내역 List로 관리
+// messageGenerator 를 pageGenerator로 이름 바꾸기
+// pageGenerator를 상속 AccountPageGenrator
 
-
-
-import com.sun.net.httpserver.HttpContext;
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
-import java.util.concurrent.Executor;
+
 
 public class MakaoBank {
   public static void main(String[] args) throws IOException {
@@ -29,21 +31,24 @@ public class MakaoBank {
 
     HttpServer httpServer = HttpServer.create(address, 0);
 
-    httpServer.createContext("/" , (exchange) -> {
-      String name = getName(exchange);
-      //인사말 만들기
+    httpServer.createContext("/", (exchange) -> {
 
-      MessageGenerator messageGenerator = new MessageGenerator(name);
-      String content = messageGenerator.text();
+      URI requestURI = exchange.getRequestURI();
+      String path = requestURI.getPath();
+
+      if(!path.equals("/account")) {
+         // todo : 뭐가 문제가 있음
+      }
+
+      Account account = new Account("1234" , "Ashal" , 3000);
+      PageGenerator PageGenerator = new AccountPageGenerator(account);
+      String content = PageGenerator.html();
 
 
-
-       // 내용을 http로 전달
       MessageWriter messageWriter = new MessageWriter(exchange);
       messageWriter.write(content);
 
     });
-
 
 
     httpServer.start();
@@ -51,11 +56,5 @@ public class MakaoBank {
 
   }
 
-  public String getName(HttpExchange exchange) {
-    URI requestURI = exchange.getRequestURI();
-    String path = requestURI.getPath();
-    String name = path.substring(1);
-    return name;
-  }
 
 }
