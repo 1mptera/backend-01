@@ -19,4 +19,11 @@ public class MessageGeneratorTest {
 
     assertEquals("Hello, Ashal!", messageGenerator.text());
   }
+
+  @Test
+  public void emptyName() {
+    MessageGenerator messageGenerator = new MessageGenerator("");
+
+    assertEquals("Hello, world!", messageGenerator.text());
+  }
 }
