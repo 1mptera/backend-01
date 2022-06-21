@@ -9,10 +9,7 @@
 
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
-import utils.AccountPageGenerator;
-import utils.GreetingPageGenerator;
-import utils.PageGenerator;
-import utils.MessageWriter;
+import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -40,6 +37,9 @@ public class MakaoBank {
 
       if (path.equals("/Account")) {
         pageGenerator = new AccountPageGenerator(account);
+      }
+      if (path.equals("/Transfer")) {
+        pageGenerator = new TransferPageGenerator(account);
       }
 
       String content = pageGenerator.html();
