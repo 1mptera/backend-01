@@ -1,5 +1,8 @@
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.GreetingPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
@@ -21,8 +24,15 @@ public class MakaoBank {
       String path = requestURI.getPath();
       String name = path.substring(1);
 
-      MessageGenerator messageGenerator = new MessageGenerator(name);
-      String content = messageGenerator.text();
+
+      Account account = new Account("352-0528", "Inu", 500000);
+
+      PageGenerator pageGenerator = switch (path) {
+        case "/Account" -> new AccountPageGenerator(account);
+        default -> new GreetingPageGenerator(name);
+      };
+
+      String content = pageGenerator.html();
 
       MessageWriter messageWriter = new MessageWriter(exchange);
       messageWriter.write(content);
