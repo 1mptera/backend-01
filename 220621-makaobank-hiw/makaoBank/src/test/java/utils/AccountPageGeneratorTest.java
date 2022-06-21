@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountPageGeneratorTest {
-
   @Test
   void html() {
     Account account = new Account("352-0528", "Inu", 500000);

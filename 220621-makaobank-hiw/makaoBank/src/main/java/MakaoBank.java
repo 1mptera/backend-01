@@ -1,9 +1,6 @@
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
-import utils.AccountPageGenerator;
-import utils.GreetingPageGenerator;
-import utils.PageGenerator;
-import utils.MessageWriter;
+import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -23,12 +20,15 @@ public class MakaoBank {
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
       String name = path.substring(1);
-
+      String method = exchange.getRequestMethod();
 
       Account account = new Account("352-0528", "Inu", 500000);
 
       PageGenerator pageGenerator = switch (path) {
         case "/Account" -> new AccountPageGenerator(account);
+        case "/Transfer" -> method.equals("GET")
+            ? new TransferPageGenerator(account)
+            : new TransferProcessPageGenerator(account);
         default -> new GreetingPageGenerator(name);
       };
 
