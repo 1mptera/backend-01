@@ -28,12 +28,16 @@ public class MakaoBank {
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
 
+      String method = exchange.getRequestMethod();
       // process
+
       Account account = new Account("1234", "Ashal", 3000);
 
       PageGenerator pageGenerator = switch (path) {
         case "/account" -> new AccountPageGenerator(account);
-        case "/transfer" -> new TransferPageGenerator(account);
+        case "/transfer" -> method.equals("GET")
+            ? new TransferPageGenerator(account)
+            : new TransferProcessPageGenerator(account);
         default -> new GreetingPageGenerator();
       };
 

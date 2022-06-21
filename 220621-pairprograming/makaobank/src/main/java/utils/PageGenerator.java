@@ -2,5 +2,28 @@ package utils;
 
 public abstract class PageGenerator {
 
-  public abstract String html(); // 개념적인 부분이다 라는건데 새라는게 있잖아요 새라는 거는 날개 있고 날 수있는 친구들의 집합이다. 독수리 참새 비둘기
+  public String html() {
+      return
+    "<!DOCTYPE html>\n" +
+        "<html>\n" +
+        "<head>\n" +
+        "<meta charset=\"UTF-8\">\n" +
+        "<title>MakaoBank</title>\n" +
+        "</head>\n" +
+        "<body>\n" +
+        navigation() +
+        content() +
+        "</body>\n" +
+        "</html>";
+  }
+
+  public String navigation() {
+    return "<nav>\n" +
+        "<a href= \"/\">홈으로</a>" +
+        "<a href= \"/account\">잔액조회</a>" +
+        "<a href= \"/transfer\">송금하기</a>" +
+        "</nav>\n";
+  }
+
+  protected abstract String content();
 }
