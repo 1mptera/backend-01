@@ -1,6 +1,6 @@
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
-import utils.MessageWriter;
+import models.Account;
+import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -20,11 +20,21 @@ public class MakaoBank {
       //  입력
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
-      String name = path.substring(1);
+
+      String method = exchange.getRequestMethod();
 
       // 처리
-      MessageGenerator messageGenerator = new MessageGenerator(name);
-      String content = messageGenerator.text();
+      Account account = new Account("1234", "ashal", 3000);
+
+      PageGenerator pageGenerator = switch (path) {
+        case "/account" -> new AccountPageGenerator(account);
+        case "/transfer" -> method.equals("GET")
+            ? new TransferPageGenerator(account)
+            : new TransferProcessPageGenerator(account);
+        default -> new GreetingPageGenerator();
+      };
+
+      String content = pageGenerator.html();
 
       // 출력
       MessageWriter messageWriter = new MessageWriter(exchange);
