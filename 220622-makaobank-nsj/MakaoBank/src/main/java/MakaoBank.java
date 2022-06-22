@@ -1,9 +1,6 @@
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
-import utils.AccountPageGenerator;
-import utils.GreetingPageGenerator;
-import utils.PageGenerator;
-import utils.MessageWriter;
+import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -15,22 +12,27 @@ public class MakaoBank {
     application.run();
   }
 
-  private void run() throws IOException {
+  public void run() throws IOException {
     InetSocketAddress address = new InetSocketAddress(8000);
     HttpServer httpServer = HttpServer.create(address, 0);
 
     httpServer.createContext("/", (exchange) -> {
-      // 입력
+      //  입력
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
 
-      // 처리
-      PageGenerator pageGenerator = new GreetingPageGenerator();
+      String method = exchange.getRequestMethod();
 
-      if(path.equals("/account")) {
-        Account account = new Account("1234", "ashal", 3000);
-        pageGenerator = new AccountPageGenerator(account);
-      }
+      // 처리
+      Account account = new Account("1234", "ashal", 3000);
+
+      PageGenerator pageGenerator = switch (path) {
+        case "/account" -> new AccountPageGenerator(account);
+        case "/transfer" -> method.equals("GET")
+            ? new TransferPageGenerator(account)
+            : new TransferProcessPageGenerator(account);
+        default -> new GreetingPageGenerator();
+      };
 
       String content = pageGenerator.html();
 
@@ -38,9 +40,9 @@ public class MakaoBank {
       MessageWriter messageWriter = new MessageWriter(exchange);
       messageWriter.write(content);
     });
+
     httpServer.start();
 
-    System.out.print("http://localhost:8000");
+    System.out.print("http://localhost:8000/");
   }
-
 }
