@@ -4,9 +4,9 @@ public class Account {
 
   private String identifier;
   private String name;
-  private int amount;
+  private long amount;
 
-  public Account(String identifier, String name, int amount) {
+  public Account(String identifier, String name, long amount) {
 
     this.identifier = identifier;
     this.name = name;
@@ -21,7 +21,13 @@ public class Account {
     return name;
   }
 
-  public int amount() {
+  public long amount() {
     return amount;
+  }
+
+  public void transfer(Account receiver, long amount) {
+    this.amount -= amount;
+
+    receiver.amount += amount;
   }
 }

@@ -9,7 +9,7 @@ public class TransferSuccessPageGenerator extends PageGenerator {
 
   @Override
   public String content() {
-    return "<p> 계좌 이체 성공 </p>";
+    return " 계좌 이체 성공 ";
 
   }
 }
