@@ -9,10 +9,8 @@ public class TransferPageGenerator extends PageGenerator {
   public TransferPageGenerator(Account account) {
     super();
 
-
     this.account = account;
   }
-
 
   @Override
   public String content() {
@@ -22,7 +20,5 @@ public class TransferPageGenerator extends PageGenerator {
         "<p> 보낼금액: <input type=\"number\" name=\"amount\" /><p>\n" +
         "<p><button type=\"submit\">check</button></p>\n" +
         "</form>\n";
-
-
   }
 }

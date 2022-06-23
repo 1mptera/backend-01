@@ -16,6 +16,6 @@ class PageGeneratorTest {
     String html = pageGenerator.html();
 
     assertTrue(html.contains("홈으로"), "홈으로 링크 문제 있음" + html);
+    assertTrue(html.contains("거래내역 조회"), "거래내역 조회 링크 문제 있음" + html);
   }
-
 }

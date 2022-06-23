@@ -1,7 +1,5 @@
 package utils;
 
-import models.Account;
-
 public class GreetingPageGenerator extends PageGenerator {
 
   String name;

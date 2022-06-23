@@ -1,3 +1,8 @@
+//Transaction model 만들기
+//  >> Transaction List는 Account에 저장됨
+//  >> Account의 Transfer가 실행되면
+//     sender와 receiver Account에 Transaction이 추가됨
+
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
 import repository.AccountRepository;
@@ -7,7 +12,6 @@ import utils.*;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
 
 public class MakaoBank {
@@ -66,6 +70,7 @@ public class MakaoBank {
     return switch (steps[0]) {
       case "account" -> processAccount(steps.length > 1 ? steps[1] : "");
       case "transfer" -> processTransfer(method, formData);
+      case "transaction" -> processTransaction();
       default -> new GreetingPageGenerator();
     };
   }
@@ -104,5 +109,11 @@ public class MakaoBank {
     Account account = accountRepository.find(accountIdentifier);
 
     return new TransferSuccessPageGenerator(account);
+  }
+
+  public PageGenerator processTransaction() {
+    Account account = accountRepository.find(accountIdentifier);
+
+    return new TransactionPageGenerator(account);
   }
 }

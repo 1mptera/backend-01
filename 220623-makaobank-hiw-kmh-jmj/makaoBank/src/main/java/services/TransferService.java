@@ -10,12 +10,17 @@ public class TransferService {
     this.accountRepository = accountRepository;
   }
 
+  public boolean transfer(String from, String to, long amount) {
+    if (amount <= 0) {
+      return false;
+    }
 
-  public void transfer(String from, String to, long amount) {
     Account sender = accountRepository.find(from);
 
     Account receiver = accountRepository.find(to);
 
     sender.transfer(receiver, amount);
+
+    return true;
   }
 }

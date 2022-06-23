@@ -16,6 +16,5 @@ public class AccountPageGenerator extends PageGenerator {
     return "<p> 계좌번호 : " + account.identifier() + "</p>\n" +
         "<p> 이름 : " + account.name() + "</p>\n" +
         "<p> 잔액 : " + account.amount() + "</p>\n" ;
-
   }
 }
