@@ -12,19 +12,10 @@ public class AccountPageGenerator extends PageGenerator {
   }
 
   @Override
-  public String html() {
+  public String content() {
     return "" +
-        "<!DOCTYPE html>" +
-        "<html>" +
-        "<head>" +
-        "<meta charset=\"UTF-8\" />" +
-        "<title>MakaoBank</title>" +
-        "</head>" +
-        "<body>" +
-        "<p>계좌번호: " + account.identifier() + "</p>" +
-        "<p>이름: " + account.name() + "</p>" +
-        "<p>잔액: " + account.amount() + "원</p>" +
-        "</body>" +
-        "</html>";
+        "<p>계좌번호: " + account.identifier() + "</p>\n" +
+        "<p>이름: " + account.name() + "</p>\n" +
+        "<p>잔액: " + account.amount() + "원</p>\n";
   }
 }
