@@ -1,0 +1,35 @@
+package utils;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class GreetingPageGeneratorTest {
+  @Test
+  void creation() {
+    PageGenerator pageGenerator = new GreetingPageGenerator();
+
+    assertEquals("Hello, world!", pageGenerator.html());
+  }
+
+  @Test
+  void nameWithAshal() {
+    PageGenerator pageGenerator = new GreetingPageGenerator("Ashal");
+
+    assertEquals("Hello, Ashal!", pageGenerator.html());
+  }
+
+  @Test
+  void withEmptyName() {
+    PageGenerator pageGenerator = new GreetingPageGenerator("");
+
+    assertEquals("Hello, world!", pageGenerator.html());
+  }
+
+  @Test
+  void withBlankName() {
+    PageGenerator pageGenerator = new GreetingPageGenerator("  ");
+
+    assertEquals("Hello, world!", pageGenerator.html());
+  }
+}
