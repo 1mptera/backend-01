@@ -2,6 +2,7 @@ package services;
 
 import models.Account;
 import org.junit.jupiter.api.Test;
+import repositories.AccountRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,15 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class TransferServiceTest {
   @Test
   void transfer() {
-    List<Account> accounts = List.of(
-        new Account("2345", "joker", 1000),
-        new Account("1234", "ashal", 3000)
-    );
+    AccountRepository accountRepository = new AccountRepository();
 
-    Account sender = accounts.get(1);
-    Account receiver = accounts.get(0);
+    Account sender = accountRepository.find("1234");
+    Account receiver = accountRepository.find("2345");
 
-    TransferService transferService = new TransferService(accounts);
+    TransferService transferService = new TransferService(accountRepository);
 
     long oldSenderAmount = sender.amount();
     long oldReceiverAmount = receiver.amount();

@@ -19,6 +19,7 @@ public abstract class PageGenerator {
         "<a href=\"/\">홈으로</a>" +
         "<a href=\"/account\">잔액조회</a>" +
         "<a href=\"/transfer\">송금</a>" +
+        "<a href=\"/transaction\">거래내역</a>" +
         "</nav>";
   }
 

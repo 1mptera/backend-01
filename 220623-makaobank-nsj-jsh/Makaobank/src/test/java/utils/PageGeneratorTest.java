@@ -17,6 +17,7 @@ class PageGeneratorTest {
     assertTrue(html.contains("<a href=\"/\">홈으로"));
     assertTrue(html.contains("<a href=\"/account\">잔액조회"));
     assertTrue(html.contains("<a href=\"/transfer\">송금"));
+    assertTrue(html.contains("<a href=\"/transaction\">거래내역"));
   }
 
 } 
