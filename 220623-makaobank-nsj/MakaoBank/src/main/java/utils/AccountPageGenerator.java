@@ -12,17 +12,9 @@ public class AccountPageGenerator extends PageGenerator {
   }
 
   @Override
-  public String html() {
-    return "<!DOCTYPE html>" +
-        "<html>" +
-        "<head>" +
-        "<meta charset=\"UTF-8\">" +
-        "</head>" +
-        "<body>" +
-        "<p>계좌번호: " + account.identifier() + "</p>" +
+  public String content() {
+    return "<p>계좌번호: " + account.identifier() + "</p>" +
         "<p>이름: " + account.name() + "</p>" +
-        "<p>잔액: " + account.amount() + "</p>" +
-        "</body>" +
-        "</html>";
+        "<p>잔액: " + account.amount() + "</p>";
   }
 }

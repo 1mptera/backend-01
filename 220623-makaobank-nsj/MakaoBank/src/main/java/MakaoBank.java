@@ -1,15 +1,11 @@
 import com.sun.net.httpserver.HttpServer;
 
 import models.Account;
-import utils.AccountPageGenerator;
-import utils.GreetingPageGenerator;
-import utils.PageGenerator;
+import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
-
-import utils.MessageWriter;
 
 public class MakaoBank {
   public static void main(String[] args) throws IOException {
@@ -25,12 +21,17 @@ public class MakaoBank {
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
 
-      PageGenerator pageGenerator = new GreetingPageGenerator();
+      String method = exchange.getRequestMethod();
 
-      if(path.equals("/account")) {
-        Account account = new Account("1234", "ashal", 3000);
-        pageGenerator = new AccountPageGenerator(account);
-      }
+      Account account = new Account("1234", "ashal", 3000);
+
+      PageGenerator pageGenerator = switch (path) {
+        case "/account" -> new AccountPageGenerator(account);
+        case "/transfer" -> method.equals("GET")
+            ? new TransferPageGenerator(account)
+            : new TransferProcessPageGenerator(account);
+        default -> new GreetingPageGenerator();
+      };
 
       String content = pageGenerator.html();
 
@@ -42,5 +43,4 @@ public class MakaoBank {
 
     System.out.print("http://localhost:8000");
   }
-
 }
