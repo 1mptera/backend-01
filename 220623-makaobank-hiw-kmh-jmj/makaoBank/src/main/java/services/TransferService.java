@@ -1,28 +1,20 @@
 package services;
 
 import models.Account;
-
-import java.util.ArrayList;
-import java.util.List;
+import repository.AccountRepository;
 
 public class TransferService {
-  private final List<Account> accounts;
+  private final AccountRepository accountRepository;
 
-  public TransferService(List<Account> accounts) {
-    this.accounts = new ArrayList<>(accounts);
+  public TransferService(AccountRepository accountRepository) {
+    this.accountRepository = accountRepository;
   }
 
 
   public void transfer(String from, String to, long amount) {
-    // todo account는 from과 관련돼야 함
-    // todo : to도 써야함
-    Account sender = accounts.stream()
-        .filter( account -> account.identifier().equals(from))
-        .findFirst().get();
+    Account sender = accountRepository.find(from);
 
-    Account receiver = accounts.stream()
-        .filter( account -> account.identifier().equals(to))
-        .findFirst().get();
+    Account receiver = accountRepository.find(to);
 
     sender.transfer(receiver, amount);
   }

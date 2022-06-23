@@ -1,20 +1,21 @@
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
+import repository.AccountRepository;
 import services.TransferService;
 import utils.*;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
 public class MakaoBank {
-  private Account account;
+  private AccountRepository accountRepository;
+  private String accountIdentifier = "1234";
+
   private TransferService transferService;
   private FormParser formParser;
-  private List<Account> accounts;
 
   public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
@@ -23,16 +24,13 @@ public class MakaoBank {
 
   public MakaoBank() {
     formParser = new FormParser();
-    accounts = List.of(
-        new Account("1234", "Ashal", 3000),
-        new Account("2345", "JOKER", 1000)
-    );
-    account = accounts.get(0);
-    transferService = new TransferService(accounts);
+
+    accountRepository = new AccountRepository();
+
+    transferService = new TransferService(accountRepository);
   }
 
   public void run() throws IOException {
-
     InetSocketAddress address = new InetSocketAddress(8000);
 
     HttpServer httpServer = HttpServer.create(address, 0);
@@ -50,9 +48,7 @@ public class MakaoBank {
       formData.get("to");
       formData.get("amount");
 
-
       //처리
-
       PageGenerator pageGenerator = process(path, method, formData);
 
       new MessageWriter(exchange).write(pageGenerator.html());
@@ -75,12 +71,13 @@ public class MakaoBank {
   }
 
   public AccountPageGenerator processAccount(String identifier) {
-    Account found = accounts.stream().filter(account ->
-            account.identifier().equals(identifier))
-        .findFirst()
-        .orElse(account);
+    Account account = accountRepository.find(identifier);
 
-    return new AccountPageGenerator(found);
+    if (account == null) {
+      account = accountRepository.find(accountIdentifier);
+    }
+
+    return new AccountPageGenerator(account);
   }
 
   public PageGenerator processTransfer(String method, Map<String, String> formData) {
@@ -89,25 +86,23 @@ public class MakaoBank {
     }
 
     return processTransferPost(formData);
-
-
   }
 
   public TransferPageGenerator processTransferGet() {
+    Account account = accountRepository.find(accountIdentifier);
+
     return new TransferPageGenerator(account);
   }
 
   public TransferSuccessPageGenerator processTransferPost(Map<String, String> formData) {
-    // TODO : real proceed
-
-
-    transferService.transfer(account.identifier(),
+    transferService.transfer(
+        accountIdentifier,
         formData.get("to"),
-        Long.parseLong(formData.get("amount")));
+        Long.parseLong(formData.get("amount"))
+    );
 
-
+    Account account = accountRepository.find(accountIdentifier);
 
     return new TransferSuccessPageGenerator(account);
-
   }
 }
