@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Collection;
-
 public class Account {
   private String identifier;
   private String name;
@@ -23,5 +21,12 @@ public class Account {
 
   public long amount() {
     return amount;
+  }
+
+  //TODO: 지금은 문제가 있음. 받는 사람이 필요함
+  public void transfer(Account receiver, long amount) {
+    this.amount -= amount;
+
+    receiver.amount += amount;
   }
 }

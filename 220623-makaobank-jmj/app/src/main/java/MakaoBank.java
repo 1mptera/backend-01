@@ -6,20 +6,32 @@
 
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
+import services.TransferService;
 import utils.*;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
+import java.util.List;
 
 public class MakaoBank {
+  private Account account;
+  private TransferService transferService;
+
   public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
     application.run();
   }
 
   public void run() throws IOException {
+    List<Account> accounts = List.of(
+        new Account("1234", "Ashal", 3000),
+        new Account("2345", "JOKER", 1000)
+    );
+
+    Account account = accounts.get(0);
+    transferService = new TransferService(accounts);
+
     InetSocketAddress address = new InetSocketAddress(8000);
 
     HttpServer httpServer = HttpServer.create(address, 0);
@@ -34,15 +46,7 @@ public class MakaoBank {
 
       // 처리
 
-      Account account = new Account("1234", "Ashal", 3000);
-
-      PageGenerator pageGenerator = switch (path) {
-        case "/account" -> new AccountPageGenerator(account);
-        case "/transfer" -> method.equals("GET")
-                ? new TransferPageGenerator(account)
-                : new TransferProcessPageGenerator(account);
-        default -> new GreetingPageGenerator();
-      };
+      PageGenerator pageGenerator = process(path, method);
 
       String content = pageGenerator.html();
 
@@ -53,5 +57,34 @@ public class MakaoBank {
 
     httpServer.start();
     System.out.println("http://localhost:8000/");
+  }
+
+  public PageGenerator process(String path, String method) {
+    return switch (path) {
+      case "/account" -> processAccount();
+      case "/transfer" -> processTransfer(method);
+      default -> new GreetingPageGenerator();
+    };
+  }
+
+  public AccountPageGenerator processAccount() {
+    return new AccountPageGenerator(account);
+  }
+
+  public PageGenerator processTransfer(String method) {
+    if (method.equals("GET")) {
+      return transferProcessGet();
+    }
+    return transferProcessPost();
+  }
+
+  public TransferPageGenerator transferProcessGet() {
+    return new TransferPageGenerator(account);
+  }
+
+  public TransferSuccessPageGenerator transferProcessPost() {
+    // TODO: 진짜 처리
+    transferService.transfer("1234", "2345", 1000);
+    return new TransferSuccessPageGenerator(account);
   }
 }
