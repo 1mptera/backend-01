@@ -1,13 +1,13 @@
 package utils;
 
-public class MessageGenerator {
+public class PageGenerator {
   private String name;
 
-  public MessageGenerator() {
+  public PageGenerator() {
     this.name = "world";
   }
 
-  public MessageGenerator(String name) {
+  public PageGenerator(String name) {
     if (name.isBlank()) {
       this.name = "world";
       return;
