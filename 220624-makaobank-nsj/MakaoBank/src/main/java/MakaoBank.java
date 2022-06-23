@@ -1,9 +1,11 @@
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.GreetingPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
 
@@ -18,13 +20,20 @@ public class MakaoBank {
     HttpServer httpServer = HttpServer.create(addres, 0);
 
     httpServer.createContext("/", (exchange) -> {
+      // 입력
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
-      String name = path.substring(1);
 
-      MessageGenerator messageGenerator = new MessageGenerator(name);
-      String content = messageGenerator.text();
+      // 처리
+      PageGenerator pageGenerator = new GreetingPageGenerator();
 
+      if(path.equals("/account")) {
+        Account account = new Account("1234", "ashal", 3000);
+        pageGenerator = new AccountPageGenerator(account);
+      }
+      String content = pageGenerator.html();
+
+      // 출력
       MessageWriter messageWriter = new MessageWriter(exchange);
       messageWriter.write(content);
     });
