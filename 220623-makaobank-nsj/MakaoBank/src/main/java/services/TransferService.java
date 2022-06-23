@@ -25,5 +25,4 @@ public class TransferService {
 
     sender.transfer(receiver, amount);
   }
-
 }
