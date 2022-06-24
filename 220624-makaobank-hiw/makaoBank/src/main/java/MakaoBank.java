@@ -1,5 +1,6 @@
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
+import repositories.AccountRepository;
 import services.TransferService;
 import utils.*;
 
@@ -7,15 +8,13 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MakaoBank {
   private TransferService transferService;
 
-  private List<Account> accountList;
+  private AccountRepository accountRepository;
   private Account myAccount;
-  private String myIdentifier;
 
   public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
@@ -25,13 +24,8 @@ public class MakaoBank {
   public void run() throws IOException {
     transferService = new TransferService();
 
-    accountList = List.of(
-        new Account("352", "Chikorita", 50000),
-        new Account("179", "Eevee", 1000),
-        new Account("110", "Pikachu", 3000)
-    );
-    myAccount = accountList.get(0);
-    myIdentifier = myAccount.identifier();
+    accountRepository = new AccountRepository();
+    myAccount = accountRepository.find("352");
 
     InetSocketAddress address = new InetSocketAddress(8000);
     HttpServer httpServer = HttpServer.create(address, 0);
@@ -80,10 +74,11 @@ public class MakaoBank {
   }
 
   public AccountPageGenerator processAccount(String identifier) {
-    Account found = accountList.stream()
-        .filter(account -> account.identifier().equals(identifier))
-        .findFirst()
-        .orElse(myAccount);
+    Account found = accountRepository.find(identifier);
+
+    if (found == null) {
+      found = myAccount;
+    }
 
     return new AccountPageGenerator(found);
   }
@@ -97,19 +92,11 @@ public class MakaoBank {
   }
 
   private TransferSuccessPageGenerator processTransferPost(Map<String, String> formData) {
-    Account sender = accountList.stream()
-        .filter(account -> account.identifier().equals(myIdentifier))
-        .findFirst()
-        .orElse(myAccount);
-
-    Account receiver = accountList.stream()
-        .filter(account -> account.identifier().equals(formData.get("to")))
-        .findFirst()
-        .get();
+    Account receiver = accountRepository.find(formData.get("to"));
 
     long amountTransferred = Long.parseLong(formData.get("amount"));
 
-    transferService.transfer(sender, receiver, amountTransferred);
+    transferService.transfer(myAccount, receiver, amountTransferred);
 
     return new TransferSuccessPageGenerator();
   }
