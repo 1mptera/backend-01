@@ -57,6 +57,7 @@ public class MakaoBank {
     return switch (steps[0]) {
       case "account" -> processAccount(steps.length > 1 ? steps[1] : "");
       case "transfer" -> processTransfer(method, formData);
+      case "transactions" -> processTransactions();
       default -> new GreetingPageGenerator();
     };
   }
@@ -70,11 +71,7 @@ public class MakaoBank {
   }
 
   private AccountPageGenerator processAccount(String identifier) {
-    Account account = accountRepository.find(identifier);
-
-    if(account == null) {
-      account = accountRepository.find(accountIdentifier);
-    }
+    Account account = accountRepository.find(identifier, accountIdentifier);
     return new AccountPageGenerator(account);
   }
 
@@ -93,4 +90,8 @@ public class MakaoBank {
     return new TransferSuccessPageGenerator(account);
   }
 
+  private PageGenerator processTransactions() {
+    Account account = accountRepository.find(accountIdentifier);
+    return new TransactionsPageGenerator(account);
+  }
 }

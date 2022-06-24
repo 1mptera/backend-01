@@ -13,10 +13,12 @@ class PageGeneratorTest {
         return "";
       }
     };
-    String html = pageGenerator.html();
+    String html = pageGenerator.navigation();
+
     assertTrue(html.contains("<a href=\"/\">홈"));
     assertTrue(html.contains("<a href=\"/account\">잔액조회"));
     assertTrue(html.contains("<a href=\"/transfer\">송금"));
+    assertTrue(html.contains("<a href=\"/transactions\">거래 내역"));
   }
 
 }
