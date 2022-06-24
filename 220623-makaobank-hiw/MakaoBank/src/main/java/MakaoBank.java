@@ -49,7 +49,7 @@ public class MakaoBank {
         line = requestBodyReader.read();
 
         FormParser formParser = new FormParser();
-        formData = formParser.parse(line);
+        formParser.parse(line);
       }
 
       PageGenerator pageGenerator = process(path, method, identifier, formData);
