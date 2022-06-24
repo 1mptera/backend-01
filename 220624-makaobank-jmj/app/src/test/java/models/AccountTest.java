@@ -14,5 +14,4 @@ class AccountTest {
     assertEquals(3000, account.amount());
 
   }
-
 }

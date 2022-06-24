@@ -8,29 +8,28 @@ class GreetingPageGeneratorTest {
   @Test
   void message() {
     PageGenerator pageGenerator = new GreetingPageGenerator();
-
-    assertEquals("Hello, world!", pageGenerator.html());
+    String html = pageGenerator.html();
+    assertTrue(html.contains("Hello, world!"));
   }
 
   @Test
   void nameWithAshal() {
     PageGenerator pageGenerator = new GreetingPageGenerator("Ashal");
-
-    assertEquals("Hello, Ashal!", pageGenerator.html());
+    String html = pageGenerator.html();
+    assertTrue(html.contains("Hello, Ashal!"));
   }
 
   @Test
   void inputEmptyName() {
     PageGenerator pageGenerator = new GreetingPageGenerator("");
-
-    assertEquals("Hello, world!", pageGenerator.html());
+    String html = pageGenerator.html();
+    assertTrue(html.contains("Hello, world!"));
   }
 
   @Test
   void inputBlankName() {
     PageGenerator pageGenerator = new GreetingPageGenerator("  ");
-
-    assertEquals("Hello, world!", pageGenerator.html());
+    String html = pageGenerator.html();
+    assertTrue(html.contains("Hello, world!"));
   }
-
 }
