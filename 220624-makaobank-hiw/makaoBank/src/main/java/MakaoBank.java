@@ -1,3 +1,4 @@
+import utils.TransactionPageGenerator;
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
 import repositories.AccountRepository;
@@ -11,22 +12,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MakaoBank {
-  private TransferService transferService;
+  private final AccountRepository accountRepository;
+  private final Account myAccount;
 
-  private AccountRepository accountRepository;
-  private Account myAccount;
+  private final TransferService transferService;
 
   public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
     application.run();
   }
 
-  public void run() throws IOException {
-    transferService = new TransferService();
-
+  public MakaoBank() {
     accountRepository = new AccountRepository();
     myAccount = accountRepository.find("352");
 
+    transferService = new TransferService(accountRepository);
+  }
+
+  public void run() throws IOException {
     InetSocketAddress address = new InetSocketAddress(8000);
     HttpServer httpServer = HttpServer.create(address, 0);
 
@@ -40,20 +43,16 @@ public class MakaoBank {
       Map<String, String> formData = new HashMap<>();
 
       if (method.equals("POST")) {
-        RequestBodyReader requestBodyReader = new RequestBodyReader(exchange);
-        String line = requestBodyReader.read();
+        String line = new RequestBodyReader(exchange).read();
 
-        FormParser formParser = new FormParser();
-        formData = formParser.parse(line);
+        formData = new FormParser().parse(line);
       }
 
-      PageGenerator pageGenerator = process(path, name, method, formData);
-      String text = pageGenerator.html();
+      String text = process(path, name, method, formData).html();
 
       exchange.sendResponseHeaders(200, text.getBytes().length);
 
-      MessageWriter messageWriter = new MessageWriter(exchange);
-      messageWriter.write(text);
+      new MessageWriter(exchange).write(text);
     });
 
     httpServer.start();
@@ -61,51 +60,65 @@ public class MakaoBank {
     System.out.println("Server is listening... http://localhost:8000/");
   }
 
-  public PageGenerator process(String path, String name, String method, Map<String, String> formData) {
+  public PageGenerator process(
+      String path, String name, String method, Map<String, String> formData) {
     String[] eachPath = path.substring(1).split("/");
 
     String identifier = (eachPath.length >= 2) ? eachPath[1] : "";
 
     return switch (eachPath[0]) {
       case "Account" -> processAccount(identifier);
-      case "Transfer" -> processTransfer(method, formData);
+      case "Transfer" -> processTransfer(method, formData, identifier);
+      case "Transaction" -> processTransaction(identifier);
       default -> processGreeting(name);
     };
   }
 
-  public AccountPageGenerator processAccount(String identifier) {
+  public Account findAccount(String identifier) {
     Account found = accountRepository.find(identifier);
 
     if (found == null) {
       found = myAccount;
     }
 
+    return found;
+  }
+
+  public PageGenerator processAccount(String identifier) {
+    Account found = findAccount(identifier);
+
     return new AccountPageGenerator(found);
   }
 
-  public PageGenerator processTransfer(String method, Map<String, String> formData) {
+  public PageGenerator processTransfer(
+      String method, Map<String, String> formData, String identifier) {
+    Account found = findAccount(identifier);
+
     if (method.equals("GET")) {
-      return processTransferGet();
+      return processTransferGet(found);
     }
 
-    return processTransferPost(formData);
+    return processTransferPost(formData, found);
   }
 
-  private TransferSuccessPageGenerator processTransferPost(Map<String, String> formData) {
-    Account receiver = accountRepository.find(formData.get("to"));
+  public PageGenerator processTransferGet(Account found) {
+    return new TransferPageGenerator(found);
+  }
 
-    long amountTransferred = Long.parseLong(formData.get("amount"));
-
-    transferService.transfer(myAccount, receiver, amountTransferred);
+  public PageGenerator processTransferPost(
+      Map<String, String> formData, Account found) {
+    transferService.transfer(found.identifier(), formData);
 
     return new TransferSuccessPageGenerator();
   }
 
-  private TransferPageGenerator processTransferGet() {
-    return new TransferPageGenerator(myAccount);
+  public PageGenerator processTransaction(String identifier) {
+    Account found = findAccount(identifier);
+
+    return new TransactionPageGenerator(found);
   }
 
-  private GreetingPageGenerator processGreeting(String name) {
+  public PageGenerator processGreeting(String name) {
     return new GreetingPageGenerator(name);
   }
 }
