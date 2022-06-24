@@ -4,9 +4,11 @@ import services.TransferService;
 import utils.*;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
 import java.util.List;
+import java.util.Scanner;
 
 public class MakaoBank {
   private Account account;
@@ -26,7 +28,6 @@ public class MakaoBank {
     transferService = new TransferService(accounts);
 
 
-
     InetSocketAddress InetSocketAddress = new InetSocketAddress(8000);
     HttpServer httpServer = HttpServer.create(InetSocketAddress, 0);
 
@@ -36,6 +37,27 @@ public class MakaoBank {
           String path = requestURI.getPath();
 
           String method = exchange.getRequestMethod();
+
+          FormParser formParser = new FormParser(exchange);
+          formparser.parse();
+          formData.get("to");
+          formData.get("amount");
+
+          InputStream inputStream = exchange.getRequestBody();
+          Scanner scanner = new Scanner(inputStream);
+          if (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            System.out.println(line);
+            String[] pairs = line.split("&");
+            for (String pair : pairs) {
+              String[] keyAndValue = pair.split("=");
+              String key = keyAndValue[0];
+              String value = keyAndValue[1];
+              System.out.println(key);
+              System.out.println(value);
+            }
+          }
+
 
           Account account = new Account("1234", "ashal", 3000);
 
