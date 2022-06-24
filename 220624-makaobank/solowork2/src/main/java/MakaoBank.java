@@ -1,13 +1,13 @@
-import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.GreetingPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
 
 public class MakaoBank {
   public static void main(String[] args) throws IOException {
@@ -23,10 +23,16 @@ public class MakaoBank {
 
           URI requestURI = exchange.getRequestURI();
           String path = requestURI.getPath();
-          String name = path.substring(1);
 
-          MessageGenerator messageGenerator = new MessageGenerator(name);
-          String content = messageGenerator.text();
+
+          PageGenerator pageGenerator = new GreetingPageGenerator();
+
+           if(path.equals("/account")) {
+             Account account = new Account("1234", "ashal", 3000);
+             pageGenerator = new AccountPageGenerator(account);
+           }
+
+          String content = pageGenerator.html();
 
 
           MessageWriter messageWriter = new MessageWriter(exchange);
