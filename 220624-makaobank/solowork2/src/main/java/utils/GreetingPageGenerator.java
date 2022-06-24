@@ -19,7 +19,7 @@ public class GreetingPageGenerator extends PageGenerator {
 
 
   @Override
-  public String html() {
+  public String content() {
     return "Hello," + name;
   }
 }

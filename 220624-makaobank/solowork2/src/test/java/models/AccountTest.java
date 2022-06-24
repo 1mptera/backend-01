@@ -13,7 +13,7 @@ class AccountTest {
 
     assertEquals("1234", account.identifier());
     assertEquals("ashal", account.name());
-    assertEquals("1234", account.amount());
+    assertEquals(3000, account.amount());
 
   }
 }

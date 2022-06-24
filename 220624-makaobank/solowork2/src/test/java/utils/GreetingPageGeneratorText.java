@@ -9,28 +9,28 @@ class GreetingPageGeneratorText {
   void helloWorld() {
     PageGenerator pageGenerator = new GreetingPageGenerator();
 
-    assertEquals("Hello,world", pageGenerator.html());
+    assertEquals("Hello,world", pageGenerator.content());
   }
 
   @Test
   void helloToYou() {
     PageGenerator pageGenerator = new GreetingPageGenerator("sunghwan");
 
-    assertEquals("Hello,sunghwan", pageGenerator.html());
+    assertEquals("Hello,sunghwan", pageGenerator.content());
 
   }
   @Test
   void helloBlank() {
     PageGenerator pageGenerator = new GreetingPageGenerator("");
 
-    assertEquals("Hello,world", pageGenerator.html());
+    assertEquals("Hello,world", pageGenerator.content());
 
   }
   @Test
   void helloManyBlank() {
     PageGenerator pageGenerator = new GreetingPageGenerator("        ");
 
-    assertEquals("Hello,world", pageGenerator.html());
+    assertEquals("Hello,world", pageGenerator.content());
 
   }
 }
