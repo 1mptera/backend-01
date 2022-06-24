@@ -1,19 +1,19 @@
 import com.sun.net.httpserver.HttpServer;
 import models.Account;
+import repositories.AccountRepository;
 import services.TransferService;
 import utils.*;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
 
 public class MakaoBank {
   private final FormParser formParser;
-  private final Account account;
+  private final String accountIdentifier = "1234";
   private final TransferService transferService;
-  private final List<Account> accounts;
+  private final AccountRepository accountRepository;
 
   public static void main(String[] args) throws IOException {
     MakaoBank application = new MakaoBank();
@@ -22,13 +22,8 @@ public class MakaoBank {
 
   public MakaoBank() {
     formParser = new FormParser();
-
-    accounts = List.of(
-        new Account("1234", "ashal", 3000),
-        new Account("2345", "joker", 1000)
-    );
-    account = accounts.get(0);
-    transferService = new TransferService(accounts);
+    accountRepository = new AccountRepository();
+    transferService = new TransferService(accountRepository);
   }
 
   public void run() throws IOException {
@@ -75,24 +70,26 @@ public class MakaoBank {
   }
 
   private AccountPageGenerator processAccount(String identifier) {
-    Account found = accounts.stream()
-        .filter(account -> account.identifier().equals(identifier))
-        .findFirst()
-        .orElse(account);
-    return new AccountPageGenerator(found);
+    Account account = accountRepository.find(identifier);
+
+    if(account == null) {
+      account = accountRepository.find(accountIdentifier);
+    }
+    return new AccountPageGenerator(account);
   }
 
   private TransferPageGenerator processTransferGet() {
+    Account account = accountRepository.find(accountIdentifier);
     return new TransferPageGenerator(account);
   }
 
   private TransferSuccessPageGenerator processTransferPost(Map<String, String> formData) {
-    // TODO : 진짜 처리
     transferService.transfer(
-        account.identifier(),
+        accountIdentifier,
         formData.get("to"),
         (int) Long.parseLong(formData.get("amount")));
 
+    Account account = accountRepository.find(accountIdentifier);
     return new TransferSuccessPageGenerator(account);
   }
 
