@@ -22,4 +22,9 @@ public class Account {
   public long amount() {
     return this.amount;
   }
+
+  public void transfer(Account receiver, long amountTransferred) {
+    this.amount -= amountTransferred;
+    receiver.amount += amountTransferred;
+  }
 }

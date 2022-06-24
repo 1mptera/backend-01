@@ -13,16 +13,16 @@ class AccountPageGeneratorTest {
 
     PageGenerator pageGenerator = new AccountPageGenerator(account);
 
-    assertTrue(pageGenerator.html().contains("계좌번호: 352"),
-        "html에 계좌번호 안내 없음\n" +
-            "html 내용: {\n" + pageGenerator.html() + "\n}\n");
+    assertTrue(pageGenerator.content().contains("계좌번호: 352"),
+        "content에 계좌번호 안내 없음\n" +
+            "content 내용: {\n" + pageGenerator.content() + "\n}\n");
 
-    assertTrue(pageGenerator.html().contains("예금주명: Chikorita"),
-        "html에 예금주명 안내 없음\n" +
-            "html 내용: {\n" + pageGenerator.html() + "\n}\n");
+    assertTrue(pageGenerator.content().contains("예금주명: Chikorita"),
+        "content에 예금주명 안내 없음\n" +
+            "content 내용: {\n" + pageGenerator.content() + "\n}\n");
 
-    assertTrue(pageGenerator.html().contains("잔액: 50000원"),
-        "html에 잔액 안내 없음\n" +
-            "html 내용: {\n" + pageGenerator.html() + "\n}\n");
+    assertTrue(pageGenerator.content().contains("잔액: 50000원"),
+        "content에 잔액 안내 없음\n" +
+            "content 내용: {\n" + pageGenerator.content() + "\n}\n");
   }
 }

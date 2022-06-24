@@ -13,4 +13,15 @@ class AccountTest {
     assertEquals("Chikorita", account.name());
     assertEquals(50000, account.amount());
   }
+
+  @Test
+  void transfer() {
+    Account sender = new Account("352", "Chikorita", 50000);
+    Account receiver = new Account("179", "Eevee", 1000);
+
+    sender.transfer(receiver, 100);
+
+    assertEquals(49900, sender.amount());
+    assertEquals(1100, receiver.amount());
+  }
 }

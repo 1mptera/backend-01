@@ -16,6 +16,7 @@ public class GreetingPageGenerator extends PageGenerator {
     this.name = name;
   }
 
+  @Override
   public String content() {
     return "    <p>Hello, " + name + "!</p>\n";
   }

@@ -7,13 +7,14 @@ public class AccountPageGenerator extends PageGenerator {
 
   public AccountPageGenerator(Account account) {
     super();
-    
+
     this.account = account;
   }
 
   public String content() {
-    return "    <p>계좌번호: " + account.identifier() + "</p>\n" +
-        "    <p>예금주명: " + account.name() + "</p>\n" +
-        "    <p>잔액: " + account.amount() + "원</p>\n";
+    return
+        "    <p>계좌번호: " + account.identifier() + "</p>\n" +
+            "    <p>예금주명: " + account.name() + "</p>\n" +
+            "    <p>잔액: " + account.amount() + "원</p>\n";
   }
 }
