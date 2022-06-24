@@ -1,5 +1,7 @@
+import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import utils.MessageGenerator;
+import utils.MessageWriter;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -24,18 +26,17 @@ public class MakaoBank {
           String name = path.substring(1);
 
           MessageGenerator messageGenerator = new MessageGenerator(name);
-      String content = messageGenerator.text();
+          String content = messageGenerator.text();
 
-      exchange.sendResponseHeaders(200, content.getBytes().length);
 
-      OutputStream outputStream = exchange.getResponseBody();
-      outputStream.write(content.getBytes());
-      outputStream.flush();
-      outputStream.close();
+          MessageWriter messageWriter = new MessageWriter(exchange);
+          messageWriter.write(content);
 
-    }
+
+        }
     );
-  httpServer.start();
-  System.out.println("http://localhost:8000");
+    httpServer.start();
+    System.out.println("http://localhost:8000");
   }
 }
+
