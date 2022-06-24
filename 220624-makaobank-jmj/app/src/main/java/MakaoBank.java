@@ -1,13 +1,15 @@
-// http 서버 생성 후 본인 이름으로 path 지정
+// 1~2강. http 서버 생성 후 본인 이름으로 path 지정
+// 3강. 마카오뱅크의 주요 기능 중 account 구현
+// -> account 생성, PageGenerator 생성 및 extends 사용, html 등장
 
-import com.sun.net.httpserver.Headers;
-import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
-import utils.MessageGenerator;
+import models.Account;
+import utils.AccountPageGenerator;
+import utils.GreetingPageGenerator;
+import utils.PageGenerator;
 import utils.MessageWriter;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
 
@@ -24,13 +26,23 @@ public class MakaoBank {
 
     httpServer.createContext("/", (exchange) -> {
 
+      // 입력
+
       URI requestURI = exchange.getRequestURI();
       String path = requestURI.getPath();
-      String name = path.substring(1);
 
-      MessageGenerator messageGenerator = new MessageGenerator(name);
+      // 처리
 
-      String content = messageGenerator.text();
+      PageGenerator pageGenerator = new GreetingPageGenerator();
+
+      if (path.equals("/account")) {
+        Account account = new Account("1234", "Ashal", 3000);
+        pageGenerator = new AccountPageGenerator(account);
+      }
+
+      String content = pageGenerator.html();
+
+      // 출력
 
       MessageWriter messageWriter = new MessageWriter(exchange);
       messageWriter.write(content);
