@@ -17,10 +17,10 @@ public class RequestBodyReader {
 
     Scanner scanner = new Scanner(inputStream);
 
-    if (scanner.hasNextLine()) {
-      return scanner.nextLine();
+    if (!scanner.hasNextLine()) {
+      return "";
     }
 
-    return "";
+    return scanner.nextLine();
   }
 }
