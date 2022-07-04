@@ -5,16 +5,16 @@
 // 4) "=" 누르기 = currentNumber =0 accumulator 13 + 7, currentOperator = "="
 // 4) "+" 누르기 = currentNumber = 0, accumulator = 20, currentOperator "+"
 
+import org.checkerframework.checker.units.qual.C;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Calculator {
+
   private JPanel panel;
   private JTextField textField;
-
-  private long currentNumber = 0;
-  private long accumulator = 0;
-  private String currentOperator = "";
+  private CoreCalculator coreCalculator;
 
   public static void main(String[] args) {
     Calculator application = new Calculator();
@@ -22,12 +22,14 @@ public class Calculator {
   }
 
   public void run() {
+    coreCalculator = new CoreCalculator();
+
     JFrame frame = new JFrame("Calculator");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(400, 600);
 
     textField = new JTextField(10);
-    textField.setText("0");
+    updateDisplay(coreCalculator.getCurrentNumber());
     textField.setEditable(false);
     textField.setHorizontalAlignment(JTextField.RIGHT);
     frame.add(textField, BorderLayout.PAGE_START);
@@ -48,24 +50,20 @@ public class Calculator {
       int number = (i + 1) % 10;
       JButton button = new JButton(Integer.toString(number));
       button.addActionListener(event -> {
-        addNumber(number);
-        updateDisplay(currentNumber);
+        coreCalculator.addNumber(number);
+        updateDisplay(coreCalculator.getCurrentNumber());
       });
       panel.add(button);
     }
   }
 
   public void initOperatorButton() {
-    String[] operators = new String[]{"+", "-", "*", "/", "="};
-    for (String operator : operators) {
+    for (String operator : coreCalculator.OPERATORS) {
       JButton button = new JButton(operator);
       button.addActionListener(event -> {
-
-        calculate();
-
-        currentOperator = operator;
-        currentNumber = 0;
-        updateDisplay(accumulator);
+        coreCalculator.calculate();
+        coreCalculator.updateOperator(operator);
+        updateDisplay(coreCalculator.getAccumulator());
       });
       panel.add(button);
     }
@@ -73,20 +71,5 @@ public class Calculator {
 
   public void updateDisplay(long number) {
     textField.setText(Long.toString(number));
-  }
-
-  public void addNumber(int number) {
-    currentNumber *= 10;
-    currentNumber += number;
-  }
-
-  public void calculate() {
-    switch (currentOperator) {
-      case "+" -> accumulator += currentNumber;
-      case "-" -> accumulator -= currentNumber;
-      case "*" -> accumulator *= currentNumber;
-      case "/" -> accumulator /= currentNumber;
-      case "" -> accumulator = currentNumber;
-    }
   }
 }
